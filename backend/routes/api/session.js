@@ -49,7 +49,7 @@ router.delete(
     }
   );
 
-  router.get(
+router.get(
     '/',
     restoreUser,
     (req, res) => {

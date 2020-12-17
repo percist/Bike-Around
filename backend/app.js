@@ -26,15 +26,15 @@ app.use(
 
 app.use(express.json());
 
-app.use(routes);
-
 if (!isProduction) {
-    app.use(cors());
+  app.use(cors());
 }
 
 app.use(helmet({
-    contentSecurityPolicy: false
+  contentSecurityPolicy: false
 }));
+
+app.use(routes);
 
 // Catch unhandled requests and forward to error handler.
 app.use((_req, _res, next) => {
@@ -55,7 +55,7 @@ app.use((err, _req, _res, next) => {
     next(err);
   });
 
-  app.use((err, _req, res, _next) => {
+app.use((err, _req, res, _next) => {
     res.status(err.status || 500);
     console.error(err);
     res.json({
