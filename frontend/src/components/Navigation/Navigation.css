@@ -50,26 +50,31 @@
     list-style: none;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     /* align-items: stretch; */
 }
 
 .navlink {
     float: left;
-    margin-right: 10px;
-    margin-left: 10px;
+    /* margin-right: 10px;
+    margin-left: 10px; */
 }
 
-li {
-    padding-top: 10px;
-    padding-bottom: 10px;
+a {
+    padding: 10px;
+    /* padding-top: 10px;
+    padding-bottom: 10px; */
 }
-
-li:hover {
+ 
+a:hover {
     background-color: black;
 }
 
 .profile-dropdown {
+    display: flex;
     list-style: none;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .button:hover {

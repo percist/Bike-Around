@@ -37,18 +37,18 @@ const ProfileButton = ({ user }) => {
             >
                 <i className="fas fa-user"></i>                
             </button>
-            {showMenu && (
-                <ul className="profile-dropdown">
-                    <li>{user.username}</li>
-                    <li>{user.email}</li>
-                    <li>
-                        <button 
-                            className="button" 
-                            onClick={logout}
-                        >Log Out
-                        </button>
-                    </li>
-                </ul>
+                {showMenu && (
+                    <ul className="profile-dropdown">
+                        <li>{user.username}</li>
+                        <li>{user.email}</li>
+                        <li>
+                            <button 
+                                className="button" 
+                                onClick={logout}
+                            >Log Out
+                            </button>
+                        </li>
+                    </ul>
             )}
         </>
     );
