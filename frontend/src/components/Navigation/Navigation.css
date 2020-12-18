@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+    background-color: #2D2D2D;
+    color: blanchedalmond;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+}
+
+.button {
+    margin: 2pt 2pt 5pt 5pt;
+    border: 2pt blanchedalmond solid;
+    height: 30px;
+    width: 70px;
+}
+
+.input {
+    color: #2D2D2D;
+    background: #E8F0FE;
+    margin: 2pt;
+    border: 2pt blanchedalmond solid;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+}
+
+#login {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+}
+
+#login-form_1 {
+    display: flex;
+    min-width: 60px;
+}
+
+#login-form_2 {
+    display: flex;
+    min-width: 400px;
+}
+
+#login-form_3 {
+    display: flex;
+    min-width: 60px;
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    /* align-items: stretch; */
+}
+
+.navlink {
+    float: left;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+li:hover {
+    background-color: black;
+}
+
+.profile-dropdown {
+    list-style: none;
+}
+
+.button:hover {
+    background-color: black;
+    
+}
