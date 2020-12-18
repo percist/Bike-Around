@@ -38,9 +38,17 @@ export const signUp = (user) => async (dispatch) => {
             password: user.password
         })
     });
-    dispatch(setUser(res.data.user))
+    dispatch(setUser(res.data.user));
     return res;
 };
+
+export const logout = () => async (dispatch) => {
+    const res = await fetch("/api/session", {
+        method: "DELETE"
+    })
+    dispatch(removeUser());
+    return res;
+}; 
 
 export const restoreUser = () => async dispatch => {
     const res = await fetch('/api/session');
