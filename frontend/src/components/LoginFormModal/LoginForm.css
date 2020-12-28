@@ -25,26 +25,22 @@
     align-items:flex-end;
 }
 
-#signup {
+#login {
     display: grid;
     grid-template-columns: 2fr 1fr 2fr;
 }
 
-#signup-form_1 {
+#login-form_1 {
     display: flex;
     min-width: 60px;
 }
 
-#signup-form_2 {
+#login-form_2 {
     display: flex;
     min-width: 400px;
 }
 
-#signup-form_3 {
+#login-form_3 {
     display: flex;
     min-width: 60px;
-}
-
-input{
-    padding-left: 20px
 }

@@ -30,11 +30,11 @@ const Navigation = ({ isLoaded }) =>{
     }
 
     return (
-        <ul >
-            <li className="navbar">
+        <ul className='navbar'>
+            <li className="navbar-link">
                 <NavLink 
                     to="/"
-                    className="navlink"
+                    className="navbar-link_1"
                     >Home
                 </NavLink> 
                 {isLoaded && sessionLinks}
