@@ -45,13 +45,17 @@
     display: flex;
     min-width: 60px;
 }
-/* 
+
 .navbar {
-    align-items: stretch;
-} */
+    margin: 0px;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+
+}
 
 .navbar-link {
-    list-style: none;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
