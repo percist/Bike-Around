@@ -5,15 +5,15 @@ module.exports = {
       return queryInterface.bulkInsert('ListingBikePictures', [
       {
         listingId: 1,
+        bikePictureId: 11
+      },
+      {
+        listingId: 1,
         bikePictureId: 12
       },
       {
         listingId: 1,
         bikePictureId: 13
-      },
-      {
-        listingId: 1,
-        bikePictureId: 14
       },
     ], {});
   },

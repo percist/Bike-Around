@@ -4,86 +4,102 @@ const bcrypt = require('bcryptjs');
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
-    username: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
-      unique: true,
-      validate: {
-        len: [3, 30],
-        isNotEmail(value) {
-          if (Validator.isEmail(value)) {
-            throw new Error('Cannot be an email.');
+      username: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+        unique: true,
+        validate: {
+          len: [3, 30],
+          isNotEmail(value) {
+            if (Validator.isEmail(value)) {
+              throw new Error('Cannot be an email.');
+            }
+          }
+        }
+      },
+      firstName: {
+        type: DataTypes.STRING(30),
+        allowNull: false,
+        validate: {
+          len: [3, 30]
+        }
+        },
+      lastName: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+        validate: {
+          len: [3, 50]
+        }
+        },
+      email: {
+        type: DataTypes.STRING(256),
+        unique: true,
+        allowNull: false,
+        validate: {
+          len: [3, 256]
+        }
+        },
+      streetAddress1: {
+        type: DataTypes.STRING(256),
+        validate: {
+          len: [3, 256]
+        }
+        },
+      streetAddress2: {
+        type: DataTypes.STRING(100),
+        validate: {
+          len: [3, 100]
+        }
+        },
+      city: {
+        type: DataTypes.STRING(256),
+        validate: {
+          len: [3, 256]
+        }
+        },
+      state: {
+        type: DataTypes.STRING(2),
+        validate: {
+          len: [2]
+        }
+        },
+      zip: {
+        type: DataTypes.STRING(10),
+        validate: {
+          len: [5, 10]
+        }
+        },
+      phoneNumber: {
+        type: DataTypes.STRING(30),
+        validate: {
+          len: [12, 30]
+        }
+        }, 
+      hashedPassword: {
+        type: DataTypes.STRING.BINARY,
+        allowNull: false,
+        validate: {
+          len: [60, 60]
+        }
+        }
+        
+      }, 
+      {
+        defaultScope: {
+          attributes: {
+            exclude: ['hashedPassword', 'email', 'createdAt', 'updatedAt']
+          }
+        },
+        scopes: {
+          currentUser: {
+            attributes: { exclude: ['hashedPassword'] }
+          },
+          loginUser: {
+            attributes: {}
           }
         }
       }
-    },
-    firstName: {
-      type: DataTypes.STRING(30),
-      allowNull: false,
-      validate: {
-        len: [3, 30]
-      }
-      },
-    lastName: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
-      validate: {
-        len: [3, 50]
-      }
-      },
-    email: {
-      type: DataTypes.STRING(256),
-      unique: true,
-      allowNull: false,
-      validate: {
-        len: [3, 256]
-      }
-      },
-    streetAddress1: {
-      type: DataTypes.STRING(256),
-      validate: {
-        len: [3, 256]
-      }
-      },
-    streetAddress2: {
-      type: DataTypes.STRING(100),
-      validate: {
-        len: [3, 100]
-      }
-      },
-    city: {
-      type: DataTypes.STRING(256),
-      validate: {
-        len: [3, 256]
-      }
-      },
-    state: {
-      type: DataTypes.STRING(2),
-      validate: {
-        len: [2]
-      }
-      },
-    zip: {
-      type: DataTypes.STRING(10),
-      validate: {
-        len: [5, 10]
-      }
-      },
-    phoneNumber: {
-      type: DataTypes.STRING(30),
-      validate: {
-        len: [12, 30]
-      }
-      }, 
-    hashedPassword: {
-      type: DataTypes.STRING.BINARY,
-      allowNull: false,
-      validate: {
-        len: [60, 60]
-      }
-      }
-       
-    }, {});
+    );
   User.associate = function(models) {
     const columnMapping1 = {
       foreignKey: 'userId',
@@ -104,6 +120,7 @@ module.exports = (sequelize, DataTypes) => {
     User.belongsToMany(models.BikeType, columnMapping2);
     User.belongsToMany(models.Picture, columnMapping3);
   };
+  
   User.prototype.toSafeObject = function () {
     // remember, this cannot be an arrow function
     const { id, username, email } = this; // context will be the User instance
