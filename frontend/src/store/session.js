@@ -36,6 +36,7 @@ export const signUp = (user) => async (dispatch) => {
             username: user.username,
             firstName: user.firstName,
             lastName: user.lastName,
+            zip: user.zip,
             email: user.email,
             password: user.password
         })
@@ -43,24 +44,6 @@ export const signUp = (user) => async (dispatch) => {
     dispatch(setUser(res.data.user));
     return res;
 };
-
-export const update = (user) => async (dispatch) => {
-    const res = await fetch("/api/users", {
-        method: "PUT",
-        body: JSON.stringify({
-            firstName: user.firstName,
-            lastName: user.lastName,
-            address1: user.address1,
-            address2: user.address2,
-            city: user.city,
-            state: user.state,
-            zip: user.zip,
-            phoneNumber: user.phoneNumber,
-            hashedPassword: user.hashedPassword
-        })
-    });
-    return res;
-}
 
 export const logout = () => async (dispatch) => {
     const res = await fetch("/api/session", {

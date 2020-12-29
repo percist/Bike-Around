@@ -11,6 +11,7 @@ const SignupForm = () => {
     const [username, setUsername] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const [zip, setZip] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -27,7 +28,8 @@ const SignupForm = () => {
             return dispatch(sessionActions.signUp({ 
                 username,
                 firstName, 
-                lastName, 
+                lastName,
+                zip, 
                 email, 
                 password
             }))
@@ -81,6 +83,17 @@ const SignupForm = () => {
                             id="username"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
+                            required
+                        />
+                    </label>
+                    <label>
+                        Zip Code
+                        <input
+                            className="input"
+                            type="text"
+                            id="zip"
+                            value={zip}
+                            onChange={(e) => setZip(e.target.value)}
                             required
                         />
                     </label>

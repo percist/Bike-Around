@@ -45,9 +45,6 @@ const ProfileButton = ({ user }) => {
                         <a onClick={logout}>
                             Log Out
                         </a>
-                        <a>
-                            <ProfileUpdateModal />
-                        </a>
                     </ul>
             )}
         </>
