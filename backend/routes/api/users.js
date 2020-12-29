@@ -21,6 +21,10 @@ const validateSignup = [
       .exists({ checkFalsy: true })
       .isLength({ min: 1 })
       .withMessage('Please provide a valid last name.'),
+    check('zip')
+      .exists({ checkFalsy: true })
+      .isLength({ min: 5, max: 5 })
+      .withMessage('Please provide a valid five digit zip code.'),
     check('username')
       .exists({ checkFalsy: true })
       .isLength({ min: 4 })
@@ -44,6 +48,7 @@ router.post(
       const { 
         firstName, 
         lastName, 
+        zip,
         email, 
         password, 
         username 
@@ -51,6 +56,7 @@ router.post(
       const user = await User.signup({ 
         firstName, 
         lastName, 
+        zip,
         email, 
         username, 
         password 
@@ -63,38 +69,5 @@ router.post(
       });
     }),
   );
-
-  // update a user profile
-  router.put(
-    '/',
-    asyncHandler(async (req, res) => {
-      const { 
-        firstName, 
-        lastName, 
-        address1, 
-        address2, 
-        city, 
-        state, 
-        zip, 
-        phoneNumber, 
-        email, 
-        password 
-      } = req.body;
-      const updatedUser = {
-        firstName, 
-        lastName, 
-        address1, 
-        address2, 
-        city, 
-        state, 
-        zip, 
-        phoneNumber, 
-        email, 
-        password 
-      }
-      const user = await User.editProfile(updatedUser)
-      return res.json({user})
-    })
-  )
-
+  
 module.exports = router;

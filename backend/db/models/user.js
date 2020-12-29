@@ -39,30 +39,6 @@ module.exports = (sequelize, DataTypes) => {
           len: [3, 256]
         }
         },
-      streetAddress1: {
-        type: DataTypes.STRING(256),
-        validate: {
-          len: [3, 256]
-        }
-        },
-      streetAddress2: {
-        type: DataTypes.STRING(100),
-        validate: {
-          len: [3, 100]
-        }
-        },
-      city: {
-        type: DataTypes.STRING(256),
-        validate: {
-          len: [3, 256]
-        }
-        },
-      state: {
-        type: DataTypes.STRING(2),
-        validate: {
-          len: [2]
-        }
-        },
       zip: {
         type: DataTypes.STRING(10),
         validate: {

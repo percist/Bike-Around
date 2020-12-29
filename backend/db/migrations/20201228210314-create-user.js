@@ -26,18 +26,6 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
-      streetAddress1: {
-        type: Sequelize.STRING(256),
-      },
-      streetAddress2: {
-        type: Sequelize.STRING(100),
-      },
-      city: {
-        type: Sequelize.STRING(256),
-      },
-      state: {
-        type: Sequelize.STRING(30),
-      },
       zip: {
         type: Sequelize.STRING(10),
       },
