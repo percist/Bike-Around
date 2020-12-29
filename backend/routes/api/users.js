@@ -36,11 +36,18 @@ const validateSignup = [
     handleValidationErrors,
   ];
 
+  // create a new user
 router.post(
     '/',
     validateSignup,
     asyncHandler(async (req, res) => {
-      const { firstName, lastName, email, password, username } = req.body;
+      const { 
+        firstName, 
+        lastName, 
+        email, 
+        password, 
+        username 
+      } = req.body;
       const user = await User.signup({ 
         firstName, 
         lastName, 
@@ -56,5 +63,38 @@ router.post(
       });
     }),
   );
+
+  // update a user profile
+  router.put(
+    '/',
+    asyncHandler(async (req, res) => {
+      const { 
+        firstName, 
+        lastName, 
+        address1, 
+        address2, 
+        city, 
+        state, 
+        zip, 
+        phoneNumber, 
+        email, 
+        password 
+      } = req.body;
+      const updatedUser = {
+        firstName, 
+        lastName, 
+        address1, 
+        address2, 
+        city, 
+        state, 
+        zip, 
+        phoneNumber, 
+        email, 
+        password 
+      }
+      const user = await User.editProfile(updatedUser)
+      return res.json({user})
+    })
+  )
 
 module.exports = router;

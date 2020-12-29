@@ -167,5 +167,18 @@ module.exports = (sequelize, DataTypes) => {
     });
     return await User.scope('currentUser').findByPk(user.id);
   };
+
+  User.editProfile = async function (updatedUser) {
+    const hashedPassword = bcrypt.hashSync(newPassword);
+    const currentUser = await User.scope('currentUser').findByPk(user.id);
+    for (key in updatedUser){
+      if (updatedUser[key] !== "") {
+        currentUser.key = updatedUser[key]
+      }
+      await currentUser.save();
+      await sequelize.close();
+    }
+    return await User.scope('currentUser').findByPk(user.id);
+  };
   return User;
 };

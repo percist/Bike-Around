@@ -5,17 +5,17 @@ const { User, Listing, Booking } = require('../../db/models')
 const router = express.Router();
 
 // create a review
-router.post('/:id(\\d+/reviews', asyncHandler(async (req, res, next) => {
+router.post('/:id(\\d+)/reviews', asyncHandler(async (req, res, next) => {
 
 }));
 
 // update a review
-router.put('/:id(\\d+/reviews', asyncHandler(async (req, res, next) => {
+router.put('/:id(\\d+)/reviews', asyncHandler(async (req, res, next) => {
 
 }));
 
 // delete a review
-router.delete('/:id(\\d+/reviews', asyncHandler(async (req, res, next) => {
+router.delete('/:id(\\d+)/reviews', asyncHandler(async (req, res, next) => {
 
 }));
 
