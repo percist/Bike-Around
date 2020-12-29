@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import configureStore from './store';
 import { restoreCSRF, fetch } from './store/csrf';
 import * as sessionActions from './store/session';
+import {ModalProvider} from './context/Modal.js'
 
 const store = configureStore();
 
@@ -20,11 +21,13 @@ if (process.env.NODE_ENV !== 'production') {
 
 function Root() {
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
+    <ModalProvider>
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Provider>
+    </ModalProvider>
   );
 };
 
