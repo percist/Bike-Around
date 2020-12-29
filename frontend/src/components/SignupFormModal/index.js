@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
-import LoginForm from './LoginForm';
+import SignupForm from './SignupForm';
 
-function LoginFormModal() {
+function SignupFormModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <a onClick={() => setShowModal(true)}>Log In</a>
+      <a onClick={() => setShowModal(true)}>Sign Up</a>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-            <LoginForm />
+            <SignupForm />
         </Modal>
       )}
     </>
   );
 }
 
-export default LoginFormModal;
+export default SignupFormModal;

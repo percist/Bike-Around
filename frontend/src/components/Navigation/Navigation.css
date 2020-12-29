@@ -6,6 +6,10 @@
     text-decoration: none;
 }
 
+.profile-dropdown {
+    position: absolute;
+}
+
 .button {
     margin: 2pt 2pt 5pt 5pt;
     border: 2pt dimgrey solid;

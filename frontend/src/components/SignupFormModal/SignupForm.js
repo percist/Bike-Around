@@ -46,7 +46,7 @@ const SignupForm = () => {
                     <label>
                         Username
                         <input
-                            classname="input"
+                            className="input"
                             type="text"
                             id="username"
                             value={username}
@@ -57,7 +57,7 @@ const SignupForm = () => {
                     <label>
                         Email
                         <input
-                            classname="input"
+                            className="input"
                             type="email"
                             id="email"
                             value={email}
