@@ -28,27 +28,21 @@ module.exports = {
       },
       streetAddress1: {
         type: Sequelize.STRING(256),
-        allowNull: false,
       },
       streetAddress2: {
         type: Sequelize.STRING(100),
-        allowNull: false,    
       },
       city: {
         type: Sequelize.STRING(256),
-        allowNull: false,      
       },
       state: {
         type: Sequelize.STRING(30),
-        allowNull: false,      
       },
       zip: {
         type: Sequelize.STRING(10),
-        allowNull: false,      
       },
       phoneNumber: {
         type: Sequelize.STRING(30),
-        allowNull: false,      
       },
       hashedPassword: {
         type: Sequelize.STRING.BINARY,

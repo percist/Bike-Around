@@ -1,5 +1,7 @@
-
 'use strict';
+const { Validator } = require('sequelize');
+const bcrypt = require('bcryptjs');
+
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     username: {
@@ -39,7 +41,6 @@ module.exports = (sequelize, DataTypes) => {
       },
     streetAddress1: {
       type: DataTypes.STRING(256),
-      allowNull: false,
       validate: {
         len: [3, 256]
       }
@@ -52,28 +53,24 @@ module.exports = (sequelize, DataTypes) => {
       },
     city: {
       type: DataTypes.STRING(256),
-      allowNull: false,
       validate: {
         len: [3, 256]
       }
       },
     state: {
       type: DataTypes.STRING(2),
-      allowNull: false,
       validate: {
         len: [2]
       }
       },
     zip: {
       type: DataTypes.STRING(10),
-      allowNull: false,
       validate: {
         len: [5, 10]
       }
       },
     phoneNumber: {
       type: DataTypes.STRING(30),
-      allowNull: false,
       validate: {
         len: [12, 30]
       }
@@ -136,10 +133,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
 
-  User.signup = async function ({ username, email, password }) {
+  User.signup = async function ({ 
+    username, 
+    firstName,
+    lastName,
+    email, 
+    password 
+  }) {
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
       username,
+      firstName,
+      lastName,
       email,
       hashedPassword
     });
