@@ -43,11 +43,11 @@ module.exports = {
         allowNull: false,      
       },
       zip: {
-        type: Sequelize.INTEGER(5),
+        type: Sequelize.STRING(10),
         allowNull: false,      
       },
       phoneNumber: {
-        type: Sequelize.INTEGER(12),
+        type: Sequelize.STRING(30),
         allowNull: false,      
       },
       hashedPassword: {
@@ -56,11 +56,13 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
     });
   },

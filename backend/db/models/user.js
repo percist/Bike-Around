@@ -1,3 +1,4 @@
+
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
@@ -35,11 +36,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       },
     zip: {
-      type: DataTypes.STRING(5),
+      type: DataTypes.STRING(10),
       allowNull: false,
       },
     phoneNumber: {
-      type: DataTypes.STRING(12),
+      type: DataTypes.STRING(30),
       allowNull: false,
       }, 
     hashedPassword: {
@@ -49,7 +50,24 @@ module.exports = (sequelize, DataTypes) => {
        
     }, {});
   User.associate = function(models) {
-    // associations can be defined here
+    const columnMapping1 = {
+      foreignKey: 'userId',
+      through: 'UserInterestSizes',
+      otherKey: 'sizeId'
+    };
+    const columnMapping2 = {
+      foreignKey: 'userId',
+      through: 'UserInterestTypes',
+      otherKey: 'typeId'
+    };
+    const columnMapping3 = {
+      foreignKey: 'userId',
+      through: 'UserProfilePictures',
+      otherKey: 'profilePictureId'
+    };
+    User.belongsToMany(models.BikeSize, columnMapping1);
+    User.belongsToMany(models.BikeType, columnMapping2);
+    User.belongsToMany(models.Picture, columnMapping3);
   };
   return User;
 };

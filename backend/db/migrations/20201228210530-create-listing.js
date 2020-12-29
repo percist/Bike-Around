@@ -28,11 +28,11 @@ module.exports = {
       },
       pricePerDay: {
         allowNull: false,
-        type: Sequelize.INTEGER[6]
+        type: Sequelize.INTEGER(6)
       },
       pricePerWeek: {
         allowNull: false,
-        type: Sequelize.INTEGER[7]
+        type: Sequelize.INTEGER(7)
       },
       isAvailable: {
         allowNull: false,
@@ -51,11 +51,13 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
     });
   },

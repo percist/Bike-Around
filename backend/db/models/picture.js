@@ -7,7 +7,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
   Picture.associate = function(models) {
-    // associations can be defined here
+    const columnMapping1 = {
+      foreignKey: 'bikePictureId',
+      through: 'ListingBikePictures',
+      otherKey: 'listingId'
+    };
+    const columnMapping2 = {
+      foreignKey: 'profilePictureId',
+      through: 'UserProfilePictures',
+      otherKey: 'userId'
+    };
+    Picture.belongsToMany(models.Listing, columnMapping1);  
+    Picture.belongsToMany(models.User, columnMapping2);  
   };
   return Picture;
 };

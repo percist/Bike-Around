@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   BikeRating.associate = function(models) {
-    // associations can be defined here
+    BikeRating.belongsTo(models.Booking, {foreignKey: 'bookingId'});
+    BikeRating.belongsTo(models.User, {foreignKey: 'userId'});
   };
   return BikeRating;
 };
