@@ -34,6 +34,8 @@ export const signUp = (user) => async (dispatch) => {
         method: "POST",
         body: JSON.stringify({
             username: user.username,
+            firstName: user.firstName,
+            lastName: user.lastName,
             email: user.email,
             password: user.password
         })
@@ -55,14 +57,6 @@ export const restoreUser = () => async dispatch => {
     dispatch(setUser(res.data.user));
     return res;
 }
-
-// const user= {
-//         id,
-//         email,
-//         username,
-//         cretedAt,
-//         updatedAt
-//     }
 
 const initialState = { user: null }
 

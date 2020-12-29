@@ -9,6 +9,8 @@ const SignupForm = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const [username, setUsername] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -22,7 +24,13 @@ const SignupForm = () => {
         e.preventDefault();
         if (password === confirmPassword) {
             setErrors([]);
-            return dispatch(sessionActions.signUp({ username, email, password}))
+            return dispatch(sessionActions.signUp({ 
+                username,
+                firstName, 
+                lastName, 
+                email, 
+                password
+            }))
                 .catch((res) => {
                     if (res.data && res.data.errors) setErrors(res.data.errors);
                 });
@@ -43,6 +51,28 @@ const SignupForm = () => {
                     <ul>
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
+                    <label>
+                        First Name
+                        <input
+                            className="input"
+                            type="text"
+                            id="firstName"
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
+                            required
+                        />
+                    </label>
+                    <label>
+                        Last Name
+                        <input
+                            className="input"
+                            type="text"
+                            id="lastName"
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)}
+                            required
+                        />
+                    </label>
                     <label>
                         Username
                         <input
