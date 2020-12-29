@@ -7,7 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   BikeType.associate = function(models) {
-    // associations can be defined here
+    const columnMapping = {
+      foreignKey: 'typeId',
+      through: 'UserInterestSizes',
+      otherKey: 'userId'
+    };
+    BikeType.belongsToMany(models.User, columnMapping);
   };
   return BikeType;
 };

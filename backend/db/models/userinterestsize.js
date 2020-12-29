@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   UserInterestSize.associate = function(models) {
-    // associations can be defined here
   };
+
   return UserInterestSize;
 };
