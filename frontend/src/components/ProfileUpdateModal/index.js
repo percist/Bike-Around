@@ -1,23 +1,22 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
-import SignupForm from './SignupForm';
-import '../Navigation/Navigation.css';
+import ProfileUpdateForm from './ProfileUpdateForm';
 
-function SignupFormModal() {
+function ProfileUpdateModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
       <a onClick={() => setShowModal(true)}>
-        Sign Up
+        Update
       </a>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-            <SignupForm />
+            <ProfileUpdateForm />
         </Modal>
       )}
     </>
   );
 }
 
-export default SignupFormModal;
+export default ProfileUpdateModal;

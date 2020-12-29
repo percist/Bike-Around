@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import ProfileUpdateModal from '../ProfileUpdateModal'
 import * as sessionActions from '../../store/session';
 import "./Navigation.css"
 
@@ -41,13 +42,12 @@ const ProfileButton = ({ user }) => {
                     <ul className="profile-dropdown">
                         <li>{user.username}</li>
                         <li>{user.email}</li>
-                        <li>
-                            <button 
-                                className="button" 
-                                onClick={logout}
-                            >Log Out
-                            </button>
-                        </li>
+                        <a onClick={logout}>
+                            Log Out
+                        </a>
+                        <a>
+                            <ProfileUpdateModal />
+                        </a>
                     </ul>
             )}
         </>
