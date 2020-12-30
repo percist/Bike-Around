@@ -1,5 +1,9 @@
 const { Listing } = require("./models");
 
-async function list() {
+export async function list() {
     return await Listing.findAll();
+}
+
+module.exports = {
+    list,
 }
