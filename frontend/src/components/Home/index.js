@@ -13,9 +13,17 @@ const HomePage = () => {
             <div id="home-page-container">
                 <img src={picture} />
                 <div id="home-page-overlay">
-                    <h1>
-                        Welcome to Bike Around!
-                    </h1>
+                    <div id="home-page-cta">
+                        <h1 id="home-page-cta_1">
+                            Ride Near
+                        </h1>
+                        <button 
+                            className="button"
+                            id="home-page-cta_2"
+                        >
+                            Explore nearby bikes
+                        </button>
+                    </div>
                 </div>
                 {loggedInUser && <h3>Welcome {loggedInUser.username}, find a<Link to="/listings">Bike Around</Link>you!</h3>}
             </div>

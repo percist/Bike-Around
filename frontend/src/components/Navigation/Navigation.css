@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    background-color: #2D2D2D;
+    background-color: lightgray;
     color: dimgrey;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-decoration: none;
@@ -12,16 +12,18 @@
 
 .button {
     margin: 2pt 2pt 5pt 5pt;
-    border: 2pt dimgrey solid;
+    border: 1pt lightgray solid;
+    border-radius: 8pt;
     height: 30px;
     width: 70px;
 }
 
 .input {
-    color: #2D2D2D;
+    color: dimgray;
     background: #E8F0FE;
     margin: 2pt;
-    border: 2pt dimgrey solid;
+    border: 1pt lightgray solid;
+    border-radius: 8pt;
 }
 
 .form {
@@ -52,11 +54,11 @@
 
 .navbar {
     margin: 0px;
-    height: 35px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     list-style: none;
-
 }
 
 .navbar-link {
@@ -68,13 +70,16 @@
 }
 
 a {
-    padding: 10px;
+    padding-top: 31px;    
+    padding-bottom: 30px;    
+    padding-left: 14px;    
+    padding-right: 14px;    
     /* padding-top: 10px;
     padding-bottom: 10px; */
 }
  
 a:hover {
-    background-color: black;
+    background-color: darkgray;
 }
 
 .profile-dropdown {
@@ -85,6 +90,6 @@ a:hover {
 }
 
 .button:hover {
-    background-color: black;
+    background-color: darkgray;
     
 }

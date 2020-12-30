@@ -13,6 +13,7 @@ const setListings = (listings) => {
 export const fetchAllListings = () => {
     return async (dispatch) => {
         const response = await fetch('/api/listings');
+        console.log(response)
         dispatch(
             setListings(response.data.listings));
 

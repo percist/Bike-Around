@@ -1,4 +1,44 @@
 #home-page-container {
-    height: 400px;
-    background-color: fuchsia;
+    height: 600px;
+    background: purple;
+    position: relative;
+    overflow: hidden;
+}
+
+#home-page-container img {
+    width: 100%;
+}
+
+#home-page-overlay {
+    height: 600px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    /* align-items: flex-start; */
+    /* justify-content: flex-start; */
+}
+
+#home-page-cta {
+    padding-left: 40px;
+    background: none;
+    width: 250px;
+    overflow-x: auto;
+}
+
+#home-page-cta_1 {
+    background: none;
+    padding: none;
+    height: 160px;
+    color: lightgray;
+    font-size: 100px;
+}
+
+#home-page-cta_2 {
+    width: 200px;
+    height: 38px;
+    border-radius: 8px;
+    border: none;
 }

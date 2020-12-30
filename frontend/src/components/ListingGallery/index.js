@@ -8,7 +8,7 @@ import {fetchAllListings} from '../../store/listings';
 
 const ListingGallery = () => {
     const dispatch = useDispatch();
-    
+
     const currentListings = useSelector(fullReduxState => {
         return fullReduxState.listings;
     });
