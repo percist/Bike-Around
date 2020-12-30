@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { Listing } = require('../../db/models');
+const { Listing, ListingBikePicture, Picture } = require('../../db/models');
 
 const router = express.Router();
 
@@ -14,7 +14,9 @@ const listingNotFoundError = (id) => {
 
 // retrieve all listings
 router.get('/', asyncHandler(async (req, res, next) => {
-    const listings = await Listing.findAll();
+    const listings = await Listing.findAll({
+        include: { all: true }
+    });
     res.json({listings: listings})
 }));
 
