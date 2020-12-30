@@ -1,13 +1,9 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Listing = sequelize.define('Listing', {
-    brand: {
+    ownerId: {
       allowNull: false,
-      type:  DataTypes.STRING(50),
-    },
-    model: {
-      allowNull: false,
-      type:  DataTypes.STRING(50),
+      type: DataTypes.INTEGER,
     },
     typeId: {
       allowNull: false,
@@ -17,11 +13,15 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.INTEGER,
     },
-    pricePerDay: {
+    brand: {
       allowNull: false,
-      type: DataTypes.INTEGER,
+      type:  DataTypes.STRING(50),
     },
-    pricePerWeek: {
+    model: {
+      allowNull: false,
+      type:  DataTypes.STRING(50),
+    },
+    pricePerDay: {
       allowNull: false,
       type: DataTypes.INTEGER,
     },
@@ -29,9 +29,17 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.BOOLEAN,
     },
-    ownerId: {
+    title: {
       allowNull: false,
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING(256)
+    },
+    description: {
+      allowNull: false,
+      type: DataTypes.TEXT
+    },
+    nearestCity: {
+      allowNull: false,
+      type: DataTypes.STRING(100)
     },
     latitude: {
       allowNull: false,
@@ -45,13 +53,13 @@ module.exports = (sequelize, DataTypes) => {
   Listing.associate = function(models) {
     const columnMapping = {
       foreignKey: 'listingId',
-      through: 'listingBikePictures',
+      through: 'ListingBikePictures',
       otherKey: 'bikePictureId'
     };
     Listing.belongsToMany(models.Picture, columnMapping);
     Listing.belongsTo(models.User, {foreignKey: "ownerId"});
-    Listing.hasOne(models.BikeType, {foreignKey: "typeId"});
-    Listing.hasOne(models.BikeSize, {foreignKey: "sizeId"});
+    Listing.belongsTo(models.BikeType, {foreignKey: "typeId"});
+    Listing.belongsTo(models.BikeSize, {foreignKey: "sizeId"});
   };
   return Listing;
 };

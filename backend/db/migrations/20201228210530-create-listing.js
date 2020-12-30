@@ -8,13 +8,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      brand: {
-        type: Sequelize.STRING(50),
+      ownerId: {
         allowNull: false,
-      },
-      model: {
-        type: Sequelize.STRING(50),
-        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: "Users" }
       },
       typeId: {
         type: Sequelize.INTEGER,
@@ -26,22 +23,33 @@ module.exports = {
         allowNull: false,
         references: { model: "BikeTypes"}
       },
+      brand: {
+        type: Sequelize.STRING(50),
+        allowNull: false,
+      },
+      model: {
+        type: Sequelize.STRING(50),
+        allowNull: false,
+      },
       pricePerDay: {
         allowNull: false,
         type: Sequelize.INTEGER(6)
-      },
-      pricePerWeek: {
-        allowNull: false,
-        type: Sequelize.INTEGER(7)
       },
       isAvailable: {
         allowNull: false,
         type: Sequelize.BOOLEAN
       },
-      ownerId: {
+      title: {
         allowNull: false,
-        type: Sequelize.INTEGER,
-        references: { model: "Users" }
+        type: Sequelize.STRING(256)
+      },
+      description: {
+        allowNull: false,
+        type: Sequelize.TEXT
+      },
+      nearestCity: {
+        allowNull: false,
+        type: Sequelize.STRING(100)
       },
       latitude: {
         type: Sequelize.FLOAT

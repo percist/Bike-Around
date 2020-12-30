@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       otherKey: 'userId'
     };
     BikeSize.belongsToMany(models.User, columnMapping);
+    BikeSize.hasMany(models.Listing, {foreignKey: "sizeId"});
   };
   return BikeSize;
 };

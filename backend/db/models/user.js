@@ -50,7 +50,10 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           len: [12, 30]
         }
-        }, 
+        },
+      profilePictureUrl: {
+        type: DataTypes.STRING(256)
+      }, 
       hashedPassword: {
         type: DataTypes.STRING.BINARY,
         allowNull: false,
@@ -87,14 +90,8 @@ module.exports = (sequelize, DataTypes) => {
       through: 'UserInterestTypes',
       otherKey: 'typeId'
     };
-    const columnMapping3 = {
-      foreignKey: 'userId',
-      through: 'UserProfilePictures',
-      otherKey: 'profilePictureId'
-    };
     User.belongsToMany(models.BikeSize, columnMapping1);
     User.belongsToMany(models.BikeType, columnMapping2);
-    User.belongsToMany(models.Picture, columnMapping3);
   };
   
   User.prototype.toSafeObject = function () {

@@ -32,6 +32,9 @@ module.exports = {
       phoneNumber: {
         type: Sequelize.STRING(30),
       },
+      profilePictureUrl: {
+        type: Sequelize.STRING(256)
+      },
       hashedPassword: {
         type: Sequelize.STRING.BINARY,
         allowNull: false,
