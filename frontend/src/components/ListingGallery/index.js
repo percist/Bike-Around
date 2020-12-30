@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { fetch } from '../../store/csrf';
 import {useEffect, useState } from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import Listing from '../Listing';
+import ListingCard from '../ListingCard';
 import {fetchAllListings} from '../../store/listings';
 
 const ListingGallery = () => {
@@ -25,7 +25,7 @@ const ListingGallery = () => {
             <hr />
             {!currentListings && <h3>Loading......</h3>}
             {currentListings && currentListings.map(listing => {
-                return <Listing theListing={listing} />;
+                return <ListingCard theListing={listing} />;
             })}
         </div>
     );

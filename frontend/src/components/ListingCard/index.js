@@ -7,7 +7,7 @@ import './Listing.css';
 
 
 
-const Listing = ({ theListing }) => {
+const ListingCard = ({ theListing }) => {
     return (
         <>
             <div className="listing">
@@ -35,4 +35,4 @@ const Listing = ({ theListing }) => {
     )
 }
 
-export default Listing;
+export default ListingCard;

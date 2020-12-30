@@ -1,13 +1,17 @@
 import "./index.css"
 import picture from "../../bike-around-header.png";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const HomePage = () => {
+    const history = useHistory();
+    function handleClick() {
+        history.push('/listings');
+    }
     const loggedInUser = useSelector(state => {
         return state.session.user;
     });
-
+    
     return (
         <div>
             <div id="home-page-container">
@@ -20,7 +24,7 @@ const HomePage = () => {
                         <button 
                             className="button"
                             id="home-page-cta_2"
-                            // onClick={()=> }
+                            onClick={handleClick}
                         >
                             Explore nearby bikes
                         </button>
