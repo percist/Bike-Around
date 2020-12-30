@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import ProfileUpdateModal from '../ProfileUpdateModal'
 import * as sessionActions from '../../store/session';
 import "./Navigation.css"
 

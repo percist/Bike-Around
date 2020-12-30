@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import SignupFormModal from './components/SignupFormModal';
 import Navigation from './components/Navigation';
 import HomePage from "./components/Home";
+import ListingGallery from "./components/ListingGallery";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,10 +25,13 @@ function App() {
         //   </Route> 
           <Route path="/signup">
             <SignupFormPage />
-          </Route>
-         // <Route path="/" exact>
-          //   <HomePage />
-          // </Route> */}
+          </Route>*/}
+          <Route path="/" exact>
+            <HomePage />
+          </Route> 
+          <Route path="/listings" exact>
+            <ListingGallery />
+          </Route> 
         </Switch>
       )}
     </>  
