@@ -21,7 +21,8 @@ const ListingGallery = () => {
 
     return (
         <div id="listings-page">
-            <h3>Bikes you can use today. . .</h3>
+            <h3>Nearby bikes you could ride today</h3>
+            <hr />
             {!currentListings && <h3>Loading......</h3>}
             {currentListings && currentListings.map(listing => {
                 return <Listing theListing={listing} />;

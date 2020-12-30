@@ -1,0 +1,13 @@
+.listing-img {
+    width: 400px;
+    border-radius: 8px;
+}
+
+.listing-description {
+    width: 400px;
+    border-radius: 8px;
+}
+
+.listing {
+    background-color: lightgray;
+}

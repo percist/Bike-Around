@@ -20,6 +20,7 @@ const HomePage = () => {
                         <button 
                             className="button"
                             id="home-page-cta_2"
+                            // onClick={()=> }
                         >
                             Explore nearby bikes
                         </button>
