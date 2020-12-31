@@ -26,7 +26,7 @@ const ListingGallery = () => {
     return (
         <>
             <div id="listing-header">
-                <h3>Nearby bikes you could ride today</h3>
+                <h3>Bikes to ride near you</h3>
                 <hr id="listing-bar" color="darkgray" />
             </div>
             <div id="listing-gallery">

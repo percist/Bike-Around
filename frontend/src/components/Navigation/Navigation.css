@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
     color: dimgrey;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-decoration: none;
 }
 
@@ -11,6 +10,7 @@ a {
 
 #navbar-link-home {
     letter-spacing: -2px;
+    font-family: "Poppins";
     font-weight: 900;
 }
 
