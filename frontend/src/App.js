@@ -6,6 +6,7 @@ import SignupFormModal from './components/SignupFormModal';
 import Navigation from './components/Navigation';
 import HomePage from "./components/Home";
 import ListingGallery from "./components/ListingGallery";
+import ListingPage from "./components/ListingPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +33,9 @@ function App() {
           <Route path="/listings" exact>
             <ListingGallery />
           </Route> 
+          <Route path="/listings/:id">
+            <ListingPage />
+          </Route>
         </Switch>
       )}
     </>  

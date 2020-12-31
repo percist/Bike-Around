@@ -1,1 +1,53 @@
-import './Listing.css'
+#listing-page-header {
+    margin: 4px 40px 0px;
+}
+
+.listing-page-gallery {
+    display: flex;
+    margin: 0px 40px;
+}
+
+.listing-page-gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 384px;
+    overflow: hidden;
+}
+
+#listing-page-primary_1 {
+    max-width: 564px;        
+    border-radius: 8px;
+    margin: 4px 4px 4px 0px;
+}
+
+.listing-page-img {
+    max-width: 274px;
+    max-height: 183px;
+    border-radius: 8px;
+    margin: 4px 4px;
+}
+
+.listing-page-properties {
+    margin: 20px 40px 0px;
+}
+
+.listing-page-properties_1 {
+    margin: 5px 0px;
+}
+
+.listing-page-properties_2 {
+    margin: 10px 0px;
+}
+
+
+
+#reserve-button {
+    height: 48px;
+    width: 200px;
+    margin-left: 0px;
+    background-color: lightsteelblue;
+}
+
+#reserve-button:hover {
+    background-color: lightskyblue;
+}

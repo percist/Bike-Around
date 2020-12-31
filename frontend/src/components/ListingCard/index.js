@@ -11,14 +11,16 @@ const ListingCard = ({ theListing }) => {
     return (
         <>
             <div className="listing">
-                <div className="listing-img-div">
+                <a 
+                    className="listing-img-div"
+                    href={`/listings/${theListing.id}`}>
                     {console.log(theListing.Pictures[0])}
                     <img 
                         alt="bike" 
                         className="listing-img"
                         src={theListing.Pictures[0].url} 
                     />
-                </div>
+                </a>
                 <div className='listing-description'>
                     <p>{theListing.nearestCity}</p>
                     <p>{theListing.title}</p>

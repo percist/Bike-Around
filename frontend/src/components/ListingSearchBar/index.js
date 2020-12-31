@@ -1,5 +1,4 @@
 import { useContext, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import {useDispatch, useSelector} from 'react-redux';
 import * as listingActions from '../../store/listings';
 

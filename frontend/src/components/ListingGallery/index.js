@@ -13,6 +13,9 @@ const ListingGallery = () => {
         return fullReduxState.listings;
     });
 
+    // TODO: Implement search functionality by using useState to filter fully returned listings based on dropdowns for bikeType and bikeSize
+    
+
     useEffect(async () => {
         dispatch(
             fetchAllListings()
