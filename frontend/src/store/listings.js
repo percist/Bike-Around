@@ -22,10 +22,10 @@ export const fetchAllListings = () => {
     return async (dispatch) => {
         const response = await fetch('/api/listings');
         dispatch(
-            setListings(response.data.listings));
-
+            setListings(response.data.listings)
+        );
     };
-}
+};
 
 export const fetchOneListing = (id) => {
     return async (dispatch) => {
@@ -35,7 +35,7 @@ export const fetchOneListing = (id) => {
             setOneListing(response.data.listing)
         )
     }
-}
+};
 
 const initialState = []
 
@@ -50,7 +50,7 @@ const listingReducer = (state = initialState, action) => {
             return newState;
         default: 
             return state;
-    }
-}
+    };
+};
 
 export default listingReducer;

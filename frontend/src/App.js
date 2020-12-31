@@ -6,6 +6,8 @@ import Navigation from './components/Navigation';
 import HomePage from "./components/Home";
 import ListingGallery from "./components/ListingGallery";
 import ListingPage from "./components/ListingPage";
+import UserBookings from "./components/UserBookings";
+import BookingForm from "./components/BookingFormPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +36,12 @@ function App() {
           </Route> 
           <Route path="/listings/:id">
             <ListingPage />
+          </Route>
+          <Route path="/bookings" exact>
+            <UserBookings />
+          </Route>
+          <Route path="/bookings/:id" >
+            <BookingForm />
           </Route>
         </Switch>
       )}

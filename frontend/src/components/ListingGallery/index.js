@@ -1,10 +1,7 @@
-import { useContext } from 'react';
-import { useParams } from 'react-router-dom';
-import { fetch } from '../../store/csrf';
-import {useEffect, useState } from "react";
-import {useDispatch, useSelector} from 'react-redux';
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import ListingCard from '../ListingCard';
-import {fetchAllListings} from '../../store/listings';
+import { fetchAllListings } from '../../store/listings';
 import './ListingGallery.css'
 
 const ListingGallery = () => {
@@ -15,7 +12,6 @@ const ListingGallery = () => {
     });
 
     // TODO: Implement search functionality by using useState to filter fully returned listings based on dropdowns for bikeType and bikeSize
-
 
     useEffect(async () => {
         dispatch(

@@ -13,7 +13,15 @@ const Navigation = ({ isLoaded }) =>{
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
-            <ProfileButton user={sessionUser} />
+            <>
+                <NavLink 
+                    id="link-bookings"  
+                    to="/bookings"
+                >
+                    My Bookings
+                </NavLink>
+                <ProfileButton user={sessionUser} />
+            </>
         );
     }else {
         sessionLinks = (
