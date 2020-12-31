@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 // import LoginFormPage from './components/LoginFormPage';
-import SignupFormModal from './components/SignupFormModal';
 import Navigation from './components/Navigation';
 import HomePage from "./components/Home";
 import ListingGallery from "./components/ListingGallery";

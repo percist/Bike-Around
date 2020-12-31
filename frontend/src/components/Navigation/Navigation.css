@@ -74,12 +74,10 @@ a {
     padding-bottom: 30px;    
     padding-left: 14px;    
     padding-right: 14px;    
-    /* padding-top: 10px;
-    padding-bottom: 10px; */
 }
  
-a:hover {
-    background-color: darkgray;
+a :hover {
+    background-color: lightgray;
 }
 
 .profile-dropdown {

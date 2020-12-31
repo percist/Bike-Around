@@ -8,10 +8,15 @@ function DemoSignupFormModal() {
 
   return (
     <>
-      <a onClick={() => {
+      <a 
+        id="demo-button"
+        onClick={() => {
           setIsDemo(true);
           setShowModal(true);
-          }}>Demo</a>
+          }}
+      >
+        Demo
+      </a>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
             <SignupForm />
