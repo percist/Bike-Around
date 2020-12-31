@@ -1,4 +1,5 @@
 import { fetch } from "./csrf";
+import { setListings } from './listings';
 
 const SET_ALL_BOOKINGS = 'bookings/setBookings';
 
@@ -12,8 +13,8 @@ const setBookings = (bookings) => {
 export const fetchAllBookings = () => {
     return async (dispatch) => {
         const response = await fetch('/api/bookings');
-        console.log(response)
         dispatch(setBookings(response.data.bookings));
+        dispatch(setListings(response.data.listing));
     }
 };
 

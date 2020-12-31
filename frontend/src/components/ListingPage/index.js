@@ -6,7 +6,7 @@ import './ListingPage.css';
 
 const ListingPage = ({ theListing }) => {
     const dispatch = useDispatch();
-    const {id} = useParams()
+    const {id} = useParams();
     const history = useHistory();
 
     function handleClick() {
@@ -22,7 +22,7 @@ const ListingPage = ({ theListing }) => {
             fetchOneListing(id)
         );
     }, []);
-    console.log(currentListing.Pictures)
+    
     return(
         <>
             <div className="listing-page-header"

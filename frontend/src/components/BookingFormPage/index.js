@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { fetchOneListing } from '../../store/listings';
 import { fetchAllBookings } from '../../store/bookings';
 
 const BookingForm = () => {
     const dispatch = useDispatch();
+    const {id} = useParams();
+    const history = useHistory();
 
     const listing = useSelector(fullReduxState=> {
         return fullReduxState.listings;

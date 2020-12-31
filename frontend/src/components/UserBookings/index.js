@@ -1,18 +1,19 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAllBookings } from '../../store/bookings';
+import { fetchAllBookings } from '../../store/bookings';
 import BookingCard from '../BookingCard';
 const UserBookings = () => {
     const dispatch = useDispatch();
 
-    const currentBookings = useSelector(fullReduxState => {
+    let currentBookings = useSelector(fullReduxState => {
         return fullReduxState.bookings;
+    })
+    let currentListings = useSelector(fullReduxState => {
+        return fullReduxState.listings;
     })
 
     useEffect(async () => {
-        await dispatch(setAllBookings());
-        console.log(currentBookings)
-        // await dispatch(setOneListing(currentBookings))
+        await dispatch(fetchAllBookings());
     }, []);
 
     return(

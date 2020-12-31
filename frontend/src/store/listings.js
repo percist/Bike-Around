@@ -4,7 +4,7 @@ const SET_ALL_LISTINGS = 'listings/setListings';
 const SET_ONE_LISTING = 'oneListing/setOneListing'
 
 // Action creator that produces object
-const setListings = (listings) => {
+export const setListings = (listings) => {
     return {
         type: SET_ALL_LISTINGS,
         payload: listings,
@@ -30,7 +30,6 @@ export const fetchAllListings = () => {
 export const fetchOneListing = (id) => {
     return async (dispatch) => {
         const response = await fetch(`/api/listings/${id}`);
-        console.log('THIS THUNK THUNKED')
         dispatch(
             setOneListing(response.data.listing)
         )
