@@ -1,9 +1,12 @@
 * {
     box-sizing: border-box;
-    background-color: lightgray;
     color: dimgrey;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-decoration: none;
+}
+
+a {
+    cursor: default;
 }
 
 .profile-dropdown {
@@ -16,6 +19,10 @@
     border-radius: 8pt;
     height: 30px;
     width: 70px;
+}
+
+#link-logout {
+    cursor: default;
 }
 
 .input {
@@ -59,25 +66,33 @@
     justify-content: space-between;
     align-items: center;
     list-style: none;
+    background-color: lightgray;
 }
 
 .navbar-link {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* margin-right: 10px;
-    margin-left: 10px; */
 }
 
-a {
+#link-signup,
+#link-login,
+#link-demo,
+#link-home
+ {
     padding-top: 31px;    
     padding-bottom: 30px;    
     padding-left: 14px;    
     padding-right: 14px;    
 }
  
-a :hover {
-    background-color: lightgray;
+#link-login:hover,
+#link-logout:hover,
+#link-signup:hover,
+#link-demo:hover,
+#link-home:hover
+ {
+    background-color: black;
 }
 
 .profile-dropdown {

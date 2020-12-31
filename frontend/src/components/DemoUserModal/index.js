@@ -9,7 +9,7 @@ function DemoSignupFormModal() {
   return (
     <>
       <a 
-        id="demo-button"
+        id="link-demo"
         onClick={() => {
           setIsDemo(true);
           setShowModal(true);

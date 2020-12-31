@@ -42,7 +42,7 @@ const ProfileButton = ({ user }) => {
                         <li>{user.username}</li>
                         <li>{user.email}</li>
                         <a 
-                            id="logout-button"
+                            id="link-logout"
                             onClick={logout}
                         >
                             Log Out

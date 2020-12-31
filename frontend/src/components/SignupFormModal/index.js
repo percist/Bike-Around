@@ -9,7 +9,7 @@ function SignupFormModal() {
   return (
     <>
       <a 
-        id="signup-button"
+        id="link-signup"
         onClick={() => setShowModal(true)}>
           Sign Up
       </a>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
@@ -21,17 +21,6 @@ const Navigation = ({ isLoaded }) =>{
                 <LoginFormModal />
                 <SignupFormModal />
                 <DemoSignupFormModal />
-                {/*<NavLink to="/signup">Sign Up</NavLink>
-                     <NavLink 
-                        to="/login"
-                        className="navlink"
-                        >Log In
-                    </NavLink>                    
-                    <NavLink 
-                        to="/signup"
-                        className="navlink"
-                        >Sign Up
-                    </NavLink>*/}
             </>
         );
     }
@@ -40,13 +29,15 @@ const Navigation = ({ isLoaded }) =>{
         <ul className='navbar'>
             <li>
                 <h2>
-                    Bike Around
+                    <Link to="/listings">
+                        Bike Around
+                    </Link>
                 </h2>
             </li>
             <li className="navbar-link">
                 <NavLink 
                     to="/" exact
-                    className="navbar-link_1"
+                    id="link-home"
                     >Home
                 </NavLink> 
                 {isLoaded && sessionLinks}
