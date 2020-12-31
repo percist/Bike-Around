@@ -22,6 +22,12 @@ const BookingForm = () => {
         await dispatch(fetchAllBookings)
     }, [])
 
+
+    // const confirm = async(e) => {
+    //     e.preventDefault();
+    //     await dispatch(confirmNewBooking())
+    // }
+
     return(
         <>
             <div className="booking-form-header">
@@ -53,6 +59,12 @@ const BookingForm = () => {
                     {`${parseInt(listing.pricePerDay/100) * parseInt(booking.startDay-booking.endDay)}`}
                 </div>
             </div>
+            <button 
+                id="confirm-booking-button"
+                onClick={confirm}
+            >
+                Confirm!
+            </button>
         </>
        
        

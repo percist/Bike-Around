@@ -1,15 +1,30 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from "react-router-dom";
+import { fetchOneListing } from "../../store/listings";
 import './BookingCard.css';
 
 const BookingCard = ({ theBooking }) => {
+    const dispatch = useDispatch();
+
+    let currentListing = useSelector(fullReduxState => {
+        console.log(fullReduxState)
+        return fullReduxState.listings;
+    });
+
+    useEffect( async() => {
+        await dispatch(fetchOneListing(theBooking.listingId));
+    }, []);
+
     return (
         <>
             <div className="booking-card">
                 <div className="booking-card-img">
-                    <a href={`/bookings/${theBooking.id}`}>
+                    <a href={`/listings/${currentListing.id}`}>
                         <img 
                             alt="bike" 
                             id="booking-card-img"
-                            src={theBooking.Listing.Pictures[0].url} 
+                            src={currentListing.Pictures[0].url} 
                         />
                     </a>
                 </div>
@@ -18,17 +33,17 @@ const BookingCard = ({ theBooking }) => {
                         {`${theBooking.startDay} - ${theBooking.endDay}`}
                     </div>
                     <div className='booking-card_3'>
-                        {theBooking.nearestCity}
+                        {currentListing.nearestCity}
                     </div>
                     <div className='booking-card_4'>
-                        {theBooking.title}
+                        {currentListing.title}
                     </div>
                 </div>
                 <hr id="booking-card-bar" color="darkgray"/>
-                {<div className="edit-booking-button">
+                <div className="edit-booking-button">
                     Edit this Ride
                 </div>
-                }
+                
             </div>
         </>
     )

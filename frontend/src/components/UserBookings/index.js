@@ -7,10 +7,7 @@ const UserBookings = () => {
 
     let currentBookings = useSelector(fullReduxState => {
         return fullReduxState.bookings;
-    })
-    let currentListings = useSelector(fullReduxState => {
-        return fullReduxState.listings;
-    })
+    });
 
     useEffect(async () => {
         await dispatch(fetchAllBookings());
@@ -25,8 +22,7 @@ const UserBookings = () => {
             <div id="bookings-gallery">
                 {!currentBookings && <h3>Loading.....</h3>}
                 {currentBookings && currentBookings.map(booking => {
-                    console.log(currentBookings)
-                    return <BookingCard theBooking={booking} />
+                    return <BookingCard theBooking={booking} currentListings/>
                 })}
             </div>
         </>
