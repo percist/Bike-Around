@@ -1,17 +1,32 @@
-const { Booking } = require("./models");
+const { Booking, Listing } = require("./models");
 
 async function list() {
     return await Booking.findAll();
 }
 
 async function userList(id) {
-    return await Booking.findAll({
+    const bookings = await Booking.findAll({
         where: {
             userId: id
-        }
+        }, 
     })
+    const listing = await Listing.findOne({
+        id: bookings[0].dataValues.listingId,
+        include: {
+            all: true
+        }
+    }
+        
+        )
+    return { bookings, listing }
 }
 
 async function one(id) {
     return await Booking.findByPk(id);
+}
+
+module.exports = {
+    list,
+    userList,
+    one
 }
