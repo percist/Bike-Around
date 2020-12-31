@@ -1,32 +1,34 @@
 
 .listing-card {
-    width: 400px;
-    height: 600px;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 475px;
+    height: 500px;
+    margin: 15px;
 }
 
-a:hover > #listing-card-overlay {
-    position: absolute;
-    background: (0,0,0,0.3);
+.listing-content {
     width: 100%;
-    height: 303px;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    display: block;
-}
-
-.listing-card_1 {
-    width: 455px;
     height: 303px;
     margin: 10px;
 }
 
-.listing-card_2 {
-
+.listing-card_2{
+    font-weight: bold;
+    margin-bottom: 8px;
 }
 
-.listing-img {
-    width: 400px;
+.listing-card_3 {
+    font-weight: lighter;
+    margin: 4px 0px;
+}
+
+.listing-card_4 {
+    font-weight: 900;
+    margin: 6px 0px;
+}
+
+#listing-card-img {
+    width: 475px;
     border-radius: 8px;
 }

@@ -1,0 +1,9 @@
+#listing-gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#listing-header {
+    margin: 0px 30px;
+}

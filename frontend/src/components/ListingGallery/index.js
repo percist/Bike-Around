@@ -5,6 +5,7 @@ import {useEffect, useState } from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import ListingCard from '../ListingCard';
 import {fetchAllListings} from '../../store/listings';
+import './ListingGallery.css'
 
 const ListingGallery = () => {
     const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const ListingGallery = () => {
     });
 
     // TODO: Implement search functionality by using useState to filter fully returned listings based on dropdowns for bikeType and bikeSize
-    
+
 
     useEffect(async () => {
         dispatch(
@@ -23,14 +24,18 @@ const ListingGallery = () => {
     }, []);
 
     return (
-        <div id="listings-page">
-            <h3>Nearby bikes you could ride today</h3>
-            <hr />
-            {!currentListings && <h3>Loading......</h3>}
-            {currentListings && currentListings.map(listing => {
-                return <ListingCard theListing={listing} />;
-            })}
-        </div>
+        <>
+            <div id="listing-header">
+                <h3>Nearby bikes you could ride today</h3>
+                <hr id="listing-bar" color="darkgray" />
+            </div>
+            <div id="listing-gallery">
+                {!currentListings && <h3>Loading......</h3>}
+                {currentListings && currentListings.map(listing => {
+                    return <ListingCard theListing={listing} />;
+                })}
+            </div>
+        </>
     );
 }
 

@@ -25,7 +25,6 @@ const ListingPage = ({ theListing }) => {
     console.log(currentListing.Pictures)
     return(
         <>
-            <hr />
             <div className="listing-page-header"
                 id="listing-page-header">
                 <h2>
@@ -58,21 +57,29 @@ const ListingPage = ({ theListing }) => {
                 </div>
             </div>
             <div className={"listing-page-properties"}>
-                <div className={"listing-page-properties_1"}> 
-                    <h3>
-                        {currentListing.BikeType && `${currentListing.BikeType.type} bike offered by ${currentListing.User.username}`} 
-                    </h3>
+                <div className={"listing-page-properties_1"}>
+                    <div className={"listing-page-properties_1_1"}> 
+                        <h3>
+                            {currentListing.BikeType && `${currentListing.BikeType.type} bike offered by ${currentListing.User.username}`} 
+                        </h3>
+                    </div>
+                    <hr />
+                    <div className={"listing-page-properties_1_2"}>
+                        {currentListing.description}
+                    </div>
                 </div>
-                <hr />
                 <div className={"listing-page-properties_2"}>
-                    {currentListing.description}
-                </div>
-                <div className={"listing-page-properties_5"}>
+                    <div className={"listing-page-properties_2_1"}>
+                        {`$${currentListing.pricePerDay/100} / day`}
+                    </div>
+                    <div className={"listing-page-properties_2_2"}>
+
+                    </div>
                     <button 
                         className="button"
                         id="reserve-button"
                         onClick={handleClick}
-                    >
+                        >
                         Check Availability
                     </button>
                 </div>

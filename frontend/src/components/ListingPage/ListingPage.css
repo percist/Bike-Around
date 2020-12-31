@@ -28,23 +28,34 @@
 }
 
 .listing-page-properties {
+    display: flex;
     margin: 20px 40px 0px;
 }
 
-.listing-page-properties_1 {
+.listing-page-properties_1_1 {
     margin: 5px 0px;
 }
 
-.listing-page-properties_2 {
+.listing-page-properties_1_2 {
     margin: 10px 0px;
 }
 
-
+.listing-page-properties_2 {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 40pt;
+    border: 1pt solid lightsteelblue;
+    border-radius: 8pt;
+    box-shadow: rgba(0, 0, 0, .12) 0px 6px 16px;
+}
 
 #reserve-button {
     height: 48px;
     width: 200px;
-    margin-left: 0px;
+    margin: 0px;
     background-color: lightsteelblue;
 }
 

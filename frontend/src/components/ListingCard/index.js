@@ -11,32 +11,26 @@ const ListingCard = ({ theListing }) => {
     return (
         <>
             <div className="listing-card">
-                <div
-                    className="listing-card_1"
-                >
-                    <a 
-                        className="listing-card_1_1"
-                        href={`/listings/${theListing.id}`}
-                    >
+                <div className="listing-card-img">
+                    <a href={`/listings/${theListing.id}`}>
                         <img 
                             alt="bike" 
-                            className="listing-img"
+                            id="listing-card-img"
                             src={theListing.Pictures[0].url} 
                         />
-                            <div id="listing-card-overlay"/>
                     </a>
                 </div>
-                <div className='listing-card_2'>
-                    <p>{theListing.nearestCity}</p>
-                    <p>{theListing.title}</p>
-                <div className='listing-card_3'>
-                    <h3>{`$${theListing.pricePerDay/100}`}</h3>
-                    <p>/day</p>
+                <div className="listing-content">
+                    <div className='listing-card_2'>
+                        {`${theListing.BikeType.type} bike - ${theListing.nearestCity}`}
+                    </div>
+                    <div className='listing-card_3'>
+                        {theListing.title}
+                    </div>
+                    <div className='listing-card_4'>
+                        {`$${theListing.pricePerDay/100} / day`}
+                    </div>
                 </div>
-                </div>
-            </div>
-            <div className="listing-content">
-
             </div>
         </>
     )

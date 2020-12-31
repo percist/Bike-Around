@@ -9,6 +9,11 @@ a {
     cursor: default;
 }
 
+#navbar-link-home {
+    letter-spacing: -2px;
+    font-weight: 900;
+}
+
 .profile-dropdown {
     position: absolute;
 }

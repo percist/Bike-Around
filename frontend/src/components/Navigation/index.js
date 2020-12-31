@@ -28,9 +28,9 @@ const Navigation = ({ isLoaded }) =>{
     return (
         <ul className='navbar'>
             <li>
-                <h2>
+                <h2 id="navbar-link-home">
                     <Link to="/listings">
-                        Bike Around
+                        bike around
                     </Link>
                 </h2>
             </li>
