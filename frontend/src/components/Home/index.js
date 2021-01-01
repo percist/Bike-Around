@@ -15,7 +15,10 @@ const HomePage = () => {
     return (
         <div>
             <div id="home-page-container">
-                <img src={picture} />
+                <img 
+                    id="home-page-container-img"
+                    src={picture} 
+                />
                 <div id="home-page-overlay">
                     <div id="home-page-cta">
                         <h1 id="home-page-cta_1">
@@ -29,8 +32,10 @@ const HomePage = () => {
                             Explore nearby bikes
                         </button>
                     </div>
-                </div>
-                {loggedInUser && <h3>Welcome {loggedInUser.username}, find a<Link to="/listings">Bike Around</Link>you!</h3>}
+                    <div class="home-page-welcome">
+                        {loggedInUser && <h3>Welcome {loggedInUser.username}, find a <Link className="home-page-welcome" to="/listings">Bike Around</Link> you!</h3>}
+                    </div>
+                </div >
             </div>
 
         </div>

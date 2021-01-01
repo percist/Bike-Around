@@ -1,15 +1,19 @@
+/* TODO: Media Query to make img position relative when page width >1000 */
+
 #home-page-container {
-    height: 600px;
+    height: 800px;
     position: relative;
     overflow: hidden;
 }
 
-#home-page-container img {
+#home-page-container-img {
     width: 100%;
+    position: fixed;
+    bottom: 0px;
 }
 
 #home-page-overlay {
-    height: 600px;
+    height: 800px;
     width: 100%;
     background: rgba(0, 0, 0, 0.2);
     position: absolute;
@@ -19,17 +23,18 @@
 }
 
 #home-page-cta {
-    padding-left: 40px;
+    margin-left: 40px;
     background: none;
     width: 250px;
+    min-width: 250px;
     overflow-x: auto;
+    justify-self: baseline;
 }
 
 #home-page-cta_1 {
     background: none;
-    padding: none;
     height: 160px;
-    color: lightgray;
+    color: #D1BC6F;
     font-size: 100px;
 }
 
@@ -38,4 +43,10 @@
     height: 38px;
     border-radius: 8px;
     border: none;
+}
+
+#home-page-welcome,
+h3,
+.home-page-welcome {
+    color: #D1BC6F
 }

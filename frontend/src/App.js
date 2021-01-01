@@ -9,6 +9,7 @@ import ListingGallery from "./components/ListingGallery";
 import ListingPage from "./components/ListingPage";
 import UserBookings from "./components/UserBookings";
 import BookingForm from "./components/BookingFormPage";
+import * as sessionActions from "./store/session";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,25 +24,19 @@ function App() {
       <Navigation isLoaded={isLoaded}/>
       {isLoaded && (
         <Switch>
-        {/* //   <Route path="/login">
-        //     <LoginFormPage />
-        //   </Route> 
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>*/}
           <Route path="/" exact>
             <HomePage />
           </Route> 
           <Route path="/listings" exact>
             <ListingGallery />
           </Route> 
-          <Route path="/listings/:id">
+          <Route path="/listings/:id" exact>
             <ListingPage />
           </Route>
           <Route path="/bookings" exact>
             <UserBookings />
           </Route>
-          <Route path="/bookings/:id" >
+          <Route path="/listings/:listingId/bookings/:bookingId" >
             <BookingForm />
           </Route>
         </Switch>

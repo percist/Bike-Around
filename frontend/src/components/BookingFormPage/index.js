@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { fetchOneListing } from '../../store/listings';
+//import { fetchOneBooking } from '../../store/listings';
 import { formatDate} from '../../date-repository';
 import './BookingFormPage.css';
 
@@ -26,6 +27,7 @@ const BookingForm = () => {
 
     useEffect( async() => {
         await dispatch(fetchOneListing(id));
+        //await dispatch(fetchOneBooking(id));
     }, [])
 
     return(

@@ -18,33 +18,31 @@ const ListingPage = ({ theListing }) => {
     const {id} = useParams();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-
+    const listingId = id
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [focusedInput, setFocusedInput] = useState([]);
     const [errors, setErrors] = useState([]);
 
     const handleClick = async() => {
-        if (startDate && endDate){
-            setErrors([]);
-            // console.log(startDate.format("ddd, MMM Do, YYYY"))
-            const duration = calculateDuration(startDate, endDate) 
-            // console.log("START AND END DATE MOMENTS", startDate, endDate)
-            // console.log(typeof(startDate._d), startDate._d)
-            // console.log("START AND END DATE MOMENTS .TODATE()", startDate.toDate(), endDate.toDate())
-            // console.log(typeof(startDate.toDate()), startDate.toDate())
-            await dispatch(fetchCreateBooking({
-                listingId: id,
-                userId: sessionUser.id,
-                startDay: startDate.toDate(),
-                endDay: endDate.toDate(),
-                status: "pending",
-                duration: duration
-            }));
-            history.push(`/bookings/${id}`)
+        if (!startDate && endDate){
+            return setErrors(['Please select a start date and an end date to check availability.'])
         }
-        return setErrors(['Please select a start date and an end date to check availability.'])
+        setErrors([]);
 
+        const duration = calculateDuration(startDate, endDate) 
+
+        const newBooking = await dispatch(fetchCreateBooking({
+            listingId: listingId,
+            userId: sessionUser.id,
+            startDay: startDate.toDate(),
+            endDay: endDate.toDate(),
+            status: "pending",
+            duration: duration
+        }));
+        console.log(newBooking)
+        const bookingId = newBooking.id
+        history.push(`/listings/${listingId}/bookings/${bookingId}`)
     }
 
     const currentListing = useSelector(fullReduxState => {

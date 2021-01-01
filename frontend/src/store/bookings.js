@@ -33,6 +33,7 @@ export const fetchCreateBooking = ({ userId, startDay, endDay, status, listingId
             body: JSON.stringify({ userId, startDay, endDay, status, listingId, duration })
         })
         dispatch(createBooking(response.data))
+        return response.data
     }
 }
 
