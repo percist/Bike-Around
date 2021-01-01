@@ -1,17 +1,31 @@
 .navbar {
     position: sticky;
     top: 0px;
+    background-color: #e7e7e7;
+    color: #13070c;
+    margin: 0px;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
     z-index: 100;
+}
+
+.navbar-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 a {
     cursor: default;
 }
 
-#navbar-link-home {
+#navbar-link-home, 
+h2 {
     letter-spacing: -2px;
     font-family: "Poppins";
-    font-weight: 900;
 }
 
 .profile-dropdown {
@@ -20,7 +34,7 @@ a {
 
 .button {
     margin: 2pt 2pt 5pt 5pt;
-    border: 1pt lightgray solid;
+    border: 1pt #896A67 solid;
     border-radius: 8pt;
     height: 30px;
     width: 70px;
@@ -31,10 +45,10 @@ a {
 }
 
 .input {
-    color: dimgray;
-    background: #E8F0FE;
+    color: #13070c;
+    background: #e7e7e7;
     margin: 2pt;
-    border: 1pt lightgray solid;
+    border: 1pt #896A67 solid;
     border-radius: 8pt;
 }
 
@@ -64,22 +78,6 @@ a {
     min-width: 60px;
 }
 
-.navbar {
-    margin: 0px;
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    background-color: lightgray;
-}
-
-.navbar-link {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
 #link-signup,
 #link-login,
 #link-demo,
@@ -101,7 +99,7 @@ a {
 #link-profile:hover,
 #link-bookings:hover
  {
-    background-color: black;
+    background-color: #d1bc6f;
 }
 
 .profile-dropdown {
@@ -112,6 +110,6 @@ a {
 }
 
 .button:hover {
-    background-color: darkgray;
+    background-color: #d1bc6f;
     
 }
