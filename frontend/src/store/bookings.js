@@ -45,7 +45,6 @@ const bookingReducer = (state = initialState, action) => {
             newState = action.payload;
             return newState;
         case CREATE_PENDING_BOOKING:
-            console.log(action.payload)
             newState = action.payload
             return newState;
         default:

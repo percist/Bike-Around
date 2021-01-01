@@ -1,6 +1,6 @@
-* {
-    color: dimgrey;
-    text-decoration: none;
+.navbar {
+    position: sticky;
+    top: 0px;
 }
 
 a {

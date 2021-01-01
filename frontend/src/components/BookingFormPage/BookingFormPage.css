@@ -1,0 +1,47 @@
+.booking-form-header,
+.booking-form-listing-details,
+.booking-form-booking-details,
+.booking-form-bar {
+    margin: 4px 40px 0px;
+}
+
+.booking-form-listing,
+.booking-form-booking {
+    display: flex;
+}
+
+.booking-form-listing-details {
+    min-width: 220px;
+}
+
+.booking-form-listing-img {
+    display: flex;
+    flex-direction: column;
+    background-color: darkred;
+    border: 5px lightgray;
+    border-radius: 8pt;
+    height: 140px;
+    width: 120px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#booking-form-listing-img{
+    height: 60px;
+    border-radius: 4px;
+    margin: 16px 16px 0;
+}
+
+#confirm-booking-button {
+    margin: 4px 40px;
+    border-radius: 8pt;
+    height: 40px;
+    width: 200px;
+    background-color: lightsteelblue;
+    align-self: center;
+    justify-self: right;
+}
+
+#confirm-booking-button:hover {
+    background-color: lightskyblue;
+}

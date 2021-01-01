@@ -1,8 +1,9 @@
 // date manipulation utilities
 
 export const formatDate = (dateToParse) => {
-    const year = dateToParse.getFullYear();
-    const date = dateToParse.getDate();
+    const dateObj = new Date(dateToParse)
+    const year = dateObj.getFullYear();
+    const date = dateObj.getDate();
     const months = [
         'Jan',
         'Feb',
@@ -17,7 +18,7 @@ export const formatDate = (dateToParse) => {
         'Nov',
         'Dec'
     ]
-    const monthName = months[dateToParse.getMonth()]
+    const monthName = months[dateObj.getMonth()]
     const days = [
         'Sunday',
         'Monday',
@@ -27,7 +28,8 @@ export const formatDate = (dateToParse) => {
         'Friday',
         'Saturday'
     ]
-    const dayName = days[dateToParse.getDay()]
+    const dayName = days[dateObj.getDay()]
+    console.log(`${dayName}, ${monthName} ${date}, ${year}`)
     return `${dayName}, ${monthName} ${date}, ${year}`
 }
 
