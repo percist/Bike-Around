@@ -50,7 +50,7 @@ const SignupForm = () => {
                     onSubmit={handleSubmit}
                 >
                     <ul>
-                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                        {errors.map((error, idx) => <li key={`signup-${idx}`}>{error}</li>)}
                     </ul>
                     <label>
                         First Name

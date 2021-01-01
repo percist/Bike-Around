@@ -17,8 +17,8 @@ const BookingForm = () => {
         return fullReduxState.bookings;
     })
 
-    const startDate = formatDate(booking.startDay);
-    const endDate = formatDate(booking.endDay)
+    // const startDate = formatDate(booking.startDay);
+    // const endDate = formatDate(booking.endDay)
 
     useEffect( async() => {
         await dispatch(fetchOneListing(id));
@@ -40,7 +40,7 @@ const BookingForm = () => {
                     Dates
                 </div>
                 <div className="booking-form-details_3">
-                    {`${startDate}-${endDate}`}
+                    {`${booking.startDay}-${booking.endDay}`}
                 </div>
                 <hr className="booking-form-bar" color="darkgray" />
                 <div className="booking-form-details_4">

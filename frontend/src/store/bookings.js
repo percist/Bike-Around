@@ -26,13 +26,13 @@ export const fetchAllBookings = () => {
     }
 };
 
-export const fetchCreateBooking = ({ userId, startDay, endDay, status, duration }) => async(dispatch) => {
+export const fetchCreateBooking = ({ userId, startDay, endDay, status, listingId, duration }) => {
     return async (dispatch) => {
         const response = await fetch('/api/bookings', {
             method: 'POST',
-            body: JSON.stringify({ userId, startDay, endDay, status, duration })
+            body: JSON.stringify({ userId, startDay, endDay, status, listingId, duration })
         })
-        dispatch(createBooking(response.data.bookings))
+        dispatch(createBooking(response.data))
     }
 }
 
@@ -45,7 +45,8 @@ const bookingReducer = (state = initialState, action) => {
             newState = action.payload;
             return newState;
         case CREATE_PENDING_BOOKING:
-            newState = {...state, ...newState}
+            console.log(action.payload)
+            newState = action.payload
             return newState;
         default:
             return state;
