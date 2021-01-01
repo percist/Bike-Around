@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { fetchOneListing } from '../../store/listings';
 import { fetchAllBookings } from '../../store/bookings';
+import { formatDate} from '../../date-repository';
 
 const BookingForm = () => {
     const dispatch = useDispatch();
     const {id} = useParams();
-    const history = useHistory();
 
     const listing = useSelector(fullReduxState=> {
         return fullReduxState.listings;
@@ -17,16 +17,13 @@ const BookingForm = () => {
         return fullReduxState.bookings;
     })
 
+    const startDate = formatDate(booking.startDay);
+    const endDate = formatDate(booking.endDay)
+
     useEffect( async() => {
         await dispatch(fetchOneListing(id));
         await dispatch(fetchAllBookings)
     }, [])
-
-
-    // const confirm = async(e) => {
-    //     e.preventDefault();
-    //     await dispatch(confirmNewBooking())
-    // }
 
     return(
         <>
@@ -43,20 +40,20 @@ const BookingForm = () => {
                     Dates
                 </div>
                 <div className="booking-form-details_3">
-                    {`${booking.startDay}-${booking.endDay}`}
+                    {`${startDate}-${endDate}`}
                 </div>
                 <hr className="booking-form-bar" color="darkgray" />
                 <div className="booking-form-details_4">
                     Price Details
                 </div>
                 <div className="booking-form-details_5">
-                    {`${listing.pricePerDay/100} x ${booking.startDay-booking.endDay}`}
+                    {`${listing.pricePerDay/100} x ${booking.duration}`}
                 </div>
                 <div className="booking-form-details_6">
                     Total (USD)
                 </div>
                 <div className="booking-form-details_7">
-                    {`${parseInt(listing.pricePerDay/100) * parseInt(booking.startDay-booking.endDay)}`}
+                    {`${(listing.pricePerDay/100) * booking.duration}`}
                 </div>
             </div>
             <button 

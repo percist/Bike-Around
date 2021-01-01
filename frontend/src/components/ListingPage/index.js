@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import { fetchOneListing } from '../../store/listings';
 import { fetchCreateBooking } from '../../store/bookings';
 import { DateRangePicker } from 'react-dates';
+import { findDuration } from '../../date-repository'
 import './ListingPage.css';
 
 const ListingPage = ({ theListing }) => {
@@ -13,55 +14,22 @@ const ListingPage = ({ theListing }) => {
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [focusedInput, setFocusedInput] = useState('');
-
-    const formatDate = (dateToParse) => {
-        const year = dateToParse.getFullYear();
-        const date = dateToParse.getDate();
-        const months = [
-            'Jan',
-            'Feb',
-            'Mar',
-            'Apr',
-            'May',
-            'Jun',
-            'Jul',
-            'Aug',
-            'Sep',
-            'Oct',
-            'Nov',
-            'Dec'
-        ]
-        const monthName = months[dateToParse.getMonth()]
-        const days = [
-            'Sunday',
-            'Monday',
-            'Tuesday',
-            'Wednesday',
-            'Thursday',
-            'Friday',
-            'Saturday'
-        ]
-        const dayName = days[dateToParse.getDay()]
-        return `${dayName}, ${monthName} ${date}, ${year}`
-    }
-
-    const findDuration = (date1, date2) => {
-        const earlierDate = Date.parse(date1);
-        const laterDate = Date.parse(date2);
-
-        return Math.ceil(( laterDate - earlierDate ) / (60*60*24*1000))
-    }
+    const [errors, setErrors] = useState([]);
 
     const handleClick = async() => {
-        const duration = findDuration(startDate, endDate);
-        await dispatch(fetchCreateBooking({
-            userId: id,
-            startDay: startDate,
-            endDay: endDate,
-            status: "pending",
-            duration: duration
-        }));
-        history.push(`/bookings/${id}`)
+        if (startDate && endDate){
+            setErrors([]);
+            const duration = findDuration(startDate, endDate);
+            await dispatch(fetchCreateBooking({
+                userId: id,
+                startDay: startDate,
+                endDay: endDate,
+                status: "pending",
+                duration: duration
+            }));
+            history.push(`/bookings/${id}`)
+        }
+        return setErrors(['Please select a start date and an end date to check availability.'])
 
     }
 
@@ -124,6 +92,7 @@ const ListingPage = ({ theListing }) => {
                     <div className={"listing-page-properties_2_1"}>
                         {`$${currentListing.pricePerDay/100} / day`}
                     </div>
+                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     <div className={"listing-page-properties_2_2"}>
                         <div className="App">
                             <DateRangePicker
