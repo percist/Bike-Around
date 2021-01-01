@@ -61,7 +61,7 @@ const BookingForm = () => {
             </div>
             <button 
                 id="confirm-booking-button"
-                onClick={confirm}
+                // onClick={confirm}
             >
                 Confirm!
             </button>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { useDispatch } from "react-redux";
-// import LoginFormPage from './components/LoginFormPage';
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
 import Navigation from './components/Navigation';
 import HomePage from "./components/Home";
 import ListingGallery from "./components/ListingGallery";
