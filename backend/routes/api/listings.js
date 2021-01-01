@@ -26,9 +26,5 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     res.json({listing: listing})
 }));
 
-// retrieve a listing based on location
-// router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
-
-// }));
 
 module.exports = router;
