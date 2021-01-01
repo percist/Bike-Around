@@ -25,8 +25,14 @@ async function one(id) {
     return await Booking.findByPk(id);
 }
 
+async function create(details) {
+    const booking = await Booking.create(details)
+    return booking;
+}
+
 module.exports = {
     list,
     userList,
-    one
+    one,
+    create
 }

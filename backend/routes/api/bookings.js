@@ -18,18 +18,15 @@ router.get('/', restoreUser, asyncHandler(async (req, res, next) => {
 // retrieve a single booking
 router.get('/:id(\\d+)', restoreUser, asyncHandler(async (req, res, next) => {
     const booking = await BookingRepository.one(req.params.id)
-    return res.json(booking)
+    res.json(booking)
 }));
 
 // create a single booking
-router.post('/:id(\\d+)', asyncHandler(async (req, res, next) => {
-    const { startDay, endDay } = req.body;
-    const user = await User.getCurrentUserById({
-        where: {
-            id: req.params.id
-        }
-    });
-
+router.post('/', asyncHandler(async (req, res, next) => {
+    // const { userId, startDay, endDay, status, duration } = req.body;
+    // console.log( userId, startDay, endDay, status, duration )
+    const booking = await BookingRepository.create(req.body);
+    res.json(booking)
 }));
 
 // edit a single booking
