@@ -38,17 +38,20 @@ async function confirm(id) {
     return booking;
 };
 
-async function edit(details) {
-    const id = details.id;
-    delete details.id;
-    const booking = await Booking.update(
+async function edit(details) {  
+    const booking = await Booking.findByPk(details.bookingId)  
+    const updatedBooking = await booking.update(
         details,
-        {
-            where: {id},
-            returning: true,
-            plain: true,
-        });
+        );
     return booking;
+}
+
+async function deleteBooking(id) {
+    const booking = await Booking.findByPk(id);
+    if (!booking) throw new Error('Cannot find booking');
+  
+    await Booking.destroy({ where: { id: booking.id }});
+    return booking.id;
 }
 
 module.exports = {
@@ -57,5 +60,6 @@ module.exports = {
     getOne,
     create,
     confirm,
-    edit
+    edit,
+    deleteBooking
 }
