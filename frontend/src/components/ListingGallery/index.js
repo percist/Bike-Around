@@ -19,6 +19,8 @@ const ListingGallery = () => {
         );
     }, []);
 
+    console.log("THIS IS THE CURRENTLISTING:", currentListings)
+
     return (
         <>
             <hr id="listing-bar" color="#896a67" />

@@ -1,5 +1,7 @@
-#listing-page-header {
+#listing-page-header h2 {
     margin: 4px 40px 0px;
+    font-family: Roboto;
+    letter-spacing: 0px;
 }
 
 .listing-page-gallery {
