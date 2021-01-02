@@ -25,7 +25,6 @@ const BookingForm = () => {
 
     const handleConfirm = async(e) => {
         e.preventDefault();
-        console.log("CONFIRM HANDLED")
         await dispatch(fetchConfirmBooking(bookingId));
         // history.push(`/bookings`);
     }

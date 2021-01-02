@@ -10,14 +10,10 @@ const BookingCard = ({ theBooking }) => {
     let currentListing = useSelector(fullReduxState => {
         return fullReduxState.listings;
     });
-
     
     useEffect( async() => {
-        console.log("THIS IS THE BOOKING LISTINGID", theBooking.listingId)
         await dispatch(fetchOneListing(theBooking.listingId));
     }, []);
-
-    console.log(currentListing.Pictures[0].url)
 
     return (
         <>

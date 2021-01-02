@@ -1,9 +1,8 @@
 import { fetch } from "./csrf";
 
 const SET_ALL_LISTINGS = 'listings/setListings';
-const SET_ONE_LISTING = 'oneListing/setOneListing'
+const SET_ONE_LISTING = 'oneListing/setOneListing';
 
-// Action creator that produces object
 export const setListings = (listings) => {
     return {
         type: SET_ALL_LISTINGS,

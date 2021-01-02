@@ -1,7 +1,7 @@
 import { fetch } from "./csrf";
 import { setListings } from './listings';
 
-const SET_ONE_BOOKING = 'bookings/setOneBooking'
+const SET_ONE_BOOKING = 'bookings/setOneBooking';
 const SET_ALL_BOOKINGS = 'bookings/setBookings';
 const CREATE_PENDING_BOOKING = 'bookings/createBooking';
 const CONFIRM_BOOKING = 'bookings/confirmBooking';
@@ -64,7 +64,6 @@ export const fetchCreateBooking = ({ userId, startDay, endDay, status, listingId
 
 export const fetchConfirmBooking = (id) => {
     return async (dispatch) => {
-        console.log("THE THUNKING HAS COMMENCED")
         const response = await fetch(`/api/bookings/${id}`, {
             method: 'PUT',
             body: JSON.stringify({ status: "confirmed" }),

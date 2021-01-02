@@ -32,9 +32,9 @@ export async function fetch(url, options = {}) {
     // if the response status code is under 400, then return the response to the
       // next promise chain
     return res;
-  }
+  };
 
   // call this to get the "XSRF-TOKEN" cookie, should only be used in development
 export function restoreCSRF() {
     return fetch('/api/csrf/restore');
-  }
+  };

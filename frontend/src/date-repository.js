@@ -29,7 +29,6 @@ export const formatDate = (dateToParse) => {
         'Saturday'
     ]
     const dayName = days[dateObj.getDay()]
-    console.log(`${dayName}, ${monthName} ${date}, ${year}`)
     return `${dayName}, ${monthName} ${date}, ${year}`
 }
 
