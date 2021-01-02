@@ -29,7 +29,6 @@ router.post('/', asyncHandler(async (req, res, next) => {
 
 // confirm a booking
 router.put('/:id(\\d+)', asyncHandler(async (req, res, next) => {
-    console.log("THIS IS REQ.PARAMS.ID:", req.param.id)
     const booking = await BookingRepository.confirm(req.params.id)
     res.json(booking);
 }));

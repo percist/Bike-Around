@@ -35,7 +35,6 @@ async function confirm(id) {
     const booking = await Booking.findByPk(id)
     await booking.update({status: 'confirmed'})
     await sequelize.close;
-    console.log(booking)
     return booking;
 };
 
