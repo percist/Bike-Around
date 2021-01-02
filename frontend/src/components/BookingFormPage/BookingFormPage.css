@@ -26,7 +26,7 @@
 .booking-form-listing-img {
     display: flex;
     flex-direction: column;
-    border: 1px solid #6b4d57;
+    border: 1px solid rgb(107, 77, 87);
     border-radius: 8pt;
     box-shadow: rgba(19, 7, 12, .12) 0px 4px 16px;
     height: 140px;

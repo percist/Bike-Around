@@ -1,0 +1,14 @@
+#bookings-header h3 {
+    color: #6b4d57;
+}
+
+#bookings-gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0px 16px;
+}
+
+#bookings-header {
+    margin: 0px 30px;
+}

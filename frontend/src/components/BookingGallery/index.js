@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllBookings } from '../../store/bookings';
 import { fetchAllListings } from '../../store/listings';
 import BookingCard from '../BookingCard';
+import './BookingGallery.css';
 
 const BookingGallery = () => {
     const dispatch = useDispatch();
@@ -23,8 +24,8 @@ const BookingGallery = () => {
     return(
         <>
             <div id="bookings-header">
-                <h3>Bikes</h3>
-                <hr id="bookings-bar" color="darkgray" />
+                <h3>My Rides</h3>
+                <hr id="bookings-bar" color="#896a67" />
             </div>
             <div id="bookings-gallery">
                 {!currentBookings && <h3>Loading.....</h3>}

@@ -2,12 +2,23 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import { fetchOneListing } from "../../store/listings";
+import { formatDate } from "../../date-repository";
 import './BookingCard.css';
 
-const BookingCard = ({ theBooking }) => {
+const BookingCard = ({ theBooking, allListings }) => {
     const dispatch = useDispatch();
 
-    let currentListing = useSelector(fullReduxState => {
+    // const selectTheListing = (Listings, Booking) => {
+    //     return allListings.filter( listing => {
+    //         const theListing = theBooking.listingId === listing.id;
+    //         console.log("THIS IS THE LISTING", theListing);
+    //         return theListing;
+    //     });
+    // }
+
+    // const theListing = selectTheListing(allListings, theBooking)
+
+    const theListing = useSelector(fullReduxState => {
         return fullReduxState.listings;
     });
     
@@ -19,26 +30,28 @@ const BookingCard = ({ theBooking }) => {
         <>
             <div className="booking-card">
                 <div className="booking-card-img">
-                    <a href={`/listings/${currentListing.id}`}>
-                        <img 
-                            alt="bike" 
-                            id="booking-card-img"
-                            // src={currentListing.Pictures[0].url} 
-                        />
-                    </a>
+                    {!theListing.Pictures && <h3>Loading.....</h3>}
+                    {theListing.Pictures && 
+                        <a href={`/listings/${theListing.id}`}>
+                            <img 
+                                alt="bike" 
+                                id="booking-card-img"
+                                src={theListing.Pictures[0].url} 
+                            />
+                        </a>
+                     }
                 </div>
                 <div className="booking-content">
                     <div className='booking-card_2'>
-                        {`${theBooking.startDay} - ${theBooking.endDay}`}
+                        {`${formatDate(theBooking.startDay)} - ${formatDate(theBooking.endDay)}`}
                     </div>
                     <div className='booking-card_3'>
-                        {currentListing.nearestCity}
+                        {theListing.nearestCity}
                     </div>
                     <div className='booking-card_4'>
-                        {currentListing.title}
+                        {theListing.title}
                     </div>
                 </div>
-                <hr id="booking-card-bar" color="darkgray"/>
                 <div className="edit-booking-button">
                     Edit this Ride
                 </div>
