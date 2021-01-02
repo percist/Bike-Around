@@ -1,13 +1,13 @@
 * {
     box-sizing: border-box;
     text-decoration: none;
-    color: #6b4d57;
-    font-family: Roboto;
+    
 }
 
 html,body {
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-family: Roboto;
     margin: 0;
     padding: 0;
     background-color: #e7e7e7;
+    color: #6b4d57;
 }

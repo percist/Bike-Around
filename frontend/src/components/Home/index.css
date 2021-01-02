@@ -3,7 +3,8 @@
 #home-page-container {
     height: 800px;
     position: relative;
-    overflow: hidden;
+    overflow: hidden;    
+    margin-top: -20px;
 }
 
 #home-page-container-img {

@@ -34,23 +34,26 @@ const Navigation = ({ isLoaded }) =>{
     }
 
     return (
-        <ul className='navbar'>
-            <li>
-                <h2 id="navbar-link-home">
-                    <Link to="/listings">
-                        bike around
-                    </Link>
-                </h2>
-            </li>
-            <li className="navbar-link">
-                <NavLink 
-                    to="/" exact
-                    id="link-home"
-                    >Home
-                </NavLink> 
-                {isLoaded && sessionLinks}
-            </li>
-        </ul>
+        <>
+            <ul className='navbar'>
+                <li>
+                    <h2 id="navbar-link-home">
+                        <Link to="/listings">
+                            bike around
+                        </Link>
+                    </h2>
+                </li>
+                <li className="navbar-link">
+                    <NavLink 
+                        to="/" exact
+                        id="link-home"
+                        >Home
+                    </NavLink> 
+                    {isLoaded && sessionLinks}
+                </li>
+            </ul>
+            <hr id="listing-bar" color="#896a67" />
+        </>
     );
 }
 

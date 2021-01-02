@@ -19,18 +19,15 @@ const ListingGallery = () => {
         );
     }, []);
 
-    console.log("THIS IS THE CURRENTLISTING:", currentListings)
-
     return (
         <>
-            <hr id="listing-bar" color="#896a67" />
             <div id="listing-header">
                 <h3>Bikes to ride near you</h3>
                 <hr id="listing-gallery-bar" color="#896a67" />
             </div>
             <div id="listing-gallery">
                 {!currentListings && <h3>Loading......</h3>}
-                {currentListings && currentListings.map(listing => {
+                {(Array.isArray(currentListings) === true) && currentListings.map(listing => {
                     return <ListingCard theListing={listing} />;
                 })}
             </div>
