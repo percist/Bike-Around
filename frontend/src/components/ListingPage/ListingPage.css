@@ -1,5 +1,8 @@
-#listing-page-header h2 {
+#listing-page-header{
     margin: 4px 40px 0px;
+}
+
+#listing-page-header h2 {
     font-family: Roboto;
     letter-spacing: 0px;
 }
@@ -49,18 +52,28 @@
     justify-content: space-between;
     align-items: center;
     margin-left: 40pt;
-    border: 1pt solid lightsteelblue;
+    border: 1pt solid #896a67;
     border-radius: 8pt;
-    box-shadow: rgba(0, 0, 0, .12) 0px 6px 16px;
+    box-shadow: rgba(19, 7, 12, .12) 0px 4px 16px;
+}
+
+.listing-page-properties_2_1,
+.listing-page-properties_2_2 {
+    margin-bottom: 15px;
+}
+
+.App {
+    border-radius: 8px;
 }
 
 #reserve-button {
     height: 48px;
     width: 200px;
     margin: 0px;
-    background-color: lightsteelblue;
+    color: #e7e7e7;
+    background-color: #896A67;
 }
 
 #reserve-button:hover {
-    background-color: lightskyblue;
+    background-color: #6b4d57;
 }
