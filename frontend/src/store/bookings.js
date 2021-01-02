@@ -4,6 +4,7 @@ import { setListings } from './listings';
 const SET_ONE_BOOKING = 'bookings/setOneBooking';
 const SET_ALL_BOOKINGS = 'bookings/setBookings';
 const CREATE_PENDING_BOOKING = 'bookings/createBooking';
+const EDIT_BOOKING = 'bookings/editBooking';
 const CONFIRM_BOOKING = 'bookings/confirmBooking';
 
 const setOneBooking = (booking) => {
@@ -23,6 +24,13 @@ const setBookings = (bookings) => {
 const createBooking = (booking) => {
     return {
         type: CREATE_PENDING_BOOKING,
+        payload: booking,
+    };
+};
+
+const editBooking = (booking) => {
+    return {
+        type: EDIT_BOOKING,
         payload: booking,
     };
 };
@@ -62,9 +70,20 @@ export const fetchCreateBooking = ({ userId, startDay, endDay, status, listingId
     };
 };
 
+export const fetchEditBooking = (payload) => {
+    return async (dispatch) => {
+        const response = await fetch(`/api/bookings/${payload.id}`, {
+            method: 'PUT',
+            body: JSON.stringify(payload)
+        });
+        dispatch(createBooking(response.data));
+        return response.data;
+    };
+};
+
 export const fetchConfirmBooking = (id) => {
     return async (dispatch) => {
-        const response = await fetch(`/api/bookings/${id}`, {
+        const response = await fetch(`/api/bookings/${id}/confirm`, {
             method: 'PUT',
             body: JSON.stringify({ status: "confirmed" }),
         });
@@ -85,6 +104,9 @@ const bookingReducer = (state = initialState, action) => {
             newState = action.payload;
             return newState;
         case CREATE_PENDING_BOOKING:
+            newState = action.payload;
+            return newState;
+        case EDIT_BOOKING:
             newState = action.payload;
             return newState;
         case CONFIRM_BOOKING:

@@ -9,10 +9,6 @@ import './ListingPage.css';
 
 moment().format();
 
-const calculateDuration = (begin, end) =>{
-    return Math.ceil(end.diff(begin) / (60*60*24*1000))
-};
-
 const ListingPage = ({ theListing }) => {
     const dispatch = useDispatch();
     const {id} = useParams();
@@ -24,6 +20,10 @@ const ListingPage = ({ theListing }) => {
     const [focusedInput, setFocusedInput] = useState([]);
     const [errors, setErrors] = useState([]);
 
+    const calculateDuration = (begin, end) =>{
+        return Math.ceil(end.diff(begin) / (60*60*24*1000))
+    };
+    
     const handleClick = async() => {
         if (!startDate || !endDate){
             return setErrors(['Please select a start date and an end date to check availability.'])
@@ -133,4 +133,4 @@ const ListingPage = ({ theListing }) => {
     )
 }
 
-export default ListingPage
+export default ListingPage;

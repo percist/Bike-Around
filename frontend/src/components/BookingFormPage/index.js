@@ -61,7 +61,7 @@ const BookingForm = () => {
                     />
                     <div id="booking-form-listing-button">
                         <a>                            
-                            <h4><Link to={`/listings/${listingId}`}>Edit your Ride</Link></h4>
+                            <h4><Link to={`/listings/${listingId}/bookings/${bookingId}/edit`}>Edit your Ride</Link></h4>
                         </a>
                     </div>
                 </div>

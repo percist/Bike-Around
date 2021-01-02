@@ -9,6 +9,7 @@ import ListingGallery from "./components/ListingGallery";
 import ListingPage from "./components/ListingPage";
 import BookingGallery from "./components/BookingGallery";
 import BookingForm from "./components/BookingFormPage";
+import BookingPage from "./components/BookingPage";
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -36,7 +37,10 @@ function App() {
           <Route path="/bookings" exact>
             <BookingGallery />
           </Route>
-          <Route path="/listings/:listingId/bookings/:bookingId" >
+          <Route path="/listings/:listingId/bookings/:bookingId/edit" >
+            <BookingPage />
+          </Route>
+          <Route path="/listings/:listingId/bookings/:bookingId" exact>
             <BookingForm />
           </Route>
         </Switch>
