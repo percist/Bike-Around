@@ -7,7 +7,7 @@ import Navigation from './components/Navigation';
 import HomePage from "./components/Home";
 import ListingGallery from "./components/ListingGallery";
 import ListingPage from "./components/ListingPage";
-import UserBookings from "./components/UserBookings";
+import BookingGallery from "./components/BookingGallery";
 import BookingForm from "./components/BookingFormPage";
 import * as sessionActions from "./store/session";
 
@@ -34,7 +34,7 @@ function App() {
             <ListingPage />
           </Route>
           <Route path="/bookings" exact>
-            <UserBookings />
+            <BookingGallery />
           </Route>
           <Route path="/listings/:listingId/bookings/:bookingId" >
             <BookingForm />

@@ -1,16 +1,23 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllBookings } from '../../store/bookings';
+import { fetchAllListings } from '../../store/listings';
 import BookingCard from '../BookingCard';
-const UserBookings = () => {
+
+const BookingGallery = () => {
     const dispatch = useDispatch();
 
     let currentBookings = useSelector(fullReduxState => {
         return fullReduxState.bookings;
     });
 
+    let allListings = useSelector(fullReduxState => {
+        return fullReduxState.listings
+    })
+
     useEffect(async () => {
         await dispatch(fetchAllBookings());
+        await dispatch(fetchAllListings())
     }, []);
 
     return(
@@ -22,11 +29,11 @@ const UserBookings = () => {
             <div id="bookings-gallery">
                 {!currentBookings && <h3>Loading.....</h3>}
                 {currentBookings && currentBookings.map(booking => {
-                    return <BookingCard theBooking={booking} currentListings/>
+                    return <BookingCard theBooking={booking} allListings={allListings}/>
                 })}
             </div>
         </>
     )
 }
 
-export default UserBookings
+export default BookingGallery
