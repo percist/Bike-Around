@@ -1,4 +1,4 @@
-const { Booking, Listing } = require("./models");
+const { sequelize, Booking, Listing } = require("./models");
 
 async function list() {
     return await Booking.findAll();
@@ -21,8 +21,9 @@ async function userList(id) {
     return { bookings, listing }
 }
 
-async function one(id) {
-    return await Booking.findByPk(id);
+async function getOne(id) {
+    const booking = await Booking.findByPk(id);
+    return booking;
 }
 
 async function create(details) {
@@ -30,9 +31,18 @@ async function create(details) {
     return booking;
 }
 
+async function confirm(id) {
+    const booking = await Booking.findByPk(id)
+    await booking.update({status: 'confirmed'})
+    await sequelize.close;
+    console.log(booking)
+    return booking;
+};
+
 module.exports = {
     list,
     userList,
-    one,
-    create
+    getOne,
+    create,
+    confirm
 }

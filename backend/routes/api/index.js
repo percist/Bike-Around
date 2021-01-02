@@ -7,8 +7,6 @@ const listingsRouter = require('./listings.js');
 const bookingsRouter = require('./bookings.js');
 
 const reviewsRouter = require('./reviews.js');
-const bikePicturesRouter = require('./bikePictures.js');
-const profilePicturesRouter = require('./profilePictures.js');
 // const { User } = require('../../db/models');
 // const { requireAuth } = require('../../utils/auth.js');
 

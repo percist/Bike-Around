@@ -17,21 +17,21 @@ router.get('/', restoreUser, asyncHandler(async (req, res, next) => {
 
 // retrieve a single booking
 router.get('/:id(\\d+)', restoreUser, asyncHandler(async (req, res, next) => {
-    const booking = await BookingRepository.one(req.params.id)
-    res.json(booking)
+    const booking = await BookingRepository.getOne(req.params.id)
+    res.json(booking);
 }));
 
 // create a single booking
 router.post('/', asyncHandler(async (req, res, next) => {
-    // const { userId, startDay, endDay, status, duration } = req.body;
-    // console.log( userId, startDay, endDay, status, duration )
     const booking = await BookingRepository.create(req.body);
-    res.json(booking)
+    res.json(booking);
 }));
 
-// edit a single booking
+// confirm a booking
 router.put('/:id(\\d+)', asyncHandler(async (req, res, next) => {
-
+    console.log("THIS IS REQ.PARAMS.ID:", req.param.id)
+    const booking = await BookingRepository.confirm(req.params.id)
+    res.json(booking);
 }));
 
 // delete a booking

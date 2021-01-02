@@ -21,7 +21,7 @@ router.get('/', asyncHandler(async (req, res, next) => {
 }));
 
 // retrieve a single listing
-router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {    
+router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {  
     const listing = await Listing.findByPk(req.params.id, {include: {all:true}});
     res.json({listing: listing})
 }));
