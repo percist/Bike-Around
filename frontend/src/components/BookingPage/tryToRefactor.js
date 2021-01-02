@@ -14,7 +14,8 @@ const BookingPage = ({ theBooking }) => {
     const { listingId, bookingId } = params;
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-    const [showUpdated, setShowUpdated] = useState(false)
+    const [showUpdated, setShowUpdated] = useState(false);
+    const [isCanceled, setIsCanceled] = useState(false);
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [focusedInput, setFocusedInput] = useState([]);
@@ -47,7 +48,12 @@ const BookingPage = ({ theBooking }) => {
     }
 
     const handleCancelClick = async() => {
-        await dispatch(fetchDeleteBooking(bookingId))
+        await dispatch(fetchDeleteBooking(bookingId));
+        setIsCanceled(true)
+    }
+
+    function handleSearchClick() {
+        history.push('/listings');
     }
 
     const currentListing = useSelector(fullReduxState => {
@@ -69,6 +75,70 @@ const BookingPage = ({ theBooking }) => {
         setStartDate(bookingId.startDay);
         setEndDate(bookingId.endDay);
     }, []);
+
+    let bookingContent;
+
+    if (!isCanceled || currentBooking === undefined) {
+        bookingContent = (
+            <>
+                <h3> Your Ride Details</h3>
+                <hr id="ride-details-bar" color="#6B4D57" />
+                <div className="booking-details-properties_1">
+                    <h4>{`Start Date: ${formatDate(currentBooking.startDay)}`}</h4>
+                    <h4>{`End Date: ${formatDate(currentBooking.endDay)}`}</h4>
+
+                </div>
+                <div className="booking-details-properties_2">
+                    <div className="booking-detials-properties_2_1">
+                        {`$${currentListing.pricePerDay/100}.00 / day x ${currentBooking.duration} days - $${(currentListing.pricePerDay/100)*(currentBooking.duration)}.00`}
+                    </div>
+                    <hr id="booking-details-bar" color="#6B4D57" />
+                    Update Dates Below
+                    {errors.map((error, idx) => <li key={`map-${idx}`}>{error}</li>)}
+                    <div className="booking-details-properties_2_2">
+                        <div className="App">
+                            <DateRangePicker
+                                startDateId="startDate"
+                                endDateId="endDate"
+                                startDate={startDate}
+                                endDate={endDate}
+                                onDatesChange={({ startDate, endDate }) => { 
+                                    setStartDate(startDate); 
+                                    setEndDate(endDate);
+                                }}
+                                focusedInput={focusedInput}
+                                onFocusChange={(focusedInput) => {setFocusedInput(focusedInput)}}
+                            />
+                        </div>                    
+                    </div>
+                    <a 
+                        id="booking-details-confirmation"
+                    >
+
+                    </a>
+                    <button 
+                        className="button"
+                        id="update-button"
+                        onClick={handleEditClick}
+                        >
+                        Update Your Ride
+                    </button>
+                </div>
+            </>
+        );
+    }else{
+        <>
+            <h2>Your Ride has been cancelled</h2>
+            <button 
+                className="button"
+                id="search-button"
+                onClick={handleSearchClick}
+            >
+                Explore other bikes
+            </button>
+        </>
+    }
+            
 
     return(
         <div className="booking-page">
@@ -102,63 +172,21 @@ const BookingPage = ({ theBooking }) => {
                 </div>
             </div>
             <div className="booking-details">
-                <h3> Your Ride Details</h3>
-                <hr id="ride-details-bar" color="#6B4D57" />
-                <div className="booking-details-properties_1">
-                    <h4>{`Start Date: ${formatDate(currentBooking.startDay)}`}</h4>
-                    <h4>{`End Date: ${formatDate(currentBooking.endDay)}`}</h4>
-
-                </div>
-                <div className="booking-details-properties_2">
-                    <div className="booking-detials-properties_2_1">
-                        {`$${currentListing.pricePerDay/100}.00 / day x ${currentBooking.duration} days - $${(currentListing.pricePerDay/100)*(currentBooking.duration)}.00`}
-                    </div>
-                    <hr id="booking-details-bar" color="#6B4D57" />
-                    Update Dates Below
-                    {errors.map((error, idx) => <li key={`map-${idx}`}>{error}</li>)}
-                    <div className="booking-details-properties_2_2">
-                        <div className="App">
-                            <DateRangePicker
-                                startDateId="startDate"
-                                endDateId="endDate"
-                                startDate={startDate}
-                                endDate={endDate}
-                                onDatesChange={({ startDate, endDate }) => { 
-                                    setStartDate(startDate); 
-                                    setEndDate(endDate);
-                                }}
-                                focusedInput={focusedInput}
-                                onFocusChange={(focusedInput) => {setFocusedInput(focusedInput)}}
-                                />
-                        </div>                    
-                    </div>
-                    <a 
-                        id="booking-details-confirmation"
-                        >
-
-                    </a>
-                    <button 
-                        className="button"
-                        id="update-button"
-                        onClick={handleEditClick}
-                        >
-                        Update Your Ride
-                    </button>
-                    <button 
-                        className="button"
-                        id="cancel-booking-button"
-                        onClick={handleCancelClick}
-                    >
-                        Cancel Your Ride
-                    </button>
-                    <button 
-                        className="button"
-                        id="return-to-booking-button"
-                        onClick={handleReturnClick}
-                    >
-                        Return to Ride Details
-                    </button>
-                </div>
+                {bookingContent}
+                <button 
+                    className="button"
+                    id="cancel-booking-button"
+                    onClick={handleCancelClick}
+                >
+                    Cancel Your Ride
+                </button>
+                <button 
+                    className="button"
+                    id="return-to-booking-button"
+                    onClick={handleReturnClick}
+                >
+                    Return to Ride Details
+                </button>
             </div>
         </div>
     )

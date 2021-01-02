@@ -6,6 +6,7 @@ const SET_ALL_BOOKINGS = 'bookings/setBookings';
 const CREATE_PENDING_BOOKING = 'bookings/createBooking';
 const EDIT_BOOKING = 'bookings/editBooking';
 const CONFIRM_BOOKING = 'bookings/confirmBooking';
+const DELETE_BOOKING = 'bookings/deleteBooking'
 
 const setOneBooking = (booking) => {
     return {
@@ -42,6 +43,13 @@ const confirmBooking = (booking) => {
     };
 };
 
+const deleteBooking = (booking) => {
+    return {
+        type: DELETE_BOOKING,
+        payload: booking,
+    };
+};
+
 export const fetchOneBooking = (id) => {
     return async (dispatch) => {
         const response = await fetch(`/api/bookings/${id}`)
@@ -72,7 +80,8 @@ export const fetchCreateBooking = ({ userId, startDay, endDay, status, listingId
 
 export const fetchEditBooking = (payload) => {
     return async (dispatch) => {
-        const response = await fetch(`/api/bookings/${payload.id}`, {
+        console.log(payload)
+        const response = await fetch(`/api/bookings/${payload.bookingId}`, {
             method: 'PUT',
             body: JSON.stringify(payload)
         });
@@ -88,6 +97,16 @@ export const fetchConfirmBooking = (id) => {
             body: JSON.stringify({ status: "confirmed" }),
         });
         dispatch(confirmBooking(response.data));
+        return response.data;
+    };
+};
+
+export const fetchDeleteBooking = (id) => {
+    return async (dispatch) => {
+        const response = await fetch(`/api/bookings/${id}`, {
+            method: 'DELETE',
+        })
+        dispatch(deleteBooking(response.data));
         return response.data;
     };
 };
@@ -110,6 +129,9 @@ const bookingReducer = (state = initialState, action) => {
             newState = action.payload;
             return newState;
         case CONFIRM_BOOKING:
+            newState = action.payload;
+            return newState;
+        case DELETE_BOOKING:
             newState = action.payload;
             return newState;
         default:

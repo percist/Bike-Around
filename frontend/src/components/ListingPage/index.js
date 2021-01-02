@@ -98,6 +98,9 @@ const ListingPage = ({ theListing }) => {
                     <div className="listing-page-properties_1_2">
                         {currentListing.description}
                     </div>
+                    <div className="listing-page-properties_1_3">
+                        Size: {currentListing.BikeSize.name}
+                    </div>
                 </div>
                 <div className="listing-page-properties_2">
                     <div className="listing-page-properties_2_1">
