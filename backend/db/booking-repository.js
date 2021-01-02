@@ -38,10 +38,24 @@ async function confirm(id) {
     return booking;
 };
 
+async function edit(details) {
+    const id = details.id;
+    delete details.id;
+    const booking = await Booking.update(
+        details,
+        {
+            where: {id},
+            returning: true,
+            plain: true,
+        });
+    return booking;
+}
+
 module.exports = {
     list,
     userList,
     getOne,
     create,
-    confirm
+    confirm,
+    edit
 }

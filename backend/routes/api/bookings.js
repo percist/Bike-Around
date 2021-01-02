@@ -1,6 +1,5 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { db } = require('../../config');
 const { restoreUser } = require('../../utils/auth')
 const BookingRepository = require('../../db/booking-repository')
 // const { User, Listing, Booking } = require('../../db/models');
@@ -27,8 +26,14 @@ router.post('/', asyncHandler(async (req, res, next) => {
     res.json(booking);
 }));
 
-// confirm a booking
+// edit a booking
 router.put('/:id(\\d+)', asyncHandler(async (req, res, next) => {
+    const booking = await BookingRepository.edit(req.body)
+    res.json(booking);
+}));
+
+// confirm a booking
+router.put('/:id(\\d+)/confirm', asyncHandler(async (req, res, next) => {
     const booking = await BookingRepository.confirm(req.params.id)
     res.json(booking);
 }));
