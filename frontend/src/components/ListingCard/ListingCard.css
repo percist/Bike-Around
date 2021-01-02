@@ -3,13 +3,13 @@
     display: flex;
     flex-direction: column;
     width: 475px;
-    height: 500px;
+    height: 400px;
     margin: 15px;
 }
 
 .listing-content {
     width: 100%;
-    height: 303px;
+    height: 100px;
     margin: 10px;
 }
 
@@ -21,11 +21,19 @@
 .listing-card_3 {
     font-weight: lighter;
     margin: 4px 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .listing-card_4 {
     font-weight: 900;
     margin: 6px 0px;
+}
+
+.listing-card-bar {
+    margin-left: -10px;
+    margin-right: 10px;
 }
 
 #listing-card-img {

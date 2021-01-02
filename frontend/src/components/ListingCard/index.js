@@ -23,6 +23,7 @@ const ListingCard = ({ theListing }) => {
                     <div className='listing-card_4'>
                         {`$${theListing.pricePerDay/100} / day`}
                     </div>
+                    <hr className='listing-card-bar' color="#896a67" />
                 </div>
             </div>
         </>

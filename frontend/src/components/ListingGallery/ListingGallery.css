@@ -1,7 +1,18 @@
+* {
+    background-color: #e7e7e7;
+    color: #6b4d57;
+}
+
+#listing-bar {
+    position: sticky;
+    top: 80px;
+}
+
 #listing-gallery {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: 0px 16px;
 }
 
 #listing-header {
