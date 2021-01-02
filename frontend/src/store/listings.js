@@ -32,11 +32,11 @@ export const fetchOneListing = (id) => {
         const response = await fetch(`/api/listings/${id}`);
         dispatch(
             setOneListing(response.data.listing)
-        )
-    }
+        );
+    };
 };
 
-const initialState = []
+const initialState = [];
 
 const listingReducer = (state = initialState, action) => {
     let newState;

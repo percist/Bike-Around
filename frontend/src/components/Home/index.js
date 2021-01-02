@@ -36,7 +36,7 @@ const HomePage = () => {
                         class="home-page-welcome"
                         id="home-page-welcome"
                     >
-                        {loggedInUser && <h3>Welcome {loggedInUser.username}, find a <Link className="home-page-welcome" to="/listings">Bike Around</Link> you!</h3>}
+                        {/* {loggedInUser && <h3>Welcome {loggedInUser.username}, find a <Link className="home-page-welcome" to="/listings">Bike Around</Link> you!</h3>} */}
                     </div>
                 </div >
             </div>

@@ -18,7 +18,7 @@ const ListingPage = ({ theListing }) => {
     const {id} = useParams();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-    const listingId = id
+    const listingId = id;
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [focusedInput, setFocusedInput] = useState([]);
@@ -30,7 +30,7 @@ const ListingPage = ({ theListing }) => {
         }
         setErrors([]);
 
-        const duration = calculateDuration(startDate, endDate) 
+        const duration = calculateDuration(startDate, endDate) ;
 
         const newBooking = await dispatch(fetchCreateBooking({
             listingId: listingId,
@@ -40,9 +40,8 @@ const ListingPage = ({ theListing }) => {
             status: "pending",
             duration: duration
         }));
-        console.log(newBooking)
-        const bookingId = newBooking.id
-        history.push(`/listings/${listingId}/bookings/${bookingId}`)
+        const bookingId = newBooking.id;
+        history.push(`/listings/${listingId}/bookings/${bookingId}`);
     }
 
     const currentListing = useSelector(fullReduxState => {

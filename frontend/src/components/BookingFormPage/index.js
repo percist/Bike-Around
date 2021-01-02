@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 import { fetchOneListing } from '../../store/listings';
-//import { fetchOneBooking } from '../../store/listings';
+import { fetchOneBooking, fetchConfirmBooking } from '../../store/bookings';
 import { formatDate} from '../../date-repository';
 import './BookingFormPage.css';
 
 const BookingForm = () => {
     const dispatch = useDispatch();
-    const {id} = useParams();
+    const params = useParams();
+    const { listingId, bookingId } = params;
+    const history = useHistory();
 
     const currentListing = useSelector(fullReduxState=> {
         return fullReduxState.listings;
@@ -19,15 +21,18 @@ const BookingForm = () => {
     })
 
     const startDate = formatDate(booking.startDay);
-    const endDate = formatDate(booking.endDay)
+    const endDate = formatDate(booking.endDay);
 
-    const handleConfirm = () => {
-        //call put route to update booking status from pending to confirmed;
-    };
+    const handleConfirm = async(e) => {
+        e.preventDefault();
+        console.log("CONFIRM HANDLED")
+        await dispatch(fetchConfirmBooking(bookingId));
+        // history.push(`/bookings`);
+    }
 
     useEffect( async() => {
-        await dispatch(fetchOneListing(id));
-        //await dispatch(fetchOneBooking(id));
+        await dispatch(fetchOneListing(listingId));
+        await dispatch(fetchOneBooking(bookingId));
     }, [])
 
     return(
@@ -57,7 +62,7 @@ const BookingForm = () => {
                     />
                     <div id="booking-form-listing-button">
                         <a>                            
-                            <h4><Link to={`/listings/${id}`}>Edit your Ride</Link></h4>
+                            <h4><Link to={`/listings/${listingId}`}>Edit your Ride</Link></h4>
                         </a>
                     </div>
                 </div>
@@ -80,7 +85,7 @@ const BookingForm = () => {
                 </div>
                 <button 
                     id="confirm-booking-button"
-                    // onClick={handleConfirm}
+                    onClick={handleConfirm}
                     >
                     Confirm!
                 </button>
