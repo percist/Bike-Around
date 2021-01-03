@@ -41,102 +41,98 @@ const SignupForm = () => {
 
     return (
         <div id="signup">
-            <div id="signup-form_1">
-            </div>
-            <div id="signup-form_2">
-                <form
-                    className="form"
-                    id="signup-form"
-                    onSubmit={handleSubmit}
-                >
-                    <ul>
-                        {errors.map((error, idx) => <li key={`signup-${idx}`}>{error}</li>)}
-                    </ul>
-                    <label>
-                        First Name
-                        <input
-                            className="input"
-                            type="text"
-                            id="firstName"
-                            value={firstName}
-                            onChange={(e) => setFirstName(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Last Name
-                        <input
-                            className="input"
-                            type="text"
-                            id="lastName"
-                            value={lastName}
-                            onChange={(e) => setLastName(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Username
-                        <input
-                            className="input"
-                            type="text"
-                            id="username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Zip Code
-                        <input
-                            className="input"
-                            type="text"
-                            id="zip"
-                            value={zip}
-                            onChange={(e) => setZip(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Email
-                        <input
-                            className="input"
-                            type="email"
-                            id="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Password
-                        <input
-                            className="input"
-                            type="password"
-                            value={password}
-                            id="password"
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Confirm Password
-                        <input
-                            className="input"
-                            type="password"
-                            value={confirmPassword}
-                            id="confirm-password"
-                            onChange={(e) => setConfirmPassword(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <button
-                        className="button"
-                        id="button-signup"
-                        type="submit"
-                        >Sign up
-                    </button>
-                </form>
-            </div>
+            <form
+                className="form"
+                id="signup-form"
+                onSubmit={handleSubmit}
+            >
+                <ul>
+                    {errors.map((error, idx) => <li key={`signup-${idx}`}>{error}</li>)}
+                </ul>
+                <label>
+                    First Name
+                    <input
+                        className="input"
+                        type="text"
+                        id="firstName"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Last Name
+                    <input
+                        className="input"
+                        type="text"
+                        id="lastName"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Username
+                    <input
+                        className="input"
+                        type="text"
+                        id="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Zip Code
+                    <input
+                        className="input"
+                        type="text"
+                        id="zip"
+                        value={zip}
+                        onChange={(e) => setZip(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Email
+                    <input
+                        className="input"
+                        type="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Password
+                    <input
+                        className="input"
+                        type="password"
+                        value={password}
+                        id="password"
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Confirm Password
+                    <input
+                        className="input"
+                        type="password"
+                        value={confirmPassword}
+                        id="confirm-password"
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                    />
+                </label>
+                <button
+                    className="button"
+                    id="button-signup"
+                    type="submit"
+                    >Sign up
+                </button>
+            </form>
         </div>
     )
 }
