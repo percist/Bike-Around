@@ -80,7 +80,6 @@ export const fetchCreateBooking = ({ userId, startDay, endDay, status, listingId
 
 export const fetchEditBooking = (payload) => {
     return async (dispatch) => {
-        console.log(payload)
         const response = await fetch(`/api/bookings/${payload.bookingId}`, {
             method: 'PUT',
             body: JSON.stringify(payload)

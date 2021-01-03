@@ -5,7 +5,6 @@ const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 
 export const setUser = (user) => {
-    console.log("SET USER HAPPENED!!")
     return {
         type: SET_USER,
         payload: user
@@ -19,7 +18,6 @@ export const removeUser = () => {
 }
 
 export const login = (user) => async (dispatch) => {
-    console.log("LOGIN THUNK HAPPENED!!!")
     const res = await fetch('/api/session', {
         method: "POST",
         body: JSON.stringify({
@@ -75,7 +73,6 @@ const sessionReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case SET_USER:
-            console.log("SESSION REDUCER FOR SET_USER HAPPENED")
             return{...state,
                 user: action.payload
             }

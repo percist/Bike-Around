@@ -43,7 +43,6 @@ const ListingPage = ({ theListing }) => {
                 status: "pending",
                 duration: duration
             }));
-            console.log("THIS IS THE NEW BOOKING:", newBooking)
             const bookingId = newBooking.id;
             history.push(`/listings/${listingId}/bookings/${bookingId}`);
             return null
