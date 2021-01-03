@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllBookings } from '../../store/bookings';
 import { fetchAllListings } from '../../store/listings';
+import SearchButton from '../SearchButton';
 import BookingCard from '../BookingCard';
 import './BookingGallery.css';
 
@@ -16,26 +17,61 @@ const BookingGallery = () => {
         return fullReduxState.listings
     })
 
-    const [activePage, setActivePage] = useState("listings");
-    const [listingsShown, setListingsShown] = useState([...currentListings])
+    const [activePage, setActivePage] = useState("bookings");
+    const [bookingsShown, setBookingsShown] = useState([...currentBookings])
     const [query, setQuery] = useState('');
 
-    const listingsRegex = new RegExp(query, "i")
+    const bookingsRegex = new RegExp(query, "i")
 
     useEffect(async () => {
         await dispatch(fetchAllBookings());
         await dispatch(fetchAllListings())
     }, []);
+        
+    useEffect(async() => {
+        filterBookings()
+        console.log("USE EFFECT EXECUTED")
+    }, [query]);
+        
+    // based on Tyler Funk Medium article "Build a Custom React Search Bar Component Using a Dyanmic Regex" Oct 31, 2020
+    // https://medium.com/dev-genius/build-a-custom-react-search-bar-component-using-a-dynamic-regex-cd89fdd496f5
+    function filterBookings () {
+        console.log(query)
+        if(query.length > 0) {
+            let newBookings = [...currentBookings].filter(booking => booking.status === query)
+            setBookingsShown(newBookings)
+        } else if (query.length === 0) {
+            setBookingsShown([...currentBookings])
+        };
+    };
 
     return(
         <>
             <div id="bookings-header">
                 <h3>My Rides</h3>
+                <SearchButton
+                    query={"confirmed"}
+                    content={"Upcoming"}
+                    setQuery={setQuery}
+                    activePage={activePage}
+                />
+                <SearchButton
+                    query={"complete"}
+                    content={"Past"}
+                    setQuery={setQuery}
+                    activePage={activePage}
+                />
+                <SearchButton
+                    query={"cancelled"}
+                    content={"Cancelled"}
+                    setQuery={setQuery}
+                    activePage={activePage}
+                />
                 <hr id="bookings-bar" color="#896a67" />
             </div>
             <div id="bookings-gallery">
-                {!currentBookings && <h3>Loading.....</h3>}
-                {currentBookings && currentBookings.map(booking => {
+                {!bookingsShown && <h3>Loading.....</h3>}
+                {bookingsShown && bookingsShown.map(booking => {
                     return <BookingCard theBooking={booking} allListings={allListings}/>
                 })}
             </div>
