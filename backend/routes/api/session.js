@@ -17,6 +17,7 @@ const validateLogin = [
     handleValidationErrors,
   ];
 
+  // Logs In a user
 router.post(
     '/',
     validateLogin,
@@ -41,6 +42,7 @@ router.post(
     }),
   );
 
+  // Logs in a 'Demo' User
 router.post('/demo', asyncHandler(async (req, res, next) => {
   const user = await User.login({
     credential: "Demo-lition",
@@ -62,6 +64,7 @@ router.post('/demo', asyncHandler(async (req, res, next) => {
   });
 }));
 
+// Logs out a User (deletes a session)
 router.delete(
     '/',
     (_req, res) => {
@@ -70,6 +73,7 @@ router.delete(
     }
   );
 
+// validates a user session
 router.get(
     '/',
     restoreUser,

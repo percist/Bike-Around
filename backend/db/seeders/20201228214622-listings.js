@@ -18,6 +18,46 @@ module.exports = {
         latitude: 32.864791,
         longitude: -79.98064
       },
+      // {
+      //   ownerId: 1,
+      //   typeId: 1,
+      //   sizeId: 8,
+      //   brand: 'Trek',
+      //   model: 'Domane',
+      //   pricePerDay: 5000,
+      //   title: `Domane SLR 2020 – hidden features, aero design and gravel capabilities`,
+      //   description: `Up until now, the rear IsoSpeed on the Domane was adjusted on the seat tube. For the new model, the Trek engineers have moved this to the top tube, just like the current Madone. What’s the advantage? The compliance and adjustment range can be tuned individually for each frame size and an additional elastomer integrated into the design is claimed to offer even more damping and shock absorption.`,
+      //   nearestCity: "Charleston",
+      //   isAvailable: true,
+      //   latitude: 32.864791,
+      //   longitude: -79.98064
+      // },      {
+      //   ownerId: 1,
+      //   typeId: 1,
+      //   sizeId: 8,
+      //   brand: 'Trek',
+      //   model: 'Domane',
+      //   pricePerDay: 5000,
+      //   title: `Domane SLR 2020 – hidden features, aero design and gravel capabilities`,
+      //   description: `Up until now, the rear IsoSpeed on the Domane was adjusted on the seat tube. For the new model, the Trek engineers have moved this to the top tube, just like the current Madone. What’s the advantage? The compliance and adjustment range can be tuned individually for each frame size and an additional elastomer integrated into the design is claimed to offer even more damping and shock absorption.`,
+      //   nearestCity: "Charleston",
+      //   isAvailable: true,
+      //   latitude: 32.864791,
+      //   longitude: -79.98064
+      // },      {
+      //   ownerId: 1,
+      //   typeId: 1,
+      //   sizeId: 8,
+      //   brand: 'Trek',
+      //   model: 'Domane',
+      //   pricePerDay: 5000,
+      //   title: `Domane SLR 2020 – hidden features, aero design and gravel capabilities`,
+      //   description: `Up until now, the rear IsoSpeed on the Domane was adjusted on the seat tube. For the new model, the Trek engineers have moved this to the top tube, just like the current Madone. What’s the advantage? The compliance and adjustment range can be tuned individually for each frame size and an additional elastomer integrated into the design is claimed to offer even more damping and shock absorption.`,
+      //   nearestCity: "Charleston",
+      //   isAvailable: true,
+      //   latitude: 32.864791,
+      //   longitude: -79.98064
+      // },
       {
         ownerId: 2,
         typeId: 1,

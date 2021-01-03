@@ -39,9 +39,9 @@ router.put('/:id(\\d+)/confirm', asyncHandler(async (req, res, next) => {
 }));
 
 // delete a booking
-router.delete('/:id(\\d+)', asyncHandler(async (req, res, next) => {
-    const bookingId = await BookingRepository.deleteBooking(req.params.id)
-    res.json(bookingId);
+router.patch('/:id(\\d+)', asyncHandler(async (req, res, next) => {
+    const booking = await BookingRepository.cancelBooking(req.params.id)
+    res.json(booking);
 }));
 
 

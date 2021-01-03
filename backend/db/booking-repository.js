@@ -47,12 +47,11 @@ async function edit(details) {
     return booking;
 }
 
-async function deleteBooking(id) {
-    const booking = await Booking.findByPk(id);
-    if (!booking) throw new Error('Cannot find booking');
-  
-    await Booking.destroy({ where: { id: booking.id }});
-    return booking.id;
+async function cancelBooking(id) {
+    const booking = await Booking.findByPk(id)
+    await booking.update({status: 'cancelled'})
+    await sequelize.close;
+    return booking;
 }
 
 module.exports = {
@@ -62,5 +61,5 @@ module.exports = {
     create,
     confirm,
     edit,
-    deleteBooking
+    cancelBooking
 }

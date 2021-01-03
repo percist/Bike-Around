@@ -11,6 +11,30 @@ module.exports = {
           status: "complete",
           duration: 3
         },
+        // {
+        //   listingId: 2,
+        //   userId: 2,
+        //   startDay: "2020-12-05",
+        //   endDay: "2020-12-07",
+        //   status: "complete",
+        //   duration: 2
+        // },        
+        // {
+        //   listingId: 2,
+        //   userId: 2,
+        //   startDay: "2020-12-05",
+        //   endDay: "2020-12-07",
+        //   status: "complete",
+        //   duration: 2
+        // },        
+        // {
+        //   listingId: 2,
+        //   userId: 2,
+        //   startDay: "2020-12-05",
+        //   endDay: "2020-12-07",
+        //   status: "complete",
+        //   duration: 2
+        // },
         {
           listingId: 2,
           userId: 2,
