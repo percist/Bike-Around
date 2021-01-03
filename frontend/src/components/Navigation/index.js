@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Modal } from '../../context/Modal';
 import ProfileButton from './ProfileButton';
-import LoginFormModal from '../LoginFormModal';
+import LoginForm from '../LoginForm';
 import './Navigation.css';
-import SignupFormModal from '../SignupFormModal';
-import DemoSignupFormModal from '../DemoUserModal';
+import SignupForm from '../SignupForm';
 
 const Navigation = ({ isLoaded }) =>{
     const sessionUser = useSelector(state => state.session.user);
+    const [form, setForm] = useState("");
+    const [showModal, setShowModal] = useState(false);
+
+    const loginButton = (e) => {
+        e.preventDefault();
+        setForm("login");
+        setShowModal("true");
+    }
+
+    const signupButton = (e) => {
+        e.preventDefault();
+        setForm("signup");
+        setShowModal("true");
+    }
 
     let sessionLinks;
     if (sessionUser) {
@@ -26,9 +40,18 @@ const Navigation = ({ isLoaded }) =>{
     }else {
         sessionLinks = (
             <>
-                <LoginFormModal />
-                <SignupFormModal />
-                <DemoSignupFormModal />
+                <a href="/login" id="link-login" onClick={loginButton}>Login</a>
+                <a href="/signup" id="link-signup" onClick={signupButton}>Sign Up</a>
+                {showModal && (
+                    <Modal onClose={() => setShowModal(false)}>
+                        { form === "login" && (
+                            <LoginForm />
+                        )}
+                        { form === "signup" && (
+                            <SignupForm />
+                        )}
+                    </Modal>
+                )}
             </>
         );
     }

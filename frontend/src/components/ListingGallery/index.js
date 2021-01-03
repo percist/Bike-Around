@@ -16,34 +16,34 @@ const ListingGallery = () => {
     const [listingsShown, setListingsShown] = useState([...currentListings])
     const [query, setQuery] = useState('');
 
-    const listingsRegex = new RegExp(query, "i")
     
-    useEffect(async () => {
-        await dispatch(
+    useEffect( () => {
+        dispatch(
             fetchAllListings()
             );
-        }, []);
+        }, [dispatch]);
         
-    useEffect(async() => {
+        useEffect( () => {
+            const listingsRegex = new RegExp(query, "i")
+            function filterListings () {
+            if(query.length > 0) {
+                const titleListings = [...currentListings].filter(listing => listingsRegex.test(listing.title))
+                const descriptionListings = [...currentListings].filter(listing => listingsRegex.test(listing.description))
+                const sizeListings = [...currentListings].filter(listing => listingsRegex.test(listing.BikeSize.name))
+                const typeListings = [...currentListings].filter(listing => listingsRegex.test(listing.BikeType.type))
+                const cityListings = [...currentListings].filter(listing => listingsRegex.test(listing.nearestCity))
+                const allListings = [...titleListings, ...descriptionListings, ...sizeListings, ...typeListings, ...cityListings]
+                const uniqueListings = [...new Set(allListings)]
+                setListingsShown(uniqueListings)
+            } else if (query.length === 0) {
+                setListingsShown([...currentListings])
+            };
+        };
         filterListings()
-    }, [query]);
+    }, [currentListings, query]);
         
     // loosely based on Tyler Funk's Medium article "Build a Custom React Search Bar Component Using a Dyanmic Regex" Oct 31, 2020
     // https://medium.com/dev-genius/build-a-custom-react-search-bar-component-using-a-dynamic-regex-cd89fdd496f5 accessed Jan 2, 2021
-    function filterListings () {
-        if(query.length > 0) {
-            const titleListings = [...currentListings].filter(listing => listingsRegex.test(listing.title))
-            const descriptionListings = [...currentListings].filter(listing => listingsRegex.test(listing.description))
-            const sizeListings = [...currentListings].filter(listing => listingsRegex.test(listing.BikeSize.name))
-            const typeListings = [...currentListings].filter(listing => listingsRegex.test(listing.BikeType.type))
-            const cityListings = [...currentListings].filter(listing => listingsRegex.test(listing.nearestCity))
-            const allListings = [...titleListings, ...descriptionListings, ...sizeListings, ...typeListings, ...cityListings]
-            const uniqueListings = [...new Set(allListings)]
-            setListingsShown(uniqueListings)
-        } else if (query.length === 0) {
-            setListingsShown([...currentListings])
-        };
-    };
 
     return (
         <>

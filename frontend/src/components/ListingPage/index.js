@@ -25,23 +25,30 @@ const ListingPage = ({ theListing }) => {
     };
     
     const handleClick = async() => {
+        const newErrors = [];
         if (!startDate || !endDate){
-            return setErrors(['Please select a start date and an end date to check availability.'])
+            newErrors.push( 'Please select a start date and an end date to check availability.');
         }
-        setErrors([]);
-
-        const duration = calculateDuration(startDate, endDate) ;
-
-        const newBooking = await dispatch(fetchCreateBooking({
-            listingId: listingId,
-            userId: sessionUser.id,
-            startDay: startDate.toDate(),
-            endDay: endDate.toDate(),
-            status: "pending",
-            duration: duration
-        }));
-        const bookingId = newBooking.id;
-        history.push(`/listings/${listingId}/bookings/${bookingId}`);
+        if (!sessionUser){
+            newErrors.push('Please login or sign up to check availability.');
+        }
+        if (newErrors.length === 0){
+            const duration = calculateDuration(startDate, endDate) ;
+    
+            const newBooking = await dispatch(fetchCreateBooking({
+                listingId: listingId,
+                userId: sessionUser.id,
+                startDay: startDate.toDate(),
+                endDay: endDate.toDate(),
+                status: "pending",
+                duration: duration
+            }));
+            console.log("THIS IS THE NEW BOOKING:", newBooking)
+            const bookingId = newBooking.id;
+            history.push(`/listings/${listingId}/bookings/${bookingId}`);
+            return null
+        }
+        setErrors(newErrors)
     }
 
     const currentListing = useSelector(fullReduxState => {
@@ -76,6 +83,7 @@ const ListingPage = ({ theListing }) => {
                                 <div 
                                     className="listing-page-tile"
                                     id={`listing-page-gallery_${i}`}
+                                    key={`listing-page-gallery_${i}`}
                                 >
                                     <img 
                                         className="listing-page-img"
@@ -106,7 +114,7 @@ const ListingPage = ({ theListing }) => {
                     <div className="listing-page-properties_2_1">
                         {`$${currentListing.pricePerDay/100} / day`}
                     </div>
-                    {errors.map((error, idx) => <li key={`map-${idx}`}>{error}</li>)}
+                    {errors.map((error, idx) => <li key={`listing-page-error_${idx}`}>{error}</li>)}
                     <div className="listing-page-properties_2_2">
                         <div className="App">
                             <DateRangePicker

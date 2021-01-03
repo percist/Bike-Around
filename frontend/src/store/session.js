@@ -3,17 +3,18 @@ import {fetch} from "./csrf"
 
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
+const SET_DEMO_USER = "session/SET_DEMO_USER"
 
 export const setUser = (user) => {
     return {
-        type: 'SET_USER',
+        type: SET_USER,
         payload: user
     }
 }
 
 export const removeUser = () => {
-    return{
-        type: 'REMOVE_USER'
+    return {
+        type: REMOVE_USER
     }
 }
 
@@ -24,6 +25,14 @@ export const login = (user) => async (dispatch) => {
             credential: user.credential,
             password: user.password
         })
+    });
+    dispatch(setUser(res.data.user));
+    return res;
+};
+
+export const loginDemo = () => async (dispatch) => {
+    const res = await fetch('/api/session/demo', {
+        method: "POST",
     });
     dispatch(setUser(res.data.user));
     return res;

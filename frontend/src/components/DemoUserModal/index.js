@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import LoginForm from '../LoginFormModal/LoginForm';
 
-function DemoSignupFormModal() {
+function DemoLoginFormModal() {
   const [showModal, setShowModal] = useState(false);
   const [isDemo, setIsDemo] = useState(false)
 
@@ -26,4 +26,4 @@ function DemoSignupFormModal() {
   );
 }
 
-export default DemoSignupFormModal;
+export default DemoLoginFormModal;

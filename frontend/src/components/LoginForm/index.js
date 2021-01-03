@@ -24,6 +24,15 @@ const LoginForm = () => {
             });
     };
 
+    const handleDemo = async (e) => {
+        e.preventDefault();
+        setErrors([]);
+        return dispatch(sessionActions.loginDemo())
+            .catch((res) => {
+                if (res.data && res.data.errors) setErrors(res.data.errors);
+            });
+    };
+
     return (
         <div id="login">
             <form
@@ -60,8 +69,14 @@ const LoginForm = () => {
                 </label>
                 <button
                     className="button"
-                    id="button-login"
+                    id="button-login-demo"
                     type="submit"
+                    >Demo
+                </button>
+                <button
+                    className="button"
+                    id="button-login"
+                    onClick={handleDemo}
                     >Log In
                 </button>
             </form>
