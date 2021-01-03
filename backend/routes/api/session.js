@@ -41,6 +41,27 @@ router.post(
     }),
   );
 
+router.post('/demo', asyncHandler(async (req, res, next) => {
+  const user = await User.login({
+    credential: "Demo-lition",
+    password: "password"
+  });
+
+  if (!user) {
+    const err = new Error('Oops! Something went wrong. Try signing up instead');
+    err.status = 401;
+    err.title = 'Login failed';
+    err.errors = ['The credentials were incorrect.'];
+    return next(err);
+  };
+  
+  await setTokenCookie(res, user);
+
+  return res.json({
+    user
+  });
+}));
+
 router.delete(
     '/',
     (_req, res) => {

@@ -27,6 +27,7 @@ async function getOne(id) {
 }
 
 async function create(details) {
+    //need logic here to check and see if a booking already exists with the same dates
     const booking = await Booking.create(details)
     return booking;
 }
