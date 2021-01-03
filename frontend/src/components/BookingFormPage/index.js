@@ -26,7 +26,7 @@ const BookingForm = () => {
     const handleConfirm = async(e) => {
         e.preventDefault();
         await dispatch(fetchConfirmBooking(bookingId));
-        // history.push(`/bookings`);
+        history.push(`/listings/${listingId}/bookings/${bookingId}/edit`);
     }
 
     useEffect( async() => {

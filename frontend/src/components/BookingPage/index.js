@@ -19,6 +19,7 @@ const BookingPage = ({ theBooking }) => {
     const [endDate, setEndDate] = useState('');
     const [focusedInput, setFocusedInput] = useState([]);
     const [errors, setErrors] = useState([]);
+    const [updated, setUpdated] = useState([])
 
     const calculateDuration = (begin, end) =>{
         return Math.ceil(end.diff(begin) / (60*60*24*1000))
@@ -40,10 +41,13 @@ const BookingPage = ({ theBooking }) => {
         }));
         setStartDate(startDate);
         setEndDate(endDate);
+        if (updatedBooking) {
+            return setUpdated(["Your Ride has been Updated."])
+        }
     }
 
     const handleReturnClick = async() => {
-        history.push(`/listings/${listingId}/bookings/${bookingId}`);
+        history.push(`/listings`);
     }
 
     const handleCancelClick = async() => {
@@ -104,6 +108,7 @@ const BookingPage = ({ theBooking }) => {
             <div className="booking-details">
                 <h3> Your Ride Details</h3>
                 <hr id="ride-details-bar" color="#6B4D57" />
+                {updated.map((message, idx) => <li key={`message-${idx}`}>{message}</li>)}
                 <div className="booking-details-properties_1">
                     <h4>{`Start Date: ${formatDate(currentBooking.startDay)}`}</h4>
                     <h4>{`End Date: ${formatDate(currentBooking.endDay)}`}</h4>
@@ -132,11 +137,11 @@ const BookingPage = ({ theBooking }) => {
                                 />
                         </div>                    
                     </div>
-                    <a 
+                    <div 
                         id="booking-details-confirmation"
                         >
 
-                    </a>
+                    </div>
                     <button 
                         className="button"
                         id="update-button"
@@ -156,7 +161,7 @@ const BookingPage = ({ theBooking }) => {
                         id="return-to-booking-button"
                         onClick={handleReturnClick}
                     >
-                        Return to Ride Details
+                        Find another Ride
                     </button>
                 </div>
             </div>
