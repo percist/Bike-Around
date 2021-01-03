@@ -3,6 +3,13 @@
     color: #6b4d57;
 }
 
+#listing-header-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 #listing-bar {
     position: sticky;
     top: 80px;

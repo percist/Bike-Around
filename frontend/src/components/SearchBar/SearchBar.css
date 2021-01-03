@@ -1,0 +1,30 @@
+#search-bar {
+    color: #6b4d57;
+    background: #e7e7e7;
+    margin: 2pt;
+    border: 1pt #896A67 solid;
+    border-radius: 8pt;
+    height: 34px;
+    cursor: default;
+}
+
+#search-bar-1 {
+    border: none;
+    cursor: default;
+}
+
+input:focus {
+    border: none;
+}
+
+#search-bar:hover {
+    box-shadow: rgba(19, 7, 12, .13) 0px 2px 6px;
+}
+
+.clear-button {
+    color: #6b4d57;
+    background: #e7e7e7;
+    border: none;
+    border-radius: 0pt 8pt 8pt 0pt;
+    height: 32px
+}

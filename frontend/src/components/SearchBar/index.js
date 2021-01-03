@@ -7,9 +7,9 @@ const SearchBar = ({ query, setQuery, activePage }) => {
     }
 
     return (
-        <div className="search-bar">
+        <div id="search-bar">
             <input 
-                className="search-bar"
+                id="search-bar-1"
                 key="random1"
                 maxLength={60}
                 value={query}
@@ -21,7 +21,7 @@ const SearchBar = ({ query, setQuery, activePage }) => {
                 onChange={(e) => setQuery(e.target.value)}
             />
             <button onClick={handleXClick}
-                className="x-button"
+                className="clear-button"
             >
                 clear
             </button>

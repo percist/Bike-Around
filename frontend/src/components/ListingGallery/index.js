@@ -48,12 +48,15 @@ const ListingGallery = () => {
     return (
         <>
             <div id="listing-header">
-                <h3>Bikes to ride near you</h3>
-                <SearchBar
-                    query={query}
-                    setQuery={setQuery}
-                    activePage={activePage}
-                />
+                <div id="listing-header-content">
+                    <h3>Bikes to ride near you</h3>
+                    <SearchBar
+                        query={query}
+                        setQuery={setQuery}
+                        activePage={activePage}
+                    />
+                    <h3>{listingsShown.length} results matched your search</h3>
+                </div>
                 <hr id="listing-gallery-bar" color="#896a67" />
             </div>
             <div id="listing-gallery">
