@@ -62,7 +62,7 @@ const BookingPage = ({ theBooking }) => {
         return fullReduxState.bookings;
     });
 
-    useEffect(async () => {
+    useEffect( () => {
         dispatch(
             fetchOneListing(listingId)
         );
