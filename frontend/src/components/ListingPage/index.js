@@ -99,7 +99,7 @@ const ListingPage = ({ theListing }) => {
                         {currentListing.description}
                     </div>
                     <div className="listing-page-properties_1_3">
-                        Size: {currentListing.BikeSize.name}
+                        Size: {currentListing.BikeSize && currentListing.BikeSize.name}
                     </div>
                 </div>
                 <div className="listing-page-properties_2">
