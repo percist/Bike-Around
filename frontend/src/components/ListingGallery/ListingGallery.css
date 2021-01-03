@@ -16,5 +16,8 @@
 }
 
 #listing-header {
-    margin: 0px 30px;
+    position: sticky;
+    top: 80px;
+    left: 80px;
+    padding: 0px 30px;
 }

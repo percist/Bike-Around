@@ -108,7 +108,9 @@ const BookingPage = ({ theBooking }) => {
             <div className="booking-details">
                 <h3> Your Ride Details</h3>
                 <hr id="ride-details-bar" color="#6B4D57" />
-                {updated.map((message, idx) => <li key={`message-${idx}`}>{message}</li>)}
+                <div id="booking-details-confirmation">
+                    {updated.map((message, idx) => <li key={`message-${idx}`}>{message}</li>)}
+                </div>
                 <div className="booking-details-properties_1">
                     <h4>{`Start Date: ${formatDate(currentBooking.startDay)}`}</h4>
                     <h4>{`End Date: ${formatDate(currentBooking.endDay)}`}</h4>
@@ -137,32 +139,29 @@ const BookingPage = ({ theBooking }) => {
                                 />
                         </div>                    
                     </div>
-                    <div 
-                        id="booking-details-confirmation"
+                    <div className="booking-details-buttons">
+                        <button 
+                            className="button"
+                            id="update-button"
+                            onClick={handleEditClick}
+                            >
+                            Update Your Ride
+                        </button>
+                        <button 
+                            className="button"
+                            id="cancel-button"
+                            onClick={handleCancelClick}
                         >
-
+                            Cancel Ride
+                        </button>
+                        <button 
+                            className="button"
+                            id="return-button"
+                            onClick={handleReturnClick}
+                        >
+                            Find another Ride
+                        </button>
                     </div>
-                    <button 
-                        className="button"
-                        id="update-button"
-                        onClick={handleEditClick}
-                        >
-                        Update Your Ride
-                    </button>
-                    <button 
-                        className="button"
-                        id="cancel-booking-button"
-                        onClick={handleCancelClick}
-                    >
-                        Cancel Your Ride
-                    </button>
-                    <button 
-                        className="button"
-                        id="return-to-booking-button"
-                        onClick={handleReturnClick}
-                    >
-                        Find another Ride
-                    </button>
                 </div>
             </div>
         </div>

@@ -16,6 +16,12 @@ const BookingGallery = () => {
         return fullReduxState.listings
     })
 
+    const [activePage, setActivePage] = useState("listings");
+    const [listingsShown, setListingsShown] = useState([...currentListings])
+    const [query, setQuery] = useState('');
+
+    const listingsRegex = new RegExp(query, "i")
+
     useEffect(async () => {
         await dispatch(fetchAllBookings());
         await dispatch(fetchAllListings())

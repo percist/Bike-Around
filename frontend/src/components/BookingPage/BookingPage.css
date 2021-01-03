@@ -2,6 +2,10 @@
     display: flex;
 }
 
+.booking-page h3 {
+    color: #6b4d57;
+}
+
 .listing-details {
     max-width: 60%
 }
@@ -79,16 +83,24 @@
     border-radius: 8px;
 }
 
+.booking-details-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #update-button,
-#return-to-booking-button {
+#cancel-button,
+#return-button {
     height: 48px;
     width: 200px;
-    margin: 15px 4px;
+    margin: 15px 4px 0px;
     color: #e7e7e7;
     background-color: #896A67;
 }
 
 #update-button:hover,
-#return-to-booking-button:hover {
+#cancel-button:hover,
+#return-button:hover {
     background-color: #6b4d57;
 }
