@@ -46,7 +46,7 @@ const BookingPage = ({ theBooking }) => {
         }
     }
 
-    const handleReturnClick = async() => {
+    const handleReturnClick = () => {
         history.push(`/listings`);
     }
 
@@ -70,9 +70,11 @@ const BookingPage = ({ theBooking }) => {
             fetchOneBooking(bookingId)
         );
         setShowUpdated(false);
-        setStartDate(bookingId.startDay);
-        setEndDate(bookingId.endDay);
-    }, []);
+        console.log("START DATE", startDate)
+        console.log("currentBooking.startDay", currentBooking.startDay)
+        setStartDate(currentBooking.startDay);
+        setEndDate(currentBooking.endDay);
+    }, [dispatch]);
 
     return(
         <div className="booking-page">

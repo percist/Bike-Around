@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { fetchOneListing } from "../../store/listings";
 import { formatDate } from "../../date-repository";
 import './BookingCard.css';
 
 const BookingCard = ({ theBooking, allListings }) => {
     const dispatch = useDispatch();
-
+    const history = useHistory();
     // const selectTheListing = (Listings, Booking) => {
     //     return allListings.filter( listing => {
     //         const theListing = theBooking.listingId === listing.id;
@@ -52,9 +52,12 @@ const BookingCard = ({ theBooking, allListings }) => {
                         {theListing.title}
                     </div>
                 </div>
-                <div className="edit-booking-button">
+                <a className="edit-booking-button"
+                        id="edit-booking-button"
+                        href={`/listings/${theListing.id}/bookings/${theBooking.id}/edit`}
+                    >
                     Edit this Ride
-                </div>
+                </a>
                 
             </div>
         </>

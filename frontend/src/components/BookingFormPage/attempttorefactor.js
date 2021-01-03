@@ -11,6 +11,7 @@ const BookingForm = () => {
     const params = useParams();
     const { listingId, bookingId } = params;
     const history = useHistory();
+    const [confirmationStatus, setConfirmationStatus] = useState('');
 
     const currentListing = useSelector(fullReduxState=> {
         return fullReduxState.listings;
@@ -26,13 +27,41 @@ const BookingForm = () => {
     const handleConfirm = async(e) => {
         e.preventDefault();
         await dispatch(fetchConfirmBooking(bookingId));
-        // history.push(`/bookings`);
+        history.push(`/listings/${listingId}/bookings/${bookingId}/edit`);
     }
 
-    useEffect( () => {
-        dispatch(fetchOneListing(listingId));
-        dispatch(fetchOneBooking(bookingId));
-    }, [dispatch, bookingId, listingId])
+    useEffect( async() => {
+        await dispatch(fetchOneListing(listingId));
+        await dispatch(fetchOneBooking(bookingId));
+        await setConfirmationStatus(bookingId.status);
+
+    }, [])
+
+
+    let bookingStatusHeading;
+    const bookingFormsListing = document.getElementById("booking-form-listing");
+    const confirmBookingButton = document.getElementById("confirm-booking-button");
+    if (confirmationStatus === "confirmed") {
+        bookingStatusHeading = (
+            <h2>
+                Your Ride is Confirmed
+            </h2>
+        );
+    }else if(confirmationStatus === "pending") {
+        bookingStatusHeading = (
+            <h2>
+                Confirm your Ride
+            </h2>
+        );
+    }else if (confirmationStatus === "cancelled") {
+        bookingFormsListing.style.display = 'none';
+        confirmBookingButton.style.display = 'none';
+        bookingStatusHeading = (
+            <h2>
+                This Ride was Cancelled
+            </h2>
+        );
+    }
 
     return(
         <>
@@ -41,7 +70,7 @@ const BookingForm = () => {
                     Confirm your Ride
                 </h2>
             </div>
-            <div className="booking-form-listing">
+            <div id="booking-form-listing">
                 <div className="booking-form-listing-details">
                     <div className="booking-form-listing-details_1">
                         <h3>Your Ride</h3>
@@ -61,7 +90,7 @@ const BookingForm = () => {
                     />
                     <div id="booking-form-listing-button">
                         <a>                            
-                            <h4><Link to={`/listings/${listingId}`}>Edit your Ride</Link></h4>
+                            <h4><Link to={`/listings/${listingId}/bookings/${bookingId}/edit`}>Edit your Ride</Link></h4>
                         </a>
                     </div>
                 </div>
@@ -87,6 +116,12 @@ const BookingForm = () => {
                     onClick={handleConfirm}
                     >
                     Confirm!
+                </button>
+                <button 
+                    id="confirm-booking-button"
+                    onClick={handleConfirm}
+                    >
+                    Delete!
                 </button>
             </div>
         </>

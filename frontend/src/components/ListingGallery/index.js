@@ -13,7 +13,7 @@ const ListingGallery = () => {
     });
 
     const [activePage, setActivePage] = useState("listings");
-    const [listingsShown, setListingsShown] = useState([...currentListings])
+    const [listingsShown, setListingsShown] = useState([])
     const [query, setQuery] = useState('');
 
     
@@ -27,16 +27,16 @@ const ListingGallery = () => {
             const listingsRegex = new RegExp(query, "i")
             function filterListings () {
             if(query.length > 0) {
-                const titleListings = [...currentListings].filter(listing => listingsRegex.test(listing.title))
-                const descriptionListings = [...currentListings].filter(listing => listingsRegex.test(listing.description))
-                const sizeListings = [...currentListings].filter(listing => listingsRegex.test(listing.BikeSize.name))
-                const typeListings = [...currentListings].filter(listing => listingsRegex.test(listing.BikeType.type))
-                const cityListings = [...currentListings].filter(listing => listingsRegex.test(listing.nearestCity))
+                const titleListings =currentListings.filter(listing => listingsRegex.test(listing.title))
+                const descriptionListings =currentListings.filter(listing => listingsRegex.test(listing.description))
+                const sizeListings =currentListings.filter(listing => listingsRegex.test(listing.BikeSize.name))
+                const typeListings = currentListings.filter(listing => listingsRegex.test(listing.BikeType.type))
+                const cityListings =currentListings.filter(listing => listingsRegex.test(listing.nearestCity))
                 const allListings = [...titleListings, ...descriptionListings, ...sizeListings, ...typeListings, ...cityListings]
                 const uniqueListings = [...new Set(allListings)]
                 setListingsShown(uniqueListings)
             } else if (query.length === 0) {
-                setListingsShown([...currentListings])
+                setListingsShown(currentListings)
             };
         };
         filterListings()

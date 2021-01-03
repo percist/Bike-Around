@@ -8,6 +8,9 @@ import './BookingGallery.css';
 
 const BookingGallery = () => {
     const dispatch = useDispatch();
+    const [activePage, setActivePage] = useState("bookings");
+    const [bookingsShown, setBookingsShown] = useState([]);
+    const [query, setQuery] = useState('');
 
     let currentBookings = useSelector(fullReduxState => {
         return fullReduxState.bookings;
@@ -17,22 +20,18 @@ const BookingGallery = () => {
         return fullReduxState.listings
     })
 
-    const [activePage, setActivePage] = useState("bookings");
-    const [bookingsShown, setBookingsShown] = useState([...currentBookings])
-    const [query, setQuery] = useState('');
-
     useEffect( () => {
         dispatch(fetchAllBookings());
-        dispatch(fetchAllListings())
-    }, []);
+        dispatch(fetchAllListings());
+    }, [dispatch]);
         
     useEffect(() => {
         function filterBookings () {
             if(query.length > 0) {
-                let newBookings = [...currentBookings].filter(booking => booking.status === query)
-                setBookingsShown(newBookings)
+                let newBookings = currentBookings.filter(booking => booking.status === query);
+                setBookingsShown(newBookings);
             } else if (query.length === 0) {
-                setBookingsShown([...currentBookings])
+                setBookingsShown(currentBookings);
             };
         };
         filterBookings()
