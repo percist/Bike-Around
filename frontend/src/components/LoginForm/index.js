@@ -69,15 +69,15 @@ const LoginForm = () => {
                 </label>
                 <button
                     className="button"
-                    id="button-login-demo"
+                    id="button-login"
                     type="submit"
-                    >Demo
+                    >Log In
                 </button>
                 <button
                     className="button"
-                    id="button-login"
+                    id="button-login-demo"
                     onClick={handleDemo}
-                    >Log In
+                    >Demo
                 </button>
             </form>
         </div>

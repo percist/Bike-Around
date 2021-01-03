@@ -3,9 +3,9 @@ import {fetch} from "./csrf"
 
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
-const SET_DEMO_USER = "session/SET_DEMO_USER"
 
 export const setUser = (user) => {
+    console.log("SET USER HAPPENED!!")
     return {
         type: SET_USER,
         payload: user
@@ -19,6 +19,7 @@ export const removeUser = () => {
 }
 
 export const login = (user) => async (dispatch) => {
+    console.log("LOGIN THUNK HAPPENED!!!")
     const res = await fetch('/api/session', {
         method: "POST",
         body: JSON.stringify({
@@ -73,11 +74,12 @@ const initialState = { user: null }
 const sessionReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
-        case "SET_USER":
+        case SET_USER:
+            console.log("SESSION REDUCER FOR SET_USER HAPPENED")
             return{...state,
                 user: action.payload
             }
-        case "REMOVE_USER":
+        case REMOVE_USER:
             return {user: null}
         default:
             return state;
