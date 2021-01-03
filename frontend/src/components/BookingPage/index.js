@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams, Link } from 'react-router-dom'
 import { fetchOneListing } from '../../store/listings';
-import { fetchEditBooking, fetchOneBooking, fetchDeleteBooking } from '../../store/bookings';
+import { fetchEditBooking, fetchOneBooking, fetchCancelBooking } from '../../store/bookings';
 import { DateRangePicker } from 'react-dates';
 import { formatDate } from '../../date-repository';
 import moment from 'moment';
@@ -51,7 +51,7 @@ const BookingPage = ({ theBooking }) => {
     }
 
     const handleCancelClick = async() => {
-        await dispatch(fetchDeleteBooking(bookingId))
+        await dispatch(fetchCancelBooking(bookingId))
     }
 
     const currentListing = useSelector(fullReduxState => {

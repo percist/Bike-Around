@@ -6,7 +6,7 @@ const SET_ALL_BOOKINGS = 'bookings/setBookings';
 const CREATE_PENDING_BOOKING = 'bookings/createBooking';
 const EDIT_BOOKING = 'bookings/editBooking';
 const CONFIRM_BOOKING = 'bookings/confirmBooking';
-const DELETE_BOOKING = 'bookings/deleteBooking'
+const CANCEL_BOOKING = 'bookings/cancelBooking'
 
 const setOneBooking = (booking) => {
     return {
@@ -43,9 +43,9 @@ const confirmBooking = (booking) => {
     };
 };
 
-const deleteBooking = (booking) => {
+const cancelBooking = (booking) => {
     return {
-        type: DELETE_BOOKING,
+        type: CANCEL_BOOKING,
         payload: booking,
     };
 };
@@ -101,12 +101,12 @@ export const fetchConfirmBooking = (id) => {
     };
 };
 
-export const fetchDeleteBooking = (id) => {
+export const fetchCancelBooking = (id) => {
     return async (dispatch) => {
         const response = await fetch(`/api/bookings/${id}`, {
-            method: 'DELETE',
+            method: 'PATCH',
         })
-        dispatch(deleteBooking(response.data));
+        dispatch(cancelBooking(response.data));
         return response.data;
     };
 };
@@ -131,7 +131,7 @@ const bookingReducer = (state = initialState, action) => {
         case CONFIRM_BOOKING:
             newState = action.payload;
             return newState;
-        case DELETE_BOOKING:
+        case CANCEL_BOOKING:
             newState = action.payload;
             return newState;
         default:
