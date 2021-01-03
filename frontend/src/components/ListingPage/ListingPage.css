@@ -63,7 +63,7 @@
 }
 
 .App {
-    border-radius: 8px;
+    float: left;
 }
 
 #reserve-button {
