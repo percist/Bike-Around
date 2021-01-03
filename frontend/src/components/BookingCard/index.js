@@ -8,15 +8,6 @@ import './BookingCard.css';
 const BookingCard = ({ theBooking, allListings }) => {
     const dispatch = useDispatch();
     const history = useHistory();
-    // const selectTheListing = (Listings, Booking) => {
-    //     return allListings.filter( listing => {
-    //         const theListing = theBooking.listingId === listing.id;
-    //         console.log("THIS IS THE LISTING", theListing);
-    //         return theListing;
-    //     });
-    // }
-
-    // const theListing = selectTheListing(allListings, theBooking)
 
     const theListing = useSelector(fullReduxState => {
         return fullReduxState.listings;

@@ -8,6 +8,8 @@ import { formatDate } from '../../date-repository';
 import moment from 'moment';
 import './BookingPage.css';
 
+moment().format();
+
 const BookingPage = ({ theBooking }) => {
     const dispatch = useDispatch();
     const params = useParams();
@@ -69,12 +71,14 @@ const BookingPage = ({ theBooking }) => {
         dispatch(
             fetchOneBooking(bookingId)
         );
-        setShowUpdated(false);
-        console.log("START DATE", startDate)
-        console.log("currentBooking.startDay", currentBooking.startDay)
-        setStartDate(currentBooking.startDay);
-        setEndDate(currentBooking.endDay);
+        
     }, [dispatch]);
+
+    useEffect( () => {
+        setShowUpdated(false);
+        setStartDate(moment(currentBooking.startDay));
+        setEndDate(moment(currentBooking.endDay))
+    }, [currentBooking.startDay, currentBooking.endDay])
 
     return(
         <div className="booking-page">
@@ -127,6 +131,8 @@ const BookingPage = ({ theBooking }) => {
                     {errors.map((error, idx) => <li key={`map-${idx}`}>{error}</li>)}
                     <div className="booking-details-properties_2_2">
                         <div className="App">
+                            {!startDate && <h3>Loading......</h3>}
+                            {startDate && 
                             <DateRangePicker
                                 startDateId="startDate"
                                 endDateId="endDate"
@@ -138,7 +144,7 @@ const BookingPage = ({ theBooking }) => {
                                 }}
                                 focusedInput={focusedInput}
                                 onFocusChange={(focusedInput) => {setFocusedInput(focusedInput)}}
-                                />
+                                />}
                         </div>                    
                     </div>
                     <div className="booking-details-buttons">
