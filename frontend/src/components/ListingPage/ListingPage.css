@@ -20,7 +20,9 @@
 }
 
 #listing-page-primary_1 {
-    max-width: 564px;        
+    height: 375;
+    width: 564px;     
+    object-fit: fill;           
     border-radius: 8px;
     margin: 4px 4px 4px 0px;
 }

@@ -15,11 +15,12 @@
 .booking-card-img {
     align-self: center;
     border-radius: 8px;
-    margin-top: 6px
+    margin-top: -2px
 }
 
 #booking-card-img {
-    width: 460px;
+    width: 100%;
+    height: 316px;
     border-radius: 8px;
 }
 

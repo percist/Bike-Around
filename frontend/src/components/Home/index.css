@@ -1,11 +1,11 @@
 /* TODO: Media Query to make img position relative when page width >1000 */
 
-#home-page-container {
+/* #home-page-container {
     height: 1200px;
     position: relative;
     overflow: hidden;    
     margin-top: -20px;
-}
+} */
 
 #home-page-container-img {
     width: 100%;
