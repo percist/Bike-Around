@@ -13,7 +13,7 @@ module.exports = {
         },
         {
           listingId: 2,
-          userId: 2,
+          userId: 1,
           startDay: "2020-12-05",
           endDay: "2020-12-07",
           status: "complete",
@@ -21,7 +21,7 @@ module.exports = {
         },
         {
           listingId: 3,
-          userId: 3,
+          userId: 1,
           startDay: "2020-12-03",
           endDay: "2020-12-11",
           status: "complete",
@@ -29,11 +29,35 @@ module.exports = {
         },
         {
           listingId: 3,
-          userId: 3,
-          startDay: "2020-12-29",
-          endDay: "2012-01-03",
+          userId: 1,
+          startDay: "2021-01-29",
+          endDay: "2021-01-30",
+          status: "pending",
+          duration: 1
+        },
+        {
+          listingId: 4,
+          userId: 1,
+          startDay: "2021-01-29",
+          endDay: "2021-02-07",
           status: "confirmed",
-          duration: 6
+          duration: 8
+        },        
+        {
+          listingId: 5,
+          userId: 1,
+          startDay: "2021-02-05",
+          endDay: "2021-02-07",
+          status: "confirmed",
+          duration: 2
+        },        
+        {
+          listingId: 6,
+          userId: 1,
+          startDay: "2021-02-05",
+          endDay: "2021-02-07",
+          status: "confirmed",
+          duration: 2
         },
     ], {});
   },

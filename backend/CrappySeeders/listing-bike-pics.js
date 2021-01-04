@@ -99,6 +99,7 @@ module.exports = {
         listingId: 7,
         bikePictureId: 34
       }
+      
     ], {});
   },
 
