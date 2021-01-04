@@ -63,7 +63,7 @@ export const fetchAllBookings = () => {
     return async (dispatch) => {
         const response = await fetch('/api/bookings');
         dispatch(setBookings(response.data.bookings));
-        dispatch(setListings(response.data.listing));
+        dispatch(setListings(response.data.listings));
     };
 };
 

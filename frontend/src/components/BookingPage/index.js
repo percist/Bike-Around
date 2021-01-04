@@ -104,7 +104,8 @@ const BookingPage = ({ theBooking }) => {
                 </div>
                 <div className="booking-page-gallery">
                     <div id="booking-page-primary">
-                        <img id="booking-page-primary_1" alt="bike" src={currentListing.Pictures && currentListing.Pictures[0].url}/>
+                        {!currentListing.Pictures && <h3>Loading......</h3>}
+                        {currentListing.Pictures && <img id="booking-page-primary_1" alt="bike" src={currentListing.Pictures[0].url}/>}
                     </div>
                 </div>
                 <div className="booking-page-properties">

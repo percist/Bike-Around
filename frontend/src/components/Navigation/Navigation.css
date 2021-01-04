@@ -100,7 +100,9 @@ h2 {
     display: flex;
     list-style: none;
     flex-direction: column;
-    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 15px 79px 9px 10px;
+    background-color: #e7e7e7;
 }
 
 .button:hover {
