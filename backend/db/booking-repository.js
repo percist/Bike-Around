@@ -10,15 +10,8 @@ async function userList(id) {
             userId: id
         }, 
     })
-    const listing = await Listing.findOne({
-        id: bookings[0].dataValues.listingId,
-        include: {
-            all: true
-        }
-    }
-        
-        )
-    return { bookings, listing }
+
+    return { bookings }
 }
 
 async function getOne(id) {

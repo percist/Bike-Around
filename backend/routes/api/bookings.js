@@ -10,8 +10,8 @@ const router = express.Router();
 // retrieve all bookings for a single user
 router.get('/', restoreUser, asyncHandler(async (req, res, next) => {
     const user = await req.user.toJSON()
-    const { bookings, listing } = await BookingRepository.userList(user.id);
-    res.json({ bookings, listing })
+    const { bookings, listings } = await BookingRepository.userList(user.id);
+    res.json({ bookings, listings })
 }));
 
 // retrieve a single booking
