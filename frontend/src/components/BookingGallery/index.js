@@ -13,7 +13,6 @@ const BookingGallery = () => {
     const [query, setQuery] = useState('');
 
     let currentBookings = useSelector(fullReduxState => {
-        console.log("CURRENT BOOKINGS AFTER USESELECTOR:", fullReduxState.bookings)
         return fullReduxState.bookings;
     });
 

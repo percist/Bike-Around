@@ -9,13 +9,21 @@ const BookingCard = ({ theBooking, allListings }) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const theListing = useSelector(fullReduxState => {
-        return fullReduxState.listings;
-    });
+    // let theListing;
+    // const theListing = useSelector(fullReduxState => {
+    //     return fullReduxState.listings;
+    // });
+
+    const theListingArray = allListings.filter(listing => {
+        return listing.id === theBooking.listingId
+    })
+
+    const theListing = theListingArray[0]
     
-    useEffect( async() => {
-        await dispatch(fetchOneListing(theBooking.listingId));
-    }, []);
+    // useEffect( async() => {
+    //     await dispatch(fetchOneListing(theBooking.listingId));
+        
+    // }, []);
 
     return (
         <>
