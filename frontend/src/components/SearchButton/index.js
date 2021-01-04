@@ -1,5 +1,5 @@
 import React from 'react';
-import './SearchButton.css'
+import '../BookingGallery/BookingGallery.css';
 
 const SearchButton = ({ content, query, setQuery }) => {
     

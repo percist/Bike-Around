@@ -11,6 +11,10 @@
     color: #6b4d57;
 }
 
+#bookings-header_1:hover {
+    cursor: default;
+}
+
 #bookings-header_2 {
     display: flex;
     align-items: center;
@@ -20,9 +24,14 @@
     border: none;
     width: 100px;
     padding: 21px 5px;
+    border-radius: 8pt;
 }
 
-#search-button:hover {
+#search-button:focus {
+    outline: none;
+}
+
+#search-button:hover  {
     background: #D1BC6F;
 }
 

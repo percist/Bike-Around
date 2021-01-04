@@ -13,6 +13,7 @@ const BookingGallery = () => {
     const [query, setQuery] = useState('');
 
     let currentBookings = useSelector(fullReduxState => {
+        console.log("CURRENT BOOKINGS AFTER USESELECTOR:", fullReduxState.bookings)
         return fullReduxState.bookings;
     });
 
@@ -26,12 +27,13 @@ const BookingGallery = () => {
     }, [dispatch]);
         
     useEffect(() => {
+        const bookingsToFilter = [...currentBookings]
         function filterBookings () {
             if(query.length > 0) {
-                let newBookings = currentBookings.filter(booking => booking.status === query);
-                setBookingsShown(newBookings);
+                let newBookings = bookingsToFilter.filter(booking => booking.status === query);
+                setBookingsShown([...newBookings]);
             } else if (query.length === 0) {
-                setBookingsShown(currentBookings);
+                setBookingsShown([...bookingsToFilter]);
             };
         };
         filterBookings()
@@ -43,7 +45,9 @@ const BookingGallery = () => {
     return(
         <>
             <div id="bookings-header">
-                <div id="bookings-header_1">
+                <div id="bookings-header_1"
+                    onClick={()=>setBookingsShown(currentBookings)}
+                >
                     <h3>My Rides</h3>
                 </div>
                 <div id="bookings-header_2">

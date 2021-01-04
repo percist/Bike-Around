@@ -15,13 +15,13 @@ const BookingPage = ({ theBooking }) => {
     const params = useParams();
     const { listingId, bookingId } = params;
     const history = useHistory();
-    const sessionUser = useSelector(state => state.session.user);
-    const [showUpdated, setShowUpdated] = useState(false)
+    const [updated, setUpdated] = useState(false)
+    const [cancelled, setCancelled] = useState(false);
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [focusedInput, setFocusedInput] = useState([]);
     const [errors, setErrors] = useState([]);
-    const [updated, setUpdated] = useState([])
+    const [message, setMessage] = useState([])
 
     const calculateDuration = (begin, end) =>{
         return Math.ceil(end.diff(begin) / (60*60*24*1000))
@@ -44,7 +44,7 @@ const BookingPage = ({ theBooking }) => {
         setStartDate(startDate);
         setEndDate(endDate);
         if (updatedBooking) {
-            return setUpdated(["Your Ride has been Updated."])
+            return setMessage(["Your Ride has been Updated."])
         }
     }
 
@@ -54,6 +54,10 @@ const BookingPage = ({ theBooking }) => {
 
     const handleCancelClick = async() => {
         await dispatch(fetchCancelBooking(bookingId))
+        setUpdated(false);
+        setCancelled(true)
+        return setMessage(["Your Ride has been Cancelled."])
+
     }
 
     const currentListing = useSelector(fullReduxState => {
@@ -72,13 +76,19 @@ const BookingPage = ({ theBooking }) => {
             fetchOneBooking(bookingId)
         );
         
-    }, [dispatch]);
-
+    }, [dispatch, bookingId, listingId]);
+    
     useEffect( () => {
-        setShowUpdated(false);
+        setUpdated(false);
         setStartDate(moment(currentBooking.startDay));
         setEndDate(moment(currentBooking.endDay))
     }, [currentBooking.startDay, currentBooking.endDay])
+
+    useEffect( () => {
+        if(currentBooking.status === "cancelled"){
+            setCancelled(true)
+        }
+    },[currentBooking.status])
 
     return(
         <div className="booking-page">
@@ -115,7 +125,7 @@ const BookingPage = ({ theBooking }) => {
                 <h3> Your Ride Details</h3>
                 <hr id="ride-details-bar" color="#6B4D57" />
                 <div id="booking-details-confirmation">
-                    {updated.map((message, idx) => <li key={`message-${idx}`}>{message}</li>)}
+                    {message.map((message, idx) => <li key={`message-${idx}`}>{message}</li>)}
                 </div>
                 <div className="booking-details-properties_1">
                     <h4>{`Start Date: ${formatDate(currentBooking.startDay)}`}</h4>
@@ -151,11 +161,13 @@ const BookingPage = ({ theBooking }) => {
                         <button 
                             className="button"
                             id="update-button"
+                            hidden={cancelled}
                             onClick={handleEditClick}
                             >
                             Update Your Ride
                         </button>
                         <button 
+                            hidden={cancelled}
                             className="button"
                             id="cancel-button"
                             onClick={handleCancelClick}
