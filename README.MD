@@ -2,13 +2,23 @@
 
 ## Introduction
 
-Bike Around is a sharing economy platform for bicycles based on AirBnB built with PERN. The app allows users to search bicycle listings and create and edit bookings for bicycles.
+Bike Around is a sharing economy platform for bicycles based on AirBnB built with PERN. The app allows users to:
 
-## Dependencies
+- search bicycle listings based on location, description, size and other criteria
+- create bookings for listed bicycles
+- edit and cancel bookings
+- view their bookings
+- filter their bookings by pending, completed, and cancelled
 
-- React / Redux
-- Express
-- Sequelize
+## Structure
+
+### Back end
+
+Bike Around is built using Node.JS with Express handling routes and a postgreSQL database. Backend routes use a RESTful framework fulfilled with JSON API.
+
+### Front end
+
+Bike Around's front end employs React.js and uses Redux to manage state. 
 
 ## Features
 
