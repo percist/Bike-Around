@@ -1,0 +1,25 @@
+
+#footer {
+    height: 80px;
+    width: 100vw;
+    position: fixed;
+    bottom: 0px;
+    background-color: #D1BC6F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#footer .icons {
+    width: 300px;
+    margin-left: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: none;
+}
+
+#footer h2 {
+    background-color: #D1BC6F;
+    color: #6B4D57;
+    margin-right: 40px;
+}

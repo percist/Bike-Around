@@ -22,8 +22,7 @@ a {
     cursor: default;
 }
 
-#navbar-link-home, 
-h2 {
+#navbar-link-home {
     letter-spacing: -2px;
     font-family: "Poppins";
 }

@@ -41,12 +41,9 @@ const ListingGallery = () => {
         };
         filterListings()
     }, [currentListings, query]);
-        
-    // loosely based on Tyler Funk's Medium article "Build a Custom React Search Bar Component Using a Dyanmic Regex" Oct 31, 2020
-    // https://medium.com/dev-genius/build-a-custom-react-search-bar-component-using-a-dynamic-regex-cd89fdd496f5 accessed Jan 2, 2021
 
     return (
-        <>
+        <div id="lising-gallery-page">
             <div id="listing-header">
                 <div id="listing-header-content">
                     <h3>Bikes to ride near you</h3>
@@ -65,7 +62,7 @@ const ListingGallery = () => {
                     return <ListingCard theListing={listing} />;
                 })}
             </div>
-        </>
+        </div>
     );
 }
 

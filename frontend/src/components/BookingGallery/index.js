@@ -39,9 +39,6 @@ const BookingGallery = () => {
         filterBookings()
     }, [query, currentBookings]);
         
-    // based on Tyler Funk Medium article "Build a Custom React Search Bar Component Using a Dyanmic Regex" Oct 31, 2020
-    // https://medium.com/dev-genius/build-a-custom-react-search-bar-component-using-a-dynamic-regex-cd89fdd496f5
-
     return(
         <>
             <div id="bookings-header">

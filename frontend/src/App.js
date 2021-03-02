@@ -11,27 +11,28 @@ import ListingPage from "./components/ListingPage";
 import BookingGallery from "./components/BookingGallery";
 import BookingForm from "./components/BookingFormPage";
 import BookingPage from "./components/BookingPage";
+import Footer from './components/Footer';
 import * as sessionActions from "./store/session";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  useEffect( async () => {
+  useEffect(async () => {
     const res = await dispatch(sessionActions.restoreUser());
     setIsLoaded(true);
   }, [dispatch])
 
   return (
     <>
-      <Navigation isLoaded={isLoaded}/>
+      <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
           <Route path="/" exact>
             <HomePage />
-          </Route> 
+          </Route>
           <Route path="/listings" exact>
             <ListingGallery />
-          </Route> 
+          </Route>
           <Route path="/listings/:id" exact>
             <ListingPage />
           </Route>
@@ -46,7 +47,8 @@ function App() {
           </Route>
         </Switch>
       )}
-    </>  
+      <Footer />
+    </>
   );
 }
 
