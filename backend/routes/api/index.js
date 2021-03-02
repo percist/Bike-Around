@@ -12,24 +12,6 @@ router.use('/listings', listingsRouter);
 
 router.use('/bookings', bookingsRouter);
 
-// router.get(
-//   '/require-auth',
-//   requireAuth,
-//   (req, res) => {
-//     return res.json(req.user);
-//   }
-// );
-
-// router.get('/set-token-cookie', asyncHandler(async (req, res) => {
-//   const user = await User.findOne({
-//       where: {
-//         username: 'Demo-lition'
-//       },
-//     })
-//   setTokenCookie(res, user);
-//   return res.json({ user });
-// }));
-
 router.post('/test', (req, res) => {
     res.json({ requestBody: req.body });
 });

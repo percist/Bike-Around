@@ -13,7 +13,9 @@ const listingNotFoundError = (id) => {
 }
 
 // retrieve all listings
-router.get('/', asyncHandler(async (req, res, next) => {
+router.get(
+  '/', 
+  asyncHandler(async (req, res, next) => {
     const listings = await Listing.findAll({
         include: { all: true }
     });
@@ -21,9 +23,13 @@ router.get('/', asyncHandler(async (req, res, next) => {
 }));
 
 // retrieve a single listing
-router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {  
-    const listing = await Listing.findByPk(req.params.id, {include: {all:true}});
-    res.json({listing: listing})
+router.get(
+  '/:id(\\d+)', 
+  asyncHandler(async (req, res, next) => {  
+    const listing = await Listing.findByPk(req.params.id, {
+      include: {all:true}
+    });
+    listing? res.json({listing: listing}) : listingNotFoundError(req.params.id)
 }));
 
 

@@ -43,7 +43,9 @@ router.post(
   );
 
   // Logs in a 'Demo' User
-router.post('/demo', asyncHandler(async (req, res, next) => {
+router.post(
+  '/demo', 
+  asyncHandler(async (req, res, next) => {
   const user = await User.login({
     credential: "Demo-lition",
     password: "password"
