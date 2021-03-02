@@ -4,11 +4,11 @@ const ListingCard = ({ theListing }) => {
     return (
         <>
             <div className="listing-card">
-                <div className="listing-card-img">
+                <div className="listing-card-container">
                     <a href={`/listings/${theListing.id}`}>
                         <img 
                             alt="bike" 
-                            id="listing-card-img"
+                            className="listing-card-img"
                             src={theListing.Pictures[0].url} 
                         />
                     </a>

@@ -1,30 +1,31 @@
-#listing-gallery-page{
-    background-color: #e7e7e7;
-    color: #6b4d57;
+#listing-gallery-page {
+  background-color: #e7e7e7;
+  color: #6b4d57;
 }
 
 #listing-header-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #listing-bar {
-    position: sticky;
-    top: 80px;
+  position: sticky;
+  top: 80px;
 }
 
 #listing-gallery {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 0px 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0px 16px;
 }
 
 #listing-header {
-    position: sticky;
-    top: 80px;
-    left: 80px;
-    padding: 0px 30px;
+  background-color: #e7e7e7;
+  position: sticky;
+  top: 80px;
+  left: 80px;
+  padding: 0px 30px;
 }

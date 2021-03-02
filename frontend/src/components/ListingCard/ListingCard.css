@@ -36,7 +36,9 @@
     margin-right: 10px;
 }
 
-#listing-card-img {
+.listing-card-img {
+  object-fit: cover;
     width: 475px;
+    max-height: 316;
     border-radius: 8px;
 }
