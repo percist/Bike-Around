@@ -13,7 +13,6 @@ const BookingGallery = () => {
     const [query, setQuery] = useState('');
 
     let currentBookings = useSelector(fullReduxState => {
-        console.log("CURRENT BOOKINGS AFTER USESELECTOR:", fullReduxState.bookings)
         return fullReduxState.bookings;
     });
 
@@ -72,7 +71,7 @@ const BookingGallery = () => {
             <div id="bookings-gallery">
                 {!bookingsShown && <h3>Loading.....</h3>}
                 {bookingsShown && bookingsShown.map(booking => {
-                    return <BookingCard theBooking={booking} allListings={allListings}/>
+                    return <BookingCard theBooking={booking} key={booking.id} allListings={allListings}/>
                 })}
             </div>
         </>

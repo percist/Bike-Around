@@ -1,21 +1,21 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from "react-router-dom";
 import { fetchOneListing } from "../../store/listings";
 import { formatDate } from "../../date-repository";
 import './BookingCard.css';
 
 const BookingCard = ({ theBooking, allListings }) => {
     const dispatch = useDispatch();
-    const history = useHistory();
 
     const theListing = useSelector(fullReduxState => {
         return fullReduxState.listings;
     });
     
-    useEffect( async() => {
-        await dispatch(fetchOneListing(theBooking.listingId));
-    }, []);
+    useEffect(() => {
+      if (theBooking ){
+      dispatch(fetchOneListing(theBooking.listingId));
+      }
+    }, [dispatch, theBooking]);
 
     return (
         <>

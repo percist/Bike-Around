@@ -5,6 +5,7 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 0px 30px;
+    background-color: #e7e7e7;
 }
 
 #bookings-header h3 {
