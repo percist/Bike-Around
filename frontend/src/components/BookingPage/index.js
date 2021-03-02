@@ -60,13 +60,8 @@ const BookingPage = ({ theBooking }) => {
 
     }
 
-    const currentListing = useSelector(fullReduxState => {
-        return fullReduxState.listings;
-    });
-
-    const currentBooking = useSelector(fullReduxState => {
-        return fullReduxState.bookings;
-    });
+    const currentListing = useSelector(state => state.listings);
+    const currentBooking = useSelector(state => state.bookings);
 
     useEffect( () => {
         dispatch(

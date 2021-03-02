@@ -12,13 +12,8 @@ const BookingGallery = () => {
     const [bookingsShown, setBookingsShown] = useState([]);
     const [query, setQuery] = useState('');
 
-    let currentBookings = useSelector(fullReduxState => {
-        return fullReduxState.bookings;
-    });
-
-    let allListings = useSelector(fullReduxState => {
-        return fullReduxState.listings
-    })
+    let currentBookings = useSelector(state => state.bookings);
+    let allListings = useSelector(state => state.listings);
 
     useEffect( () => {
         dispatch(fetchAllBookings());

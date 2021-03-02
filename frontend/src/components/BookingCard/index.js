@@ -7,9 +7,7 @@ import './BookingCard.css';
 const BookingCard = ({ theBooking, allListings }) => {
     const dispatch = useDispatch();
 
-    const theListing = useSelector(fullReduxState => {
-        return fullReduxState.listings;
-    });
+    const theListing = useSelector(state => state.listings);
     
     useEffect(() => {
       if (theBooking ){

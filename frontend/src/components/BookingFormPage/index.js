@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { fetchOneListing } from '../../store/listings';
 import { fetchOneBooking, fetchConfirmBooking } from '../../store/bookings';
 import { formatDate} from '../../date-repository';
@@ -10,15 +10,9 @@ const BookingForm = () => {
     const dispatch = useDispatch();
     const params = useParams();
     const { listingId, bookingId } = params;
-    const history = useHistory();
 
-    const currentListing = useSelector(fullReduxState=> {
-        return fullReduxState.listings;
-    });
-
-    const booking = useSelector(fullReduxState=> {
-        return fullReduxState.bookings;
-    })
+    const currentListing = useSelector(state=> state.listings);
+    const booking = useSelector(state=> state.bookings);
 
     const startDate = formatDate(booking.startDay);
     const endDate = formatDate(booking.endDay);
@@ -26,7 +20,6 @@ const BookingForm = () => {
     const handleConfirm = async(e) => {
         e.preventDefault();
         await dispatch(fetchConfirmBooking(bookingId));
-        // history.push(`/bookings`);
     }
 
     useEffect( () => {

@@ -17,8 +17,9 @@ import * as sessionActions from "./store/session";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  useEffect(async () => {
-    const res = await dispatch(sessionActions.restoreUser());
+  
+  useEffect( () => {
+    dispatch(sessionActions.restoreUser());
     setIsLoaded(true);
   }, [dispatch])
 

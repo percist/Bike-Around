@@ -11,10 +11,11 @@ moment().format();
 
 const ListingPage = ({ theListing }) => {
     const dispatch = useDispatch();
-    const {id} = useParams();
     const history = useHistory();
-    const sessionUser = useSelector(state => state.session.user);
+    const {id} = useParams();
     const listingId = id;
+    const sessionUser = useSelector(state => state.session.user);
+    const currentListing = useSelector(state => state.listings);
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [focusedInput, setFocusedInput] = useState([]);
@@ -50,15 +51,9 @@ const ListingPage = ({ theListing }) => {
         setErrors(newErrors)
     }
 
-    const currentListing = useSelector(fullReduxState => {
-        return fullReduxState.listings;
-    });
-
-    useEffect(async () => {
-        dispatch(
-            fetchOneListing(id)
-        );
-    }, []);
+    useEffect( () => {
+        dispatch(fetchOneListing(id));
+    }, [dispatch,id]);
     
     return(
         <>
@@ -95,20 +90,6 @@ const ListingPage = ({ theListing }) => {
                 </div>
             </div>
             <div className="listing-page-properties">
-                <div className="listing-page-properties_1">
-                    <div className="listing-page-properties_1_1"> 
-                        <h3>
-                            {currentListing.BikeType && `${currentListing.BikeType.type} bike offered by ${currentListing.User.username}`} 
-                        </h3>
-                    </div>
-                    <hr />
-                    <div className="listing-page-properties_1_2">
-                        {currentListing.description}
-                    </div>
-                    <div className="listing-page-properties_1_3">
-                        Size: {currentListing.BikeSize && currentListing.BikeSize.name}
-                    </div>
-                </div>
                 <div className="listing-page-properties_2">
                     <div className="listing-page-properties_2_1">
                         {`$${currentListing.pricePerDay/100} / day`}
@@ -137,6 +118,20 @@ const ListingPage = ({ theListing }) => {
                         >
                         Check Availability
                     </button>
+                </div>
+                <div className="listing-page-properties_1">
+                    <div className="listing-page-properties_1_1"> 
+                        <h3>
+                            {currentListing.BikeType && `${currentListing.BikeType.type} bike offered by ${currentListing.User.username}`} 
+                        </h3>
+                    </div>
+                    <hr />
+                    <div className="listing-page-properties_1_2">
+                        {currentListing.description}
+                    </div>
+                    <div className="listing-page-properties_1_3">
+                        Size: {currentListing.BikeSize && currentListing.BikeSize.name}
+                    </div>
                 </div>
             </div>
         </>

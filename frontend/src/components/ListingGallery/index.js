@@ -8,19 +8,14 @@ import './ListingGallery.css'
 const ListingGallery = () => {
   const dispatch = useDispatch();
 
-  const currentListings = useSelector(fullReduxState => {
-    return fullReduxState.listings;
-  });
+  const currentListings = useSelector(state => state.listings);
 
   const [activePage, setActivePage] = useState("listings");
   const [listingsShown, setListingsShown] = useState([])
   const [query, setQuery] = useState('');
 
-
   useEffect(() => {
-    dispatch(
-      fetchAllListings()
-    );
+    dispatch(fetchAllListings());
   }, [dispatch]);
 
   useEffect(() => {
