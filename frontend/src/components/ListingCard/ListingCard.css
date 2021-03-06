@@ -10,8 +10,9 @@
 .listing-content {
     width: 100%;
     height: 100px;
-    margin: 10px;
-}
+    justify-self: flex-end;
+    margin: 0 10px;
+  }
 
 .listing-card-content_2{
     font-weight: bold;
@@ -39,6 +40,7 @@
 .listing-card-container{
   width: 100%;
   height: 75%;
+  padding-bottom: 15px;
 }
 
 .listing-card-img {
