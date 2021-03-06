@@ -39,6 +39,10 @@
     margin: 20px 40px 0px;
 }
 
+.listing-page-properties_1 {
+    max-width: 50vw;
+}
+
 .listing-page-properties_1_1 {
     margin: 5px 0px;
 }
@@ -53,7 +57,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin-left: 40pt;
+    margin-right: 40pt;
     border: 1pt solid #896a67;
     border-radius: 8pt;
     box-shadow: rgba(19, 7, 12, .12) 0px 4px 16px;
@@ -61,7 +65,7 @@
 
 .listing-page-properties_2_1,
 .listing-page-properties_2_2 {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 #reserve-button {

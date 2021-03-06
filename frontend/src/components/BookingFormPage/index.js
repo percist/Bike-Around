@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import { fetchOneListing } from '../../store/listings';
 import { fetchOneBooking, fetchConfirmBooking } from '../../store/bookings';
 import { formatDate} from '../../date-repository';
 import './BookingFormPage.css';
 
 const BookingForm = () => {
+    const history = useHistory();
     const dispatch = useDispatch();
     const params = useParams();
     const { listingId, bookingId } = params;
@@ -20,6 +21,7 @@ const BookingForm = () => {
     const handleConfirm = async(e) => {
         e.preventDefault();
         await dispatch(fetchConfirmBooking(bookingId));
+        history.push(`/listings/${listingId}/bookings/${bookingId}/edit`)
     }
 
     useEffect( () => {
