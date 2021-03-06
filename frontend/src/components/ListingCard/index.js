@@ -14,13 +14,13 @@ const ListingCard = ({ theListing }) => {
                     </a>
                 </div>
                 <div className="listing-content">
-                    <div className='listing-card_2'>
+                    <div className='listing-card-content_2'>
                         {`${theListing.BikeType.type} bike - ${theListing.nearestCity}`}
                     </div>
-                    <div className='listing-card_3'>
+                    <div className='listing-card-content_3'>
                         {theListing.title}
                     </div>
-                    <div className='listing-card_4'>
+                    <div className='listing-card-content_4'>
                         {`$${theListing.pricePerDay/100} / day`}
                     </div>
                     <hr className='listing-card-bar' color="#896a67" />

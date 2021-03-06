@@ -53,9 +53,7 @@ const BookingForm = () => {
                         src={currentListing.Pictures && currentListing.Pictures[0].url}
                     />
                     <div id="booking-form-listing-button">
-                        <a>                            
                             <h4><Link to={`/listings/${listingId}`}>Edit your Ride</Link></h4>
-                        </a>
                     </div>
                 </div>
             </div>

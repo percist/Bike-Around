@@ -13,12 +13,12 @@
     margin: 10px;
 }
 
-.listing-card_2{
+.listing-card-content_2{
     font-weight: bold;
     margin-bottom: 8px;
 }
 
-.listing-card_3 {
+.listing-card-content_3 {
     font-weight: lighter;
     margin: 4px 0px;
     white-space: nowrap;
@@ -26,7 +26,7 @@
     text-overflow: ellipsis;
 }
 
-.listing-card_4 {
+.listing-card-content_4 {
     font-weight: 900;
     margin: 6px 0px;
 }
@@ -36,9 +36,14 @@
     margin-right: 10px;
 }
 
+.listing-card-container{
+  width: 100%;
+  height: 75%;
+}
+
 .listing-card-img {
   object-fit: cover;
-    width: 475px;
-    max-height: 316;
+    width: 100%;
+    height: 100%;
     border-radius: 8px;
 }

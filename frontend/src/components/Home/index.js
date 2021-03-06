@@ -8,9 +8,6 @@ const HomePage = () => {
     function handleClick() {
         history.push('/listings');
     }
-    const loggedInUser = useSelector(state => {
-        return state.session.user;
-    });
     
     return (
         <div>
@@ -18,6 +15,7 @@ const HomePage = () => {
                 <img 
                     id="home-page-container-img"
                     src={picture} 
+                    alt="man on bike"
                 />
                 <div id="home-page-overlay">
                     <div id="home-page-cta">
@@ -31,12 +29,6 @@ const HomePage = () => {
                         >
                             Explore nearby bikes
                         </button>
-                    </div>
-                    <div 
-                        class="home-page-welcome"
-                        id="home-page-welcome"
-                    >
-                        {/* {loggedInUser && <h3>Welcome {loggedInUser.username}, find a <Link className="home-page-welcome" to="/listings">Bike Around</Link> you!</h3>} */}
                     </div>
                 </div >
             </div>

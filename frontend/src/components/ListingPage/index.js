@@ -86,6 +86,7 @@ const ListingPage = ({ theListing }) => {
                                 </div>
                             )
                         }
+                        else return null;
                     })}
                 </div>
             </div>

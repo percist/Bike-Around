@@ -10,15 +10,16 @@
     align-items: center;
     list-style: none;
     z-index: 100;
-}
-
-.navbar-link {
+  }
+  
+  .navbar-link {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
-
-a {
+  }
+  
+  .navbar a {
+    color: #13070c;
     cursor: default;
 }
 
