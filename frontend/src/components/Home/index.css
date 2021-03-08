@@ -17,7 +17,7 @@
 
 #home-page-overlay {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 40px);
     background: rgba(0, 0, 0, 0.2);
     position: absolute;
     top: 40px;
