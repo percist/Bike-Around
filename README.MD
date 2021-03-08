@@ -1,5 +1,7 @@
 # Bike Around
 
+Live-link: https://bike-around.herokuapp.com/
+
 ## Introduction
 
 Bike Around is a sharing economy platform for bicycles based on AirBnB built with PERN. The app allows users to:
@@ -74,3 +76,5 @@ Validated users can additionally create bookings; confirm, update or cancel a cr
   Cancelled bookings cannot be updated.
   Past bookings cannot be updated (Future Feature).
   A user can click browse listings to see other lisitngs
+  
+![Demo](Bike-Around-Demo.gif)
