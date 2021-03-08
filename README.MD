@@ -4,7 +4,9 @@ Live-link: https://bike-around.herokuapp.com/
 
 ## Introduction
 
-Bike Around is a sharing economy platform for bicycles based on AirBnB built with PERN. The app allows users to:
+Bike Around is a sharing economy platform for bicycles based on AirBnB built with PostgreSQL - Express - React - Node.js stack. 
+
+The app allows users to:
 
 - search bicycle listings based on location, description, size and other criteria
 - create bookings for listed bicycles
