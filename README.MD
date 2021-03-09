@@ -1,82 +1,118 @@
 # Bike Around
 
-Live-link: https://bike-around.herokuapp.com/
+* By [Chris Clark](https://percist.github.io/) -[Live site](https://bike-around.herokuapp.com/)
 
-## Introduction
+A sharing economy platform for bicycles based on AirBnB built with PostgreSQL - Express - React - Node.js stack. 
 
-Bike Around is a sharing economy platform for bicycles based on AirBnB built with PostgreSQL - Express - React - Node.js stack. 
+For a deeper dive into the planning process and code setup, please visit the [Wiki](https://github.com/percist/bike-around/wiki).
 
-The app allows users to:
 
-- search bicycle listings based on location, description, size and other criteria
-- create bookings for listed bicycles
-- edit and cancel bookings
-- view their bookings
-- filter their bookings by pending, completed, and cancelled
+**Table of Contents**
+  * [Bike Around at a Glance](#Bike-Around-at-a-glance)
+  * [Technologies Used](#technologies-used)
+  * [Application Architecture](#application-architecture)
+  * [Frontend Overview](#frontend-overview)
+  * [Backend Overview](#backend-overview)
+  * [Backend Installation and Setup](#Backend-Installation-and-Setup)
+  * [Frontend Installation and Run Application Locally](#Frontend-Installation-and-Run-Application-Locally)
+  * [Conclusion](#conclusion)
 
-## Structure
+## Bike Around at a Glance
+Bike Around is a reservation platform based on AirBnB that allows users to reserve bicycles.
 
-### Back end
+The application is built with a React frontend utilizing original components and styled after AirBnB (circa Q4 2020)
+The backend is an Express server with a PostgreSQL database.
 
-Bike Around is built using Node.JS with Express handling routes and a postgreSQL database. Backend routes use a RESTful framework fulfilled with JSON API.
+**Key Features**
+* User sign in / sign up with token-based authentication and b-cyrpt password encryption
+* Listings page where users can see all bicycles available
+* Users can filter bicycles based on location, features, size, description, or title using the search bar
+* Listing pages have more detailed information and additional pictures
+* Users can check dates for availability
+* Users can book available bicycles
+* Users can update or cancel their bookings
+* Users can see their upcoming, previous, and cancelled bookings and filter on status
 
-### Front end
+## Technologies Used
+* Frontend
+  * React
+  * Redux
+  * Javascript
+  * CSS
+  * AWS (photo hosting)
+* Backend
+  * Express
+  * Node.js
+  * Sequelize
+  * PostgreSQL
+  * Heroku deployment
 
-Bike Around's front end employs React.js and uses Redux to manage state. 
+## Application Architecture
+The frontend is a `create-react-app` using functional components with hooks. The backend is an express server with various RESTful endpoints. They are deployed to a Heroku server.
 
-## Features
+#### Bike Around Database Schema
+![image](https://github.com/percist/bike-around/blob/master/bike-around-DB.png)
 
-- ### Sign Up
+## Frontend Overview
+The front end incorporates some visual design elements from airBnB but uses all original architecture using custom components. Components are reused with unique styling to achieve a DRYer code base.
 
-Users will input their information to register a new account through a modal.
+## Backend Overview
+The Express backend is a collection of RESTful routes serving data to the frontend from the PostgreSQL database. Routes were designed to deliver as much targeted data as possible to limit the number of API calls from frontend components.
 
-- ### Login
+The database is queried using sequelize.
 
-A registerd user will login to the site using email or username through a modal.
+## Backend Installation and Setup
 
-- ### Listings
+1. Clone this repository (only this branch)
 
-Listings for bicycles are viewable and searchable by any user in a gallery. Each listing will have a dedicated page. Validated users will be able to create bookings from the listing page.
+  ```bash
+  git clone https://github.com/percist/Bike-Around
+  ```
+2. Install Dependencies
 
-- ### Bookings
+  ```bash
+   npm install
+   ```
+   
+3. Create a **.env** file based on the .env.example with proper settings for your
+   development environment
 
-Validated users will be able to create bookings, update their bookings, and access future, past, and cancelled bookings.
+4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
 
-- ### User Experience
+5. From inside the backend file, use the commands in the **dbCommands.txt** file
 
-Unvalidated users can view all listings and search listings. If an unvalidated user attempts to check availability of a listing they will be directed to create an account or login.
+6. Start the backend server
 
-Validated users can additionally create bookings; confirm, update or cancel a created booking; view their bookings and filter their bookings based on confirmed, past, or cancelled.
+  ```bash
+  npm start
+  ```
 
-* #### Home
-  From the Home page, a user can view all listing, login, or register.
-  A validated user can view all listings, view all their bookings, or view their profile to see thier username and email and logout.
-        
-* #### View Listings
-  All users will be able to view and search a list of all listings.
+## Frontend Installatin and Run Application Locally
 
-* #### Check Availability
-  Validated users will be able to check availability of a listing.
-  Listings that are already confirmed as booked will not be available. (Future Feature)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-* #### Create a Booking
-  When a user checks availability, a new booking is created with status 'pending'.
-  The user is redirected to the booking form where they can confirm or edit the booking.
-       
-* #### Confirm a Booking
-  When a user confirms a booking the status is updated to "confirmed".
-  Listings belonging to a booking with status of "confirmed" are not available for new bookings. (Future Feature)
-  Users are directed to a booking page.
+1. Change Directory to fontend
 
-* #### View all a User's Bookings
-  A user can view all the bookings they have created.
-  Users can filter by 'Past' 'Upcoming' or 'Cancelled'.
-  Users can click on a booking to view or edit details.
-       
-* #### Update a Booking
-  From the booking page a user can update details or cancel a booking.
-  Cancelled bookings cannot be updated.
-  Past bookings cannot be updated (Future Feature).
-  A user can click browse listings to see other lisitngs
+  ```bash
+  cd frontend
+  ```
+2. Install Dependencies
+
+  ```bash
+  npm install
+  ```
+3. Start the local host
+
+  ```bash
+  npm start
+  ```
   
-![Demo](Bike-Around-Demo.gif)
+4. Visit application at localhost:3000 (changes you make locally will appear)
+
+
+## Conclusion
+Bike Around was a way to make AirBnB more like SpinLister and vice versa. Bicycles continue to be more popular than ever ant sites like SpinLister show they can be effective in the sharing economy.
+
+Future features would include reviewing rides, creating listings, Google Maps API integration to search for listings, AWS integration for hosting images and adding optional accessories to bookings.
+  
+![Demo](Next-Round-Demo.gif)
