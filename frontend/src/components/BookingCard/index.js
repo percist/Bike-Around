@@ -4,7 +4,7 @@ import { fetchOneListing } from "../../store/listings";
 import { formatDate } from "../../date-repository";
 import './BookingCard.css';
 
-const BookingCard = ({ theBooking, allListings }) => {
+const BookingCard = ({ theBooking }) => {
     const dispatch = useDispatch();
 
     const theListing = useSelector(state => state.listings);

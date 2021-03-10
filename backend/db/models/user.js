@@ -80,22 +80,10 @@ module.exports = (sequelize, DataTypes) => {
       }
     );
   User.associate = function(models) {
-    const columnMapping1 = {
-      foreignKey: 'userId',
-      through: 'UserInterestSizes',
-      otherKey: 'sizeId'
-    };
-    const columnMapping2 = {
-      foreignKey: 'userId',
-      through: 'UserInterestTypes',
-      otherKey: 'typeId'
-    };
-    User.belongsToMany(models.BikeSize, columnMapping1);
-    User.belongsToMany(models.BikeType, columnMapping2);
+
   };
   
   User.prototype.toSafeObject = function () {
-    // remember, this cannot be an arrow function
     const { id, username, email } = this; // context will be the User instance
     return { id, username, email };
   };
