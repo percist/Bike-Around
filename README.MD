@@ -51,7 +51,7 @@ The backend is an Express server with a PostgreSQL database.
 The frontend is a `create-react-app` using functional components with hooks. The backend is an express server with various RESTful endpoints. They are deployed to a Heroku server.
 
 #### Bike Around Database Schema
-![image](https://github.com/percist/bike-around/blob/master/bike-around-DB.png)
+![image](https://github.com/percist/Bike-Around/blob/master/Bike-Around-DB-Schema.png?raw=true)
 
 ## Frontend Overview
 The front end incorporates some visual design elements from airBnB but uses all original architecture using custom components. Components are reused with unique styling to achieve a DRYer code base.
