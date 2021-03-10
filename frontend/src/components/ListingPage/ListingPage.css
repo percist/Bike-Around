@@ -68,6 +68,17 @@
     margin-bottom: 20px;
 }
 
+.listing-page-dates_start,
+.listing-page-dates_end {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.listing-page-dates {
+  margin: 15px 0;
+}
+
 #reserve-button {
     height: 48px;
     width: 200px;

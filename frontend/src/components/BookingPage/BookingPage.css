@@ -76,11 +76,18 @@
 
 .booking-page-properties_2_1,
 .booking-page-properties_2_2 {
-    margin-bottom: 15px;
+    margin: 15px 0;
 }
 
-.App {
-    border-radius: 8px;
+.booking-page-dates_start,
+.booking-page-dates_end {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.booking-page-dates {
+  margin: 15px 0;
 }
 
 .booking-details-buttons {
