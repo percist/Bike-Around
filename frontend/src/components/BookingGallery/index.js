@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllBookings } from '../../store/bookings';
-import { fetchAllListings } from '../../store/listings';
 import SearchButton from '../SearchButton';
 import BookingCard from '../BookingCard';
 import './BookingGallery.css';
@@ -13,11 +12,9 @@ const BookingGallery = () => {
     const [query, setQuery] = useState('');
 
     let currentBookings = useSelector(state => state.bookings);
-    let allListings = useSelector(state => state.listings);
 
     useEffect( () => {
         dispatch(fetchAllBookings());
-        dispatch(fetchAllListings());
     }, [dispatch]);
         
     useEffect(() => {
@@ -66,7 +63,7 @@ const BookingGallery = () => {
             <div id="bookings-gallery">
                 {!bookingsShown && <h3>Loading.....</h3>}
                 {bookingsShown && bookingsShown.map(booking => {
-                    return <BookingCard theBooking={booking} key={booking.id} allListings={allListings}/>
+                    return <BookingCard theBooking={booking} key={booking.id}/>
                 })}
             </div>
         </>

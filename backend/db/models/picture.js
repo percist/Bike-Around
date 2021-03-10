@@ -12,13 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       through: 'ListingBikePictures',
       otherKey: 'listingId'
     };
-    const columnMapping2 = {
-      foreignKey: 'profilePictureId',
-      through: 'UserProfilePictures',
-      otherKey: 'userId'
-    };
     Picture.belongsToMany(models.Listing, columnMapping1);  
-    Picture.belongsToMany(models.User, columnMapping2);  
   };
   return Picture;
 };
