@@ -3,48 +3,45 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom'
 import { fetchOneListing } from '../../store/listings';
 import { fetchCreateBooking } from '../../store/bookings';
-import { DateRangePicker } from 'react-dates';
-import moment from 'moment';
+import { findDuration } from '../../date-repository';
 import './ListingPage.css';
 
-moment().format();
 
 const ListingPage = ({ theListing }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const {id} = useParams();
     const listingId = id;
+
     const sessionUser = useSelector(state => state.session.user);
     const currentListing = useSelector(state => state.listings);
+
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
-    const [focusedInput, setFocusedInput] = useState([]);
     const [errors, setErrors] = useState([]);
-
-    const calculateDuration = (begin, end) =>{
-        return Math.ceil(end.diff(begin) / (60*60*24*1000))
-    };
     
     const handleClick = async() => {
         const newErrors = [];
         if (!startDate || !endDate){
             newErrors.push( 'Please select a start date and an end date to check availability.');
         }
+        if (startDate > endDate){
+            newErrors.push( 'Please choose an end date after your chosen start date.');
+        }
         if (!sessionUser){
             newErrors.push('Please login or sign up to check availability.');
         }
         if (newErrors.length === 0){
-            const duration = calculateDuration(startDate, endDate) ;
+            const duration = findDuration(startDate, endDate) ;
     
             const newBooking = await dispatch(fetchCreateBooking({
                 listingId: listingId,
                 userId: sessionUser.id,
-                startDay: startDate.toDate(),
-                endDay: endDate.toDate(),
+                startDay: startDate,
+                endDay: endDate,
                 status: "pending",
                 duration: duration
             }));
-            console.log(newBooking)
             if (newBooking){
               const bookingId = newBooking.id;
               history.push(`/listings/${listingId}/bookings/${bookingId}`);
@@ -53,7 +50,6 @@ const ListingPage = ({ theListing }) => {
               console.log("booked")
               newErrors.push('This ride is booked for one or more of those days. Please try another date or another ride.')
             }
-
         }
         setErrors(newErrors)
     }
@@ -104,20 +100,25 @@ const ListingPage = ({ theListing }) => {
                     </div>
                     {errors.map((error, idx) => <li key={`listing-page-error_${idx}`}>{error}</li>)}
                     <div className="listing-page-properties_2_2">
-                        <div className="App">
-                            <DateRangePicker
-                                startDateId="startDate"
-                                endDateId="endDate"
-                                startDate={startDate}
-                                endDate={endDate}
-                                onDatesChange={({ startDate, endDate }) => { 
-                                    setStartDate(startDate); 
-                                    setEndDate(endDate);
-                                }}
-                                focusedInput={focusedInput}
-                                onFocusChange={(focusedInput) => {setFocusedInput(focusedInput)}}
-                                />
-                        </div>                    
+                      <div className="listing-page-dates">
+                        <div className="listing-page-dates_start">
+                          <label>Start Date</label>
+                          <input
+                            type="date"
+                            value={startDate}
+                            onChange={(e) => setStartDate(e.target.value)}
+                          />
+                        </div>                  
+                        <div className="listing-page-dates_end">
+                          <label>End Date</label>
+                          <input
+                          type="date"
+                          min={startDate}
+                          value={endDate}
+                          onChange={(e) => setEndDate(e.target.value)}
+                          />
+                        </div>
+                      </div>
                     </div>
                     <button 
                         className="button"
