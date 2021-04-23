@@ -1,55 +1,99 @@
-/* TODO: Media Query to make img position relative when page width >1000 */
-
-/* #home-page-container {
-    height: 1200px;
-    position: relative;
-    overflow: hidden;    
-    margin-top: -20px;
-} */
-
-#home-page-container-img {
-    width: 100%;
-    position: fixed;
-    bottom: 0px;
-    height: calc(100vh - 80px);
-    object-fit: cover;
-}
-
 #home-page-overlay {
-    width: 100%;
-    height: calc(100% - 40px);
-    background: rgba(0, 0, 0, 0.2);
-    position: absolute;
-    top: 40px;
-    left: 0;
-    display: flex;
-}
-
-#home-page-cta {
-    margin-left: 40px;
-    background: none;
-    width: 250px;
-    min-width: 250px;
-    overflow-x: auto;
-    justify-self: baseline;
+  width: 100%;
+  height: calc(100% - 40px);
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 40px;
+  left: 0;
+  display: flex;
 }
 
 #home-page-cta_1 {
-    background: none;
-    height: 160px;
-    color: #D1BC6F;
-    font-size: 100px;
+  background: none;
+  height: 160px;
+  color: #D1BC6F;
+  font-size: 100px;
+}
+
+#home-page-cta {
+  margin-left: 40px;
+  background: none;
+  width: 250px;
+  min-width: 250px;
+  overflow-x: auto;
+  justify-self: baseline;
 }
 
 #home-page-cta_2 {
-    width: 200px;
-    height: 38px;
-    border-radius: 8px;
-    border: none;
+  width: 200px;
+  height: 38px;
+  border-radius: 8px;
+  border: none;
 }
 
-#home-page-welcome,
-h3,
-.home-page-welcome {
-    color: #D1BC6F
+@media screen and (max-width: 470px){
+  #home-page-container-img {
+    position: fixed;
+    right: -120px;
+    bottom: 0px;
+    height: 100%;
+  }
+
+  #home-page-overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+  }
+  #home-page-cta_1 {
+    margin-top: 80px;
+    font-size: 40px;
+    height: 8vh;
+  }
+  #home-page-cta_2 {
+    width: 150px;
+  }
+
+  #home-page-cta {
+    width: 80vw;
+  }
 }
+
+@media screen and (min-width: 471px) and (max-width: 649px){
+  #home-page-container-img {
+    height: calc(100vh - 80px);
+    position: fixed;
+    right: -120px;
+    bottom: 0px;
+    object-fit: cover;
+  }
+
+  
+
+}
+
+@media screen and (min-width: 650px){
+  #home-page-container-img {
+      width: 100%;
+      position: fixed;
+      bottom: 0px;
+      height: calc(100vh - 80px);
+      object-fit: cover;
+  }
+  
+  #home-page-cta {
+      margin-left: 40px;
+      background: none;
+      width: 250px;
+      min-width: 250px;
+      overflow-x: auto;
+      justify-self: baseline;
+  }
+
+  
+  #home-page-welcome,
+  h3,
+  .home-page-welcome {
+      color: #D1BC6F
+  }
+}
+
