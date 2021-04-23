@@ -79,6 +79,10 @@
   margin: 15px 0;
 }
 
+.listing-page-dates input{
+  font-family: "Roboto";
+}
+
 #reserve-button {
     height: 48px;
     width: 200px;

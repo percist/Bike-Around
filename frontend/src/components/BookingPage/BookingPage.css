@@ -90,6 +90,10 @@
   margin: 15px 0;
 }
 
+.listing-page-dates input{
+  font-family: "Roboto";
+}
+
 .booking-details-buttons {
     display: flex;
     flex-direction: column;
