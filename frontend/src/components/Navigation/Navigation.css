@@ -72,12 +72,7 @@
     border-radius: 8pt;
 }
 
-#link-signup,
-#link-login,
-#link-demo,
-#link-home,
-#link-profile,
-#link-bookings
+.link
  {
     padding-top: 31px;    
     padding-bottom: 30px;    
@@ -85,13 +80,7 @@
     padding-right: 14px;    
 }
  
-#link-login:hover,
-#link-logout:hover,
-#link-signup:hover,
-#link-demo:hover,
-#link-home:hover,
-#link-profile:hover,
-#link-bookings:hover
+.link:hover
  {
     background-color: #d1bc6f;
 }
@@ -105,5 +94,24 @@
 
 .button:hover {
     background-color: #d1bc6f;
-    
+}
+
+#link-icon-bookings {
+  display: none
+}
+
+@media screen and (max-width: 470px){
+  #link-logo{
+    font-size: 20px;
+    width: 10vw;
+  }
+
+  #link-icon-bookings {
+    display: inline;
+  }
+
+  #link-bookings,
+  #link-home {
+    display: none;
+  }
 }
