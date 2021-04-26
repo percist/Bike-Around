@@ -1,10 +1,11 @@
 .navbar {
-    position: sticky;
+    position: fixed;
     top: 0px;
     background-color: #e7e7e7;
     color: #13070c;
     margin: 0px;
     height: 80px;
+    width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -72,16 +73,14 @@
     border-radius: 8pt;
 }
 
-.link
- {
+.link {
     padding-top: 31px;    
     padding-bottom: 30px;    
     padding-left: 14px;    
     padding-right: 14px;    
 }
  
-.link:hover
- {
+.link:hover{
     background-color: #d1bc6f;
 }
 

@@ -67,8 +67,6 @@
     object-fit: cover;
   }
 
-  
-
 }
 
 @media screen and (min-width: 650px){
@@ -89,7 +87,6 @@
       justify-self: baseline;
   }
 
-  
   #home-page-welcome,
   h3,
   .home-page-welcome {

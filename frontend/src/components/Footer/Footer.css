@@ -1,7 +1,7 @@
 
 #footer {
     height: 80px;
-    width: 100vw;
+    width: 100%;
     position: fixed;
     bottom: 0px;
     background-color: #D1BC6F;
@@ -10,7 +10,7 @@
     align-items: center;
 }
 
-#footer .icons {
+#footer #icon-box {
     width: 300px;
     margin-left: 30px;
     display: flex;
@@ -18,8 +18,40 @@
     background-color: none;
 }
 
-#footer h2 {
+#footer .icon {
+  margin: 2px;
+}
+
+#copyright-long {
     background-color: #D1BC6F;
     color: #6B4D57;
     margin-right: 40px;
+}
+#copyright-short {
+  display: none;
+}
+
+@media screen and (max-width: 470px){
+  #footer{
+    height: 40px;
+  }
+  #footer #icon-box {
+    width: 100px;
+    padding: 5px;
+    margin: 5px;
+  }
+  #footer .icon {
+    width: 20px;
+    height: 20px;
+  }
+  #copyright-long {
+    display: none;
+  }
+  #copyright-short{
+    display: inline;
+    background-color: #D1Bc6f;
+    color: #6b4d57;
+    margin-right: 5px;
+    max-height: 40px;
+  }
 }
