@@ -39,7 +39,6 @@ The backend is an Express server with a PostgreSQL database.
   * Redux
   * Javascript
   * CSS
-  * AWS (photo hosting)
 * Backend
   * Express
   * Node.js
@@ -87,7 +86,7 @@ The database is queried using sequelize.
   npm start
   ```
 
-## Frontend Installatin and Run Application Locally
+## Frontend Installation and Run Application Locally
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
