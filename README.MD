@@ -39,7 +39,6 @@ The backend is an Express server with a PostgreSQL database.
   * Redux
   * Javascript
   * CSS
-  * AWS (photo hosting)
 * Backend
   * Express
   * Node.js
@@ -87,7 +86,7 @@ The database is queried using sequelize.
   npm start
   ```
 
-## Frontend Installatin and Run Application Locally
+## Frontend Installation and Run Application Locally
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -113,4 +112,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Conclusion
 Bike Around was a way to make AirBnB more like SpinLister and vice versa. Bicycles continue to be more popular than ever and sites like SpinLister show they can be effective in the sharing economy.
 
-Future features would include reviewing rides, creating listings, Google Maps API integration to search for listings, AWS integration for hosting images and adding optional accessories to bookings.
+Future features would include optimization for mobile, reviewing rides, creating listings, Google Maps API integration to search for listings, AWS integration for hosting images and adding optional accessories to bookings.
