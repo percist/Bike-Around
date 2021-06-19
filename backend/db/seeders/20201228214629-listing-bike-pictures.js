@@ -84,20 +84,12 @@ module.exports = {
         bikePictureId: 30
       },
       {
-        listingId: 6,
+        listingId: 7,
         bikePictureId: 31
       },
       {
-        listingId: 6,
+        listingId: 7,
         bikePictureId: 32
-      },
-      {
-        listingId: 7,
-        bikePictureId: 33
-      },
-      {
-        listingId: 7,
-        bikePictureId: 34
       }
     ], {});
   },

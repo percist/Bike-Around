@@ -32,10 +32,8 @@ module.exports = {
         {url: "https://images.singletracks.com/blog/wp-content/uploads/2014/10/IMG_0100-2.jpg"},
         {url: "https://images.singletracks.com/blog/wp-content/uploads/2014/10/IMG_0107-lefty.jpg"},
         {url: "https://images.singletracks.com/blog/wp-content/uploads/2014/10/IMG_0100-2.jpg"},
-        {url: "https://i1.wp.com/bikestylespokane.com/wp-content/uploads/2012/11/Barb-in-Bern-helmet_black-red-skirt-tights_10-26-12.jpg?w=1520"},
-        {url: "https://www.bikerumor.com/ezoimgfmt/bikerumor-wpengine.netdna-ssl.com/wp-content/uploads/2010/07/2011-specialized-globe-daily-1-03-600x522.jpg?ezimgfmt=ng:webp/ngcb4"},
-        {url: "https://bikerumor-wpengine.netdna-ssl.com/wp-content/uploads/2010/07/2011-specialized-globe-daily-1-01.jpg"},
-        {url: "https://bikerumor-wpengine.netdna-ssl.com/wp-content/uploads/2010/07/2011-specialized-globe-daily-1-02.jpg"},
+        {url: "https://bikerumor.com/wp-content/uploads/2010/07/2011-specialized-globe-daily-1-03.jpg"},
+        {url: "https://s7d5.scene7.com/is/image/Specialized/9448?bgc=0xF1F1F1&wid=2500&hei=1406&$jpg$"},
         {url: "https://momentummag.com/wp-content/uploads/mp-import/53-Gear-Kids-Kona-1.jpg"},
         {url: 'https://momentummag.com/wp-content/uploads/mp-import/Norco-CityGlide-24inch.jpg'},
     ], {});
