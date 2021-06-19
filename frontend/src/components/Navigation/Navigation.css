@@ -16,10 +16,12 @@
   .navbar-link {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
+    /* justify-content: space-between; */
   }
   
   .navbar a {
+    margin: 0 8px;
     color: #13070c;
     cursor: default;
 }

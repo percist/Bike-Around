@@ -47,7 +47,6 @@ const ListingPage = ({ theListing }) => {
               history.push(`/listings/${listingId}/bookings/${bookingId}`);
               return null
             }else{
-              console.log("booked")
               newErrors.push('This ride is booked for one or more of those days. Please try another date or another ride.')
             }
         }
